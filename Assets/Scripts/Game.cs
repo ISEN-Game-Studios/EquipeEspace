@@ -14,11 +14,11 @@ public class Game : MonoBehaviour
     [SerializeField]
     private int[] _numberOfPanel;
 
-    private SpaceAction[] _tabSpaceActions;
+    private SpaceAction[] _tabSpaceActions; //toutes les objets de types "SpaceAction" crée
     [System.NonSerialized]
     public SpaceAction[,] tabGame; // tabGame[player, panel]
     [System.NonSerialized]
-    public List<SpaceAction> actionList = new List<SpaceAction>();
+    public SpaceAction[] actionList; //list contenant les actions à faire
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +35,7 @@ public class Game : MonoBehaviour
 
     }
 
-    public string GenerateAction(int numberPlayer)
+    public string GenerateAction(int numberPlayer) //Generér action pour un joueur
     {
         string content = "";
         int randomPlayer;
@@ -89,7 +89,7 @@ public class Game : MonoBehaviour
 
             tabGame[randomPlayer, randomAction].valueIntended = randomValue;
             tabGame[randomPlayer, randomAction].isUsed = true;
-            actionList.Add(tabGame[randomPlayer, randomAction]);
+            actionList[numberPlayer] = (tabGame[randomPlayer, randomAction]);
         }
 
         return content;
@@ -137,5 +137,17 @@ public class Game : MonoBehaviour
         }
         return a;
 
+    }
+
+    public void CheckAction(SpaceAction spaceAction)
+    {
+        for(int i = 0; i < actionList.Length; i++)
+        {
+            if(actionList[i].nameInstruction == spaceAction.nameInstruction && actionList[i].valueIntended == spaceAction.value)
+            {
+                GenerateAction(i);
+                break;
+            }
+        }
     }
 }
