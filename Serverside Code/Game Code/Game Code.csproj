@@ -47,6 +47,10 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="Items\Button.cs" />
+    <Compile Include="Items.cs" />
+    <Compile Include="Items\Item.cs" />
     <Compile Include="Game.cs" />
   </ItemGroup>
   <ItemGroup>
