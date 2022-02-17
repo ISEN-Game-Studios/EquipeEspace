@@ -2,12 +2,15 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using PlayerIOClient;
+using SpaceTeam;
 
 public class Board : MonoBehaviour
 {
+	[SerializeField] private Item[] items;
+
     private void Start()
 	{
-		PlayerIO.Authenticate(
+        PlayerIO.Authenticate(
 			"equipe-espace-nmdivwrkr0qjlcp1dbska",
 			"public",
 			new Dictionary<string, string> {
