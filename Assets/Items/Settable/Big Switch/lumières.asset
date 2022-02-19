@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: "lumi\xE8res"
   m_EditorClassIdentifier: 
   Name: 
-  Shape: 1
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 7663582347741132480, guid: c330a0f1225a7ca4b943f4ccc4c44062, type: 3}
   Instruction: Value les Name
   Values:
   - Allumer
   - Eteindre
+  Size: {x: 0, y: 0}
+  ID: 0

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: moteur
   m_EditorClassIdentifier: 
   Name: 
-  Shape: 1
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 7750440274341914131, guid: b6f4b0695c907654c84a107837dcf807, type: 3}
   Instruction: Value le Name
   Values:
   - Allumer
   - Couper
+  Size: {x: 0, y: 0}
+  ID: 0

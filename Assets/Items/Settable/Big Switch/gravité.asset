@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: "gravit\xE9"
   m_EditorClassIdentifier: 
   Name: 
-  Shape: 1
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 2966197207046275883, guid: 300260083e2da4f46a2a3efeebcd53a0, type: 3}
   Instruction: Value la Name
   Values:
   - Allumer
   - Couper
+  Size: {x: 0, y: 0}
+  ID: 0

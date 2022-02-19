@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 0
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 4899952041641989379, guid: 9b59a0a8ce4e1ef4b84fea9eb66617cb, type: 3}
   Instruction: "Mettre le Name \xE0"
   Values:
   - 1
   - 2
   - 3
   - 4
+  Size: {x: 0, y: 0}
+  ID: 0

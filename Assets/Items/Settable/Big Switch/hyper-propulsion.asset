@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: hyper-propulsion
   m_EditorClassIdentifier: 
   Name: 
-  Shape: 1
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 4626451214833112243, guid: 8bc635deff7034b43b201e104ba9cfa5, type: 3}
   Instruction: Value l' Name
   Values:
   - Allumer
   - Couper
+  Size: {x: 0, y: 0}
+  ID: 0

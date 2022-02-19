@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: manger
   m_EditorClassIdentifier: 
   Name: 
-  Shape: 0
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 7859759328640158040, guid: 84f0f1620756f4244999b63cb28ae0a9, type: 3}
   Instruction: Value sur le Name
   Values:
   - Appuyer
+  Size: {x: 0, y: 0}
+  ID: 0

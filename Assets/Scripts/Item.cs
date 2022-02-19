@@ -3,14 +3,14 @@ using SpaceTeam;
 
 public class Item
 {
-    private ItemData data;
+    public ItemData Data;
 
-    public Vector2Int Size => data.Size;
+    public Vector2Int Size => Data.Size;
     public Vector2Int Position { get; private set; }
 
     public Item(ItemData data, Vector2Int position)
     {
-        this.data = data;
+        this.Data = data;
 
         Position = position;
     }

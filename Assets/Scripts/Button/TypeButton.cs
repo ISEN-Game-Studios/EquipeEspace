@@ -26,6 +26,10 @@ public abstract class TypeButton : MonoBehaviour
 
     [Space(5)]
 
+    [SerializeField] protected List<TextMesh> textMeshsButtons;
+
+    [Space(5)]
+
     [SerializeField] protected List<Collider2D> colliders;
 
     [Space(5)]
@@ -44,6 +48,11 @@ public abstract class TypeButton : MonoBehaviour
     {
         textMesh.text = itemData.name;
         states = new int[colliders.Count];
+        for(int index = 0; index < itemData.Values.Length; index++)
+        {
+            textMeshsButtons[index].text = itemData.Values[index];
+        }
+
     }
 
     protected void GetGoal(int id, string state)
@@ -64,13 +73,11 @@ public abstract class TypeButton : MonoBehaviour
         index = CheckForTouch();
         if (index != -1 )
         {
-            Debug.Log("Hit");
             ChangeState(index);
         }
         index = CheckForTouchMouse();
         if (index != -1)
         {
-            Debug.Log("Hit");
             ChangeState(index);
         }
 

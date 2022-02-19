@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: courant
   m_EditorClassIdentifier: 
   Name: courant
-  Shape: 1
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 1039184749527810839, guid: 27f75023759f36f4792320cbd2212e02, type: 3}
   Instruction: Value le Name
   Values:
   - Allumer
   - Couper
+  Size: {x: 0, y: 0}
+  ID: 0

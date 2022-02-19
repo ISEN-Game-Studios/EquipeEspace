@@ -10,32 +10,32 @@ namespace SpaceTeam
         private bool[] board;
         private List<(Shape shape, Vector2Int position)> items;
 
-        private bool binary;
-        private int width;
+        public bool Binary { get; private set; }
+        public int Width { get; private set; }
 
         public Board(double difficulty = 0.5f)
         {
-            binary = UnityEngine.Random.value < difficulty;
-            width = binary ? 4 : 3;
+            Binary = UnityEngine.Random.value < difficulty;
+            Width = Binary ? 4 : 3;
 
             //binary = true; width = 4;
             //binary = false; width = 3;
 
-            board = new bool[width * width];
+            board = new bool[Width * Width];
 
             items = new List<(Shape shape, Vector2Int position)>();
 
             bool large, high, big;
-            for (int y = 0, x; y < width; ++y)
+            for (int y = 0, x; y < Width; ++y)
             {
-                for (x = 0; x < width; ++x)
+                for (x = 0; x < Width; ++x)
                 {
                     if (IsEmpty(x, y))
                     {
                         large = IsEmpty(x + 1, y);
                         high = IsEmpty(x, y + 1);
 
-                        big = binary && large && high && IsEmpty(x + 1, y + 1);
+                        big = Binary && large && high && IsEmpty(x + 1, y + 1);
 
                         // Difficulty = 0 => 1
                         // Difficulty = 0.5 => 0.25
@@ -59,21 +59,21 @@ namespace SpaceTeam
             }
         }
 
-       
+
 
         private bool IsEmpty(int x, int y)
         {
-            if (x < 0 || x >= width || y < 0 || y >= width)
+            if (x < 0 || x >= Width || y < 0 || y >= Width)
                 return false;
             else
-                return !board[y * width + x];
+                return !board[y * Width + x];
         }
 
         private void AddItem(Shape shape, Vector2Int position)
         {
             for (int y = 0, x; y < position.y; ++y)
                 for (x = 0; x < position.x; ++x)
-                    board[(position.y + y) * width + position.x + x] = true;
+                    board[(position.y + y) * Width + position.x + x] = true;
 
             items.Add((shape: shape, position: position));
         }
