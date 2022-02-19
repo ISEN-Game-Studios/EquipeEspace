@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: "bi\xE8re"
   m_EditorClassIdentifier: 
   Name: 
-  Shape: 0
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 5560463957262969301, guid: c3ecab1b856dd454da0a13385db06e81, type: 3}
   Instruction: Value une Name
   Values:
   - Boire
+  Size: {x: 0, y: 0}
+  ID: 0

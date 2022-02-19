@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "souffl\xE9"
   Shape: 0
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 5377572033296264422, guid: b18739463f057764d95f6c665473baa4, type: 3}
   Instruction: Value le Name
   Values:
   - "V\xE9rifier"

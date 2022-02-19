@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 2
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 5884726172859123387, guid: ebe78b83ce23449468ec36fe43103c6f, type: 3}
   Instruction: Value le Name
   Values:
   - "Red\xE9marrer"
+  Size: {x: 0, y: 0}
+  ID: 0

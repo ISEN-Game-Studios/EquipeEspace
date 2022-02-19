@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 0
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1991685360397176068, guid: 9e034e0551caa2841a02b128522b3828, type: 3}
   Instruction: "Value la Name \xE0 pleine dents"
   Values:
   - Croquer
+  Size: {x: 0, y: 0}
+  ID: 0

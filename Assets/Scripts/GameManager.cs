@@ -113,4 +113,9 @@ public class GameManager : MonoBehaviour
 
 		return items;
 	}
+
+    public void SendGoalComplete()
+    {
+
+    }
 }

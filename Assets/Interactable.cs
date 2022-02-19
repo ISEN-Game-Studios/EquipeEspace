@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    private int state;
+    protected int state = -1;
 
     public abstract void OnStateChange();
 }

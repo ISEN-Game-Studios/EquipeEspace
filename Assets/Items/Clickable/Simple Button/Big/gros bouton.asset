@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: gros bouton
   m_EditorClassIdentifier: 
   Name: 
-  Shape: 0
-  Prefab: {fileID: 0}
+  Shape: 3
+  Prefab: {fileID: 396424604924574450, guid: 8cd60db9249712040ac200189aa659ff, type: 3}
   Instruction: Value sur le Name
   Values:
   - Appuyer
+  Size: {x: 0, y: 0}
+  ID: 0

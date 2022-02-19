@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 2
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 2738751097044339626, guid: efefb4855ee83c34c92929880f97df75, type: 3}
   Instruction: Value l' Name
   Values:
   - "D\xE9ployer"
   - Ranger
+  Size: {x: 0, y: 0}
+  ID: 0

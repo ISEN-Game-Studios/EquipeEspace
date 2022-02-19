@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 0
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 8108145986972062017, guid: 5299c1cf9ebb0f7449d433074030490e, type: 3}
   Instruction: Value la Name
   Values:
   - Croquer
+  Size: {x: 0, y: 0}
+  ID: 0
