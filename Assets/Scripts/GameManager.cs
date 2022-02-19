@@ -13,6 +13,13 @@ public class GameManager : MonoBehaviour
 
 	private Connection server;
 
+	private GameManager instance;
+
+    private void Awake()
+    {
+		instance = this;
+    }
+
     private void Start()
 	{
 		messages = new Queue<Message>();
@@ -70,7 +77,38 @@ public class GameManager : MonoBehaviour
 
 					double difficulty = message.GetDouble(0);
 
-					items = itemManager.Generate(new Board(difficulty));
+					Board board = new Board(difficulty);
+
+					items = itemManager.Generate(board);
+
+					foreach (var item in items)
+					{
+						bool large = item.Data.Shape == Shape.Horizontal || item.Data.Shape == Shape.Big;
+						bool high = item.Data.Shape == Shape.Vertical || item.Data.Shape == Shape.Big;
+
+						float width = (item.Data.Shape == Shape.Horizontal || item.Data.Shape == Shape.Big) ? 2f : 1f;
+						float height = (item.Data.Shape == Shape.Vertical || item.Data.Shape == Shape.Big) ? 2f : 1f;
+
+						// Base Position
+						Vector3 position = new Vector3(item.Position.x, item.Position.y);
+
+						// Grid Mapped Position
+						position = (position - Vector3.one * board.Width / 2f) / board.Width;
+
+						// Compensate Centered Anchor
+						position -= Vector3.one * width / (2f * board.Width);
+
+						// Saint artefact incompréhensible des Dieux
+						//position = new Vector3((position.x + 1f) / board.Width - (large ? 0f : (1f / 2f * board.Width)) - 0.5f, (position.y + 1) / board.Width - (high ? 0f : (1f / 2f * board.Width)) - 0.5f);
+
+						GameObject gameObject = Instantiate(item.Data.Prefab, transform);
+						gameObject.transform.localPosition = position;
+
+						gameObject.transform.localScale *= (board.Binary ? 3f : 4f) / 12f;
+						
+						if (item.Data.Shape == Shape.Big)
+							gameObject.transform.localScale *= 2f;
+					}
 
 					server.Send(CreateMessage("Boarded", itemManager.GetOwnedIDs()));
 
@@ -114,7 +152,7 @@ public class GameManager : MonoBehaviour
 		return items;
 	}
 
-    public void SendGoalComplete()
+    public static void SendGoalComplete()
     {
 
     }

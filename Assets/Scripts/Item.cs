@@ -4,7 +4,7 @@ using SpaceTeam;
 [System.Serializable]
 public class Item
 {
-    public ItemData data;
+    public ItemData Data;
 
     public Vector2Int Position { get; private set; }
 
@@ -14,7 +14,7 @@ public class Item
 
     public Item(ItemData data, Vector2Int position)
     {
-        this.data = data;
+        Data = data;
 
         Position = position;
 

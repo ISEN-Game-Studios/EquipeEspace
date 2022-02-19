@@ -42,9 +42,11 @@ public class ItemManager : MonoBehaviour
 
         foreach (var item in board)
         {
+            Debug.Log("Create Item");
             ItemData data = GetRandomData(item.shape);
 
             items.Add(new Item(data, item.position));
+            Debug.Log("Item Created");
         }
 
         return items;
@@ -56,12 +58,12 @@ public class ItemManager : MonoBehaviour
 
         int itemIndex = Random.Range(0, filteredItems[shapeIndex].Count);
 
-        usedIDs.Add(itemIndex);
-        ownedIDs.Add(itemIndex);
-
         int itemID = filteredItems[shapeIndex][itemIndex].ID;
 
-        filteredItems[(int)shape].RemoveAt(itemIndex);
+        usedIDs.Add(itemID);
+        ownedIDs.Add(itemID);
+
+        filteredItems[shapeIndex].RemoveAt(itemIndex);
 
         return items[itemID];
     }

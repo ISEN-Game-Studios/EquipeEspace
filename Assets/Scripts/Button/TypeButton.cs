@@ -48,11 +48,14 @@ public abstract class TypeButton : MonoBehaviour
     {
         textMesh.text = itemData.name;
         states = new int[colliders.Count];
-        for(int index = 0; index < itemData.Values.Length; index++)
-        {
-            textMeshsButtons[index].text = itemData.Values[index];
-        }
 
+        if (textMeshsButtons.Count > 0)
+        {
+            for (int index = 0; index < itemData.Values.Length; ++index)
+            {
+                textMeshsButtons[index].text = itemData.Values[index];
+            }
+        }
     }
 
     protected void GetGoal(int id, string state)
@@ -63,7 +66,7 @@ public abstract class TypeButton : MonoBehaviour
     protected void SendState(int id, int state)
     {
         if (goal != null && goal.id == id && goal.state == itemData.Values[state])
-            GameManager.Instance.SendGoalComplete();
+            GameManager.SendGoalComplete();
     }
 
     private void Update()
