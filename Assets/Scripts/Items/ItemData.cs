@@ -16,7 +16,7 @@ namespace SpaceTeam
         Big
     }
 
-    public abstract class Item : ScriptableObject
+    public abstract class ItemData : ScriptableObject
     {
         public Type Type { get; protected set; }
 
@@ -33,9 +33,24 @@ namespace SpaceTeam
         [Space(5)]
         public string[] Values;
 
-        public Item(Type type)
+        [HideInInspector]
+        public Vector2Int Size;
+
+        [HideInInspector]
+        public int ID;
+
+        public ItemData(Type type)
         {
             Type = type;
+
+            if (Shape == Shape.Small)
+                Size = Vector2Int.one;
+            else if (Shape == Shape.Big)
+                Size = Vector2Int.right;
+            else if (Shape == Shape.Big)
+                Size = 2 * Vector2Int.one;
+            else if (Shape == Shape.Vertical)
+                Size = Vector2Int.up;
         }
     }
 }

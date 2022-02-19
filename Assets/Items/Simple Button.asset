@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: Simple Button
   m_EditorClassIdentifier: 
-  Name: "Souffl\xE9"
+  Name: "souffl\xE9"
   Shape: 0
   Prefab: {fileID: 0}
   Instruction: Value le Name
   Values:
   - "V\xE9rifier"
+  Size: {x: 0, y: 0}
+  ID: 0

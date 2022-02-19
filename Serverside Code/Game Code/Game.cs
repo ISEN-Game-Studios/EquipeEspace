@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using PlayerIO.GameLibrary;
-using SpaceTeam;
 using System;
 
 public class Player : BasePlayer
 {
-
+	public bool ready = false;
 }
 
 [RoomType("SpaceShip")]
@@ -39,8 +38,25 @@ public class GameCode : Game<Player>
 	{
 		switch (message.Type)
 		{
-			case "Move":
+			case "Play":
+
+
+				break;
+
+			case "Ready":
+				player.ready = true;
+
+				break;
+
+			case "Count":
+				player.Send("Count", PlayerCount);
+
 				break;
 		}
 	}
+
+	private void GenerateBoards()
+    {
+
+    }
 }

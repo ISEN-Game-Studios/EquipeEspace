@@ -5,7 +5,7 @@ using UnityEngine;
 namespace SpaceTeam
 {
     [CreateAssetMenu(fileName = "New Settable", menuName = "Items/Settable")]
-    public class Settable : Item
+    public class Settable : ItemData
     {
         public Settable() : base(Type.OnState)
         {
