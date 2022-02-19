@@ -5,14 +5,17 @@ using SpaceTeam;
 
 public class GameManager : MonoBehaviour
 {
-	private List<Item> items;
+	public List<Item> items;
 
 	private Queue<Message> messages;
 
 	private ItemManager itemManager;
 
+	private Connection server;
+
     private void Start()
 	{
+		messages = new Queue<Message>();
 		itemManager = GetComponent<ItemManager>();
 
         PlayerIO.Authenticate(
@@ -36,7 +39,10 @@ public class GameManager : MonoBehaviour
 					delegate (Connection connection) {
 						Debug.Log("Joined Room.");
 
-						connection.OnMessage += OnMessage;
+						server = connection;
+
+						server.Send("Ready", true);
+						server.OnMessage += OnMessage;
 					},
 					delegate (PlayerIOError error) {
 						Debug.Log("Error Joining Room: " + error.ToString());
@@ -58,11 +64,15 @@ public class GameManager : MonoBehaviour
 			switch (message.Type)
             {
 				case "Board":
-					itemManager.UpdateIDs((int[])message[1]);
+					int[] usedIDs = ExtractMessage<int>(message, 1);
+
+					itemManager.UpdateIDs(usedIDs);
 
 					double difficulty = message.GetDouble(0);
 
 					items = itemManager.Generate(new Board(difficulty));
+
+					server.Send(CreateMessage("Boarded", itemManager.GetOwnedIDs()));
 
 					break;
 			}
@@ -72,5 +82,35 @@ public class GameManager : MonoBehaviour
     private void OnMessage(object sender, Message message)
     {
 		messages.Enqueue(message);
-    }
+	}
+
+	private Message CreateMessage<T>(string type, List<T> list)
+	{
+		Message message = Message.Create(type);
+
+		foreach (T item in list)
+			message.Add(item);
+
+		return message;
+	}
+
+	private Message CreateMessage<T>(string type, T[] list)
+	{
+		Message message = Message.Create(type);
+
+		foreach (T item in list)
+			message.Add(item);
+
+		return message;
+	}
+
+	private T[] ExtractMessage<T>(Message message, uint startIndex = 0)
+	{
+		T[] items = new T[message.Count];
+
+		for (uint i = startIndex; i < message.Count; ++i)
+			items[i] = (T)message[i];
+
+		return items;
+	}
 }

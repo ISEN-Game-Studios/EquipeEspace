@@ -9,6 +9,7 @@ public class ItemManager : MonoBehaviour
     private List<ItemData>[] filteredItems;
 
     private List<int> usedIDs;
+    private List<int> ownedIDs;
 
     private void Start()
     {
@@ -37,6 +38,8 @@ public class ItemManager : MonoBehaviour
     {
         List<Item> items = new List<Item>();
 
+        ownedIDs = new List<int>();
+
         foreach (var item in board)
         {
             ItemData data = GetRandomData(item.shape);
@@ -54,11 +57,17 @@ public class ItemManager : MonoBehaviour
         int itemIndex = Random.Range(0, filteredItems[shapeIndex].Count);
 
         usedIDs.Add(itemIndex);
+        ownedIDs.Add(itemIndex);
 
         int itemID = filteredItems[shapeIndex][itemIndex].ID;
 
         filteredItems[(int)shape].RemoveAt(itemIndex);
 
         return items[itemID];
+    }
+
+    public int[] GetOwnedIDs()
+    {
+        return ownedIDs.ToArray();
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace SpaceTeam
 {
+    [System.Serializable]
     [CreateAssetMenu(fileName = "New Settable", menuName = "Items/Settable")]
     public class Settable : ItemData
     {

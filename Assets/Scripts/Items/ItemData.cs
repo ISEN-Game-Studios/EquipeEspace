@@ -16,6 +16,7 @@ namespace SpaceTeam
         Big
     }
 
+    [System.Serializable]
     public abstract class ItemData : ScriptableObject
     {
         public Type Type { get; protected set; }

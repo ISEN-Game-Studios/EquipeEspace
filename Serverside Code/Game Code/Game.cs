@@ -8,6 +8,9 @@ public class Player : BasePlayer
 	public bool boarded = false;
 
 	public int[] usedIDs;
+
+	public int currentItemID;
+	public int currentOrderID;
 }
 
 [RoomType("SpaceShip")]
@@ -25,6 +28,8 @@ public class GameCode : Game<Player>
 	public override void GameStarted()
 	{
 		Players = new List<Player>();
+
+		usedIDs = new List<int>();
 	}
 
 	public override void GameClosed()
@@ -54,14 +59,14 @@ public class GameCode : Game<Player>
 		}
 	}
 
-	public override void GotMessage(Player player, Message message)
+	public override void GotMessage(Player sender, Message message)
 	{
 		switch (message.Type)
 		{
 			case "Ready":
-				player.ready = message.GetBoolean(0);
+				sender.ready = message.GetBoolean(0);
 
-				if (Players.TrueForAll(waiter => waiter.ready))
+				if (Players.Count > 1 && Players.TrueForAll(player => player.ready))
                 {
 					isReady = true;
 
@@ -71,30 +76,98 @@ public class GameCode : Game<Player>
 				break;
 
 			case "Boarded":
-				int[] ids = (int[])message[0];
+				int[] ids = ExtractMessage<int>(message);
 
-				player.usedIDs = ids;
+				sender.usedIDs = ids;
 				usedIDs.AddRange(ids);
 
 				if (++current < Players.Count)
-					Players[current].Send("Board", usedIDs.ToArray());
+				{
+					Players[current].Send(CreateMessage("Board", usedIDs, 0.3));
+
+					Console.WriteLine("Generate Board of Player " + current);
+				}
 				else
+				{
 					isRunning = true;
+
+					foreach (Player player in Players)
+                    {
+						int id = GetRandom(player.usedIDs);
+
+						player.Send("Action", player.currentItemID = id);
+                    }
+
+                    Console.WriteLine("Game is running");
+				}
+
+				break;
+
+			case "Order":
+				Player other = GetRandom(GetFreePlayers());
+				other.currentOrderID = message.GetInt(0);
+
+				other.Send("Order", message.GetString(1));
 
 				break;
 
 			case "Count":
-				player.Send("Count", PlayerCount);
+				sender.Send("Count", PlayerCount);
 
 				break;
 		}
 	}
+
+	private List<Player> GetFreePlayers()
+    {
+		return Players.FindAll(player => player.currentOrderID != -1);
+    }
+
+	private T GetRandom<T>(List<T> list)
+	{
+		return list[new Random().Next(list.Count)];
+	}
+
+	private T GetRandom<T>(T[] list)
+    {
+		return list[new Random().Next(list.Length)];
+    }
 
 	private void GenerateBoards()
     {
 		current = 0;
 		usedIDs.Clear();
 
-		Players[0].Send("Board", usedIDs);
+        Console.WriteLine("Generate Board of Player " + current);
+
+		Players[0].Send(CreateMessage("Board", usedIDs, 0.3));
     }
+
+	private Message CreateMessage<T>(string type, List<T> list, params object[] parameters)
+    {
+		return CreateMessage(type, list.ToArray(), parameters);
+	}
+
+	private Message CreateMessage<T>(string type, T[] list, params object[] parameters)
+	{
+		Message message = Message.Create(type);
+
+		foreach (object parameter in parameters)
+			message.Add(parameter);
+
+		foreach (T item in list)
+			message.Add(item);
+
+		return message;
+	}
+
+	private T[] ExtractMessage<T>(Message message, uint startIndex = 0)
+	{
+		T[] items = new T[message.Count];
+
+		for (uint i = startIndex; i < message.Count; ++i)
+			items[i] = (T)message[i];
+
+		return items;
+	}
 }

@@ -71,8 +71,11 @@ namespace SpaceTeam
 
         private void AddItem(Shape shape, Vector2Int position)
         {
-            for (int y = 0, x; y < position.y; ++y)
-                for (x = 0; x < position.x; ++x)
+            int width = shape == Shape.Horizontal || shape == Shape.Big ? 2 : 1;
+            int height = shape == Shape.Vertical || shape == Shape.Big ? 2 : 1;
+
+            for (int y = 0, x; y < height; ++y)
+                for (x = 0; x < width; ++x)
                     board[(position.y + y) * width + position.x + x] = true;
 
             items.Add((shape: shape, position: position));
