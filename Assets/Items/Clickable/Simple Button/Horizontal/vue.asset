@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
-  m_Name: Multiple Button
+  m_Name: vue
   m_EditorClassIdentifier: 
-  Name: laser infrarouge
+  Name: 
   Shape: 0
   Prefab: {fileID: 0}
-  Instruction: "R\xE9glez le Name sur Value"
+  Instruction: Value la Name
   Values:
-  - 1
-  - 2
-  - 3
-  - 4
+  - Admirer
