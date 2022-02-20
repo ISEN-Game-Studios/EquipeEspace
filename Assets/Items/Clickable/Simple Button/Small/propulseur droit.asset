@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: propulseur droit
   m_EditorClassIdentifier: 
-  Name: 
   Shape: 2
-  Prefab: {fileID: 7451449303611992799, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+  Prefab: {fileID: 1944615284613804719, guid: 4a7bf9f11702f064a8245daefd1ac84e, type: 3}
   Instruction: Value le Name
   Values:
   - "Red\xE9marrer"

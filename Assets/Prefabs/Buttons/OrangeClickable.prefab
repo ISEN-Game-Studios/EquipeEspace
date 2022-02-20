@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4678194064134374830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451449303611992799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 1fa3036e4b903dd40ac626c210add5ac, type: 2}
+  textMesh: {fileID: 5262143619781316476}
+  textMeshsButtons: []
+  spriteRenderers:
+  - {fileID: 5108957789906705861}
+  buttonsSprites:
+    gridSize: {x: 1, y: 2}
+    cellSize: {x: 64, y: 64}
+    cells:
+    - row:
+      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
+    - row:
+      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
+  colliders:
+  - {fileID: 4295275466451956395}
 --- !u!1 &5687749761431994969
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7445130676499841905}
   - component: {fileID: 5108957789906705861}
-  - component: {fileID: 390922601468656621}
+  - component: {fileID: 4295275466451956395}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -27,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 5687749761431994969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.14699996, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5414579832052592400}
   m_RootOrder: 1
@@ -72,7 +99,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +110,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &390922601468656621
+--- !u!61 &4295275466451956395
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,42 +127,15 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.12109375, y: 0.12109375}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.29296875, y: 0.47265625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12109375, y: 0.12109375}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &4678194064134374830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7451449303611992799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 1fa3036e4b903dd40ac626c210add5ac, type: 2}
-  textMesh: {fileID: 5262143619781316476}
-  textMeshsButtons: []
-  colliders:
-  - {fileID: 390922601468656621}
-  spriteRenderers:
-  - {fileID: 5108957789906705861}
-  buttonsSprites:
-    gridSize: {x: 1, y: 2}
-    cellSize: {x: 64, y: 64}
-    cells:
-    - row:
-      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
-    - row:
-      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
 --- !u!1001 &2102764251060614627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8810827970609700668, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_Name
-      value: SmallClickable
+      value: OrangeClickable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}

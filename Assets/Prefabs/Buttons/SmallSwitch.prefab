@@ -22,11 +22,11 @@ MonoBehaviour:
     cellSize: {x: 64, y: 64}
     cells:
     - row:
-      - {fileID: 21300000, guid: c1ae34d9c9e949449ac22f76dcb97fdd, type: 3}
+      - {fileID: 21300000, guid: 047815ee1c06bb043a2aee4c66d03d87, type: 3}
     - row:
-      - {fileID: 21300000, guid: 14dcebf809c023d40ad6cd15f26df698, type: 3}
+      - {fileID: 21300000, guid: 4875336f388c9c44b99d6315e95ddc71, type: 3}
   colliders:
-  - {fileID: 6879611474038911003}
+  - {fileID: 2749475482487631587}
 --- !u!1 &8632935773381043905
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3755171480137502778}
   - component: {fileID: 5028152383741503012}
-  - component: {fileID: 6879611474038911003}
+  - component: {fileID: 2749475482487631587}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 8632935773381043905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.14699996, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6805894909103268244}
   m_RootOrder: 1
@@ -99,7 +99,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c1ae34d9c9e949449ac22f76dcb97fdd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 047815ee1c06bb043a2aee4c66d03d87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6879611474038911003
+--- !u!61 &2749475482487631587
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,14 +127,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29296875, y: 0.47265625}
+    oldSize: {x: 0.34765625, y: 0.31640625}
     newSize: {x: 0.29296875, y: 0.47265625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29296875, y: 0.47265625}
+  m_Size: {x: 0.34765625, y: 0.31640625}
   m_EdgeRadius: 0
 --- !u!1001 &610679775666371431
 PrefabInstance:
@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8810827970609700668, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_Name
-      value: Switch
+      value: SmallSwitch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}

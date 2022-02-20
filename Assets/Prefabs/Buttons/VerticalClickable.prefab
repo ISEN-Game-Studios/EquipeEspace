@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8566925768671796730}
   - component: {fileID: 6463541627354727826}
-  - component: {fileID: 669509338770563756}
+  - component: {fileID: 8725012369240999375}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1252651629203971149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.25, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484752555350726316}
   m_RootOrder: 1
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &669509338770563756
+--- !u!61 &8725012369240999375
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,14 +100,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.12109375, y: 0.12109375}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.29296875, y: 0.47265625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12109375, y: 0.12109375}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &7158023465316510873
 MonoBehaviour:
@@ -124,8 +124,6 @@ MonoBehaviour:
   itemData: {fileID: 0}
   textMesh: {fileID: 331225644199245504}
   textMeshsButtons: []
-  colliders:
-  - {fileID: 669509338770563756}
   spriteRenderers:
   - {fileID: 6463541627354727826}
   buttonsSprites:
@@ -133,9 +131,11 @@ MonoBehaviour:
     cellSize: {x: 64, y: 64}
     cells:
     - row:
-      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
+      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
     - row:
-      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
+      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
+  colliders:
+  - {fileID: 8725012369240999375}
 --- !u!1001 &5814385404090125407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 2838000991330671794, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7f4510e1f3771cb4e91520df202086cc, type: 3}
+      objectReference: {fileID: 21300000, guid: 2c7ee6b866d7c894cafd3e83aaf4def6, type: 3}
     - target: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_RootOrder
       value: 0
