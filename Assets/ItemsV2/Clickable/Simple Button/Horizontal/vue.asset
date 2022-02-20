@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
+  m_Name: vue
+  m_EditorClassIdentifier: 
+  Name: 
+  Shape: 0
+  Prefab: {fileID: 5461121477525185194, guid: 51e98598b4cef5340a0a44a95d749b5c, type: 3}
+  Instruction: Value la Name
+  Values:
+  - Admirer
+  Size: {x: 0, y: 0}
+  ID: 0
