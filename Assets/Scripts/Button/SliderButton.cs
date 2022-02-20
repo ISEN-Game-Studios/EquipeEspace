@@ -21,6 +21,7 @@ public class SliderButton : Interactable
     private Vector3 direction;
     private float directionMagnitude;
     private int state;
+    private bool isHit;
 
     private void Update()
     {
@@ -38,7 +39,7 @@ public class SliderButton : Interactable
         }
         else if(Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
         {
-
+            isHit = false;
             if(previousPos != Vector3.zero)
             {
 
@@ -70,9 +71,11 @@ public class SliderButton : Interactable
             cursorVector = cursorVector.normalized * Mathf.Clamp(magnitude, 0f, directionMagnitude);
             if(clamp)
             {
+
                 float state = Mathf.Round(rounded/directionMagnitude * 3f);
                 state = Mathf.Clamp(state,0f,3f);
                 SendState((int)state);
+
             }
             
         }          
@@ -92,8 +95,12 @@ public class SliderButton : Interactable
 
             actualPos = worldPosition;
 
-            if (cursorCollider == Physics2D.OverlapPoint(touchPoint))
+            if (isHit || cursorCollider == Physics2D.OverlapPoint(touchPoint))
+            {
+                isHit = true;
                 return true;
+            }
+                
 
         }
 
@@ -110,8 +117,12 @@ public class SliderButton : Interactable
 
             actualPos = worldPosition;
 
-            if (cursorCollider == Physics2D.OverlapPoint(touchPoint))
+            if (isHit || cursorCollider == Physics2D.OverlapPoint(touchPoint))
+            {
+                isHit = true;
                 return true;
+            }
+                
 
         }
 
