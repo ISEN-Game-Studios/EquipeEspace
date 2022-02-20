@@ -24,11 +24,17 @@ public class GameCode : Game<Player>
 	private bool isReady = false;
 	private bool isRunning = false;
 
+	private const double difficulty = 0.3;
+	DateTime startTime;
+
 	public override void GameStarted()
 	{
 		Players = new List<Player>();
 
 		usedIDs = new List<int>();
+
+		//AddTimer(Update, 50);
+		AddTimer(Update, 5000);
 	}
 
 	public override void GameClosed()
@@ -58,6 +64,17 @@ public class GameCode : Game<Player>
 		}
 	}
 
+	private void Update()
+    {
+		double goalFrequency = -10.0 * difficulty + 13.0;
+
+		TimeSpan span = DateTime.Now - startTime;
+
+        Console.WriteLine("Oui");
+
+		//double frequency = nbAction / span.Seconds;
+    }
+
 	public override void GotMessage(Player sender, Message message)
 	{
 		switch (message.Type)
@@ -82,7 +99,7 @@ public class GameCode : Game<Player>
 
 				if (++current < Players.Count)
 				{
-					Players[current].Send(CreateMessage("Board", usedIDs, 0.3));
+					Players[current].Send(CreateMessage("Board", usedIDs, difficulty));
 
 					Console.WriteLine("Generate Board of Player " + current);
 				}
@@ -90,10 +107,10 @@ public class GameCode : Game<Player>
 				{
 					isRunning = true;
 
+					startTime = DateTime.Now;
+
 					foreach (Player player in Players)
-					{
 						GenerateOrder(player);
-					}
 
                     Console.WriteLine("Game is running");
 				}
