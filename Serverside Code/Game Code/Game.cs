@@ -9,8 +9,8 @@ public class Player : BasePlayer
 
 	public int[] usedIDs;
 
-	public int currentItemID;
-	public int currentOrderID;
+	public Player orderedBy;
+	public int actionID;
 }
 
 [RoomType("SpaceShip")]
@@ -92,11 +92,9 @@ public class GameCode : Game<Player>
 					isRunning = true;
 
 					foreach (Player player in Players)
-                    {
-						int id = GetRandom(player.usedIDs);
-
-						player.Send("Action", player.currentItemID = id);
-                    }
+					{
+						GenerateOrder(player);
+					}
 
                     Console.WriteLine("Game is running");
 				}
@@ -104,10 +102,14 @@ public class GameCode : Game<Player>
 				break;
 
 			case "Order":
-				Player other = GetRandom(GetFreePlayers());
-				other.currentOrderID = message.GetInt(0);
+				sender.orderedBy.Send("Order", message.GetString(0));
 
-				other.Send("Order", message.GetString(1));
+				break;
+
+			case "Action":
+				usedIDs.Add(sender.actionID);
+
+				GenerateOrder(sender.orderedBy);
 
 				break;
 
@@ -118,19 +120,25 @@ public class GameCode : Game<Player>
 		}
 	}
 
-	private List<Player> GetFreePlayers()
+	private Player GetPlayerById(int id)
     {
-		return Players.FindAll(player => player.currentOrderID != -1);
+		return Players.Find(player => Array.Exists(player.usedIDs, playerID => playerID == id));
     }
 
-	private T GetRandom<T>(List<T> list)
+	private void GenerateOrder(Player player)
 	{
-		return list[new Random().Next(list.Count)];
-	}
+		int id = GetRandom(usedIDs);
 
-	private T GetRandom<T>(T[] list)
-    {
-		return list[new Random().Next(list.Length)];
+		usedIDs.Remove(id);
+
+		Player target = GetPlayerById(id);
+
+		target.actionID = id;
+		target.orderedBy = player;
+
+		Console.WriteLine(player.ConnectUserId + " will order " + target.ConnectUserId);
+
+		target.Send("Action", id);
     }
 
 	private void GenerateBoards()
@@ -141,7 +149,19 @@ public class GameCode : Game<Player>
         Console.WriteLine("Generate Board of Player " + current);
 
 		Players[0].Send(CreateMessage("Board", usedIDs, 0.3));
-    }
+	}
+
+    #region Tools
+
+    private T GetRandom<T>(List<T> list)
+	{
+		return list[new Random().Next(list.Count)];
+	}
+
+	private T GetRandom<T>(T[] list)
+	{
+		return list[new Random().Next(list.Length)];
+	}
 
 	private Message CreateMessage<T>(string type, List<T> list, params object[] parameters)
     {
@@ -170,4 +190,6 @@ public class GameCode : Game<Player>
 
 		return items;
 	}
+
+    #endregion
 }

@@ -66,7 +66,7 @@ public abstract class TypeButton : MonoBehaviour
     protected void SendState(int id, int state)
     {
         if (goal != null && goal.id == id && goal.state == itemData.Values[state])
-            GameManager.SendGoalComplete();
+            GameManager.OnStateChange(id, state);
     }
 
     private void Update()

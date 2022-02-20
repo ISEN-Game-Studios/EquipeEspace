@@ -5,7 +5,8 @@ using SpaceTeam;
 
 public class GameManager : MonoBehaviour
 {
-	public List<Item> items;
+	private Board board;
+	private Dictionary<int, Item> items;
 
 	private Queue<Message> messages;
 
@@ -13,7 +14,9 @@ public class GameManager : MonoBehaviour
 
 	private Connection server;
 
-	private GameManager instance;
+	private static GameManager instance;
+
+	private (int id, int index) goal;
 
     private void Awake()
     {
@@ -24,12 +27,14 @@ public class GameManager : MonoBehaviour
 	{
 		messages = new Queue<Message>();
 		itemManager = GetComponent<ItemManager>();
+		int id = Random.Range(0, 100);
+		Debug.Log("Je suis " + id);
 
         PlayerIO.Authenticate(
 			"equipe-espace-nmdivwrkr0qjlcp1dbska",
 			"public",
 			new Dictionary<string, string> {
-				{ "userId", "Zalphug" },
+				{ "userId", "Zalphug " + id.ToString() },
 			},
 			null,
 			delegate (Client client) {
@@ -77,50 +82,77 @@ public class GameManager : MonoBehaviour
 
 					double difficulty = message.GetDouble(0);
 
-					Board board = new Board(difficulty);
+				    board = new Board(difficulty);
 
 					items = itemManager.Generate(board);
 
-					foreach (var item in items)
-					{
-						bool large = item.Data.Shape == Shape.Horizontal || item.Data.Shape == Shape.Big;
-						bool high = item.Data.Shape == Shape.Vertical || item.Data.Shape == Shape.Big;
-
-						float width = (item.Data.Shape == Shape.Horizontal || item.Data.Shape == Shape.Big) ? 2f : 1f;
-						float height = (item.Data.Shape == Shape.Vertical || item.Data.Shape == Shape.Big) ? 2f : 1f;
-
-						// Base Position
-						Vector3 position = new Vector3(item.Position.x, item.Position.y);
-
-						// Grid Mapped Position
-						position = (position - Vector3.one * board.Width / 2f) / board.Width;
-
-						// Compensate Centered Anchor
-						position -= Vector3.one * width / (2f * board.Width);
-
-						// Saint artefact incompréhensible des Dieux
-						//position = new Vector3((position.x + 1f) / board.Width - (large ? 0f : (1f / 2f * board.Width)) - 0.5f, (position.y + 1) / board.Width - (high ? 0f : (1f / 2f * board.Width)) - 0.5f);
-
-						GameObject gameObject = Instantiate(item.Data.Prefab, transform);
-						gameObject.transform.localPosition = position;
-
-						gameObject.transform.localScale *= (board.Binary ? 3f : 4f) / 12f;
-						
-						if (item.Data.Shape == Shape.Big)
-							gameObject.transform.localScale *= 2f;
-					}
+					CreateItems();
 
 					server.Send(CreateMessage("Boarded", itemManager.GetOwnedIDs()));
+
+					break;
+
+				case "Action":
+					int id = message.GetInt(0);
+
+					goal = items[id].GetAction();
+
+					server.Send("Order", items[id].GetInstruction(goal.index));
+
+					break;
+
+				case "Order":
+					string order = message.GetString(0);
+
+					Debug.Log(order);
 
 					break;
 			}
         }
     }
 
+	private void CreateItems()
+    {
+		foreach (var item in items.Values)
+		{
+			float width = (item.Data.Shape == Shape.Horizontal || item.Data.Shape == Shape.Big) ? 2f : 1f;
+			float height = (item.Data.Shape == Shape.Vertical || item.Data.Shape == Shape.Big) ? 2f : 1f;
+
+			// Base Position
+			Vector3 position = new Vector3(item.Position.x, item.Position.y);
+
+			// Grid Mapped Position
+			position = (position - Vector3.one * board.Width / 2f) / board.Width;
+
+			// Compensate Centered Anchor
+			position += new Vector3(width, height) / (2f * board.Width);
+
+			// Saint artefact incompréhensible des Dieux
+			//position = new Vector3((position.x + 1f) / board.Width - (large ? 0f : (1f / 2f * board.Width)) - 0.5f, (position.y + 1) / board.Width - (high ? 0f : (1f / 2f * board.Width)) - 0.5f);
+
+			GameObject gameObject = Instantiate(item.Data.Prefab, transform);
+			gameObject.transform.localPosition = position;
+			gameObject.name += item.Position.ToString();
+
+			gameObject.transform.localScale *= (board.Binary ? 3f : 4f) / 12f;
+
+			if (item.Data.Shape == Shape.Big)
+				gameObject.transform.localScale *= 2f;
+		}
+	}
+
     private void OnMessage(object sender, Message message)
     {
 		messages.Enqueue(message);
 	}
+
+	public static void OnStateChange(int id, int index)
+	{
+		if (id == instance.goal.id && index == instance.goal.index)
+			instance.server.Send("Action");
+	}
+
+	#region Tools
 
 	private Message CreateMessage<T>(string type, List<T> list)
 	{
@@ -152,8 +184,5 @@ public class GameManager : MonoBehaviour
 		return items;
 	}
 
-    public static void SendGoalComplete()
-    {
-
-    }
+    #endregion
 }

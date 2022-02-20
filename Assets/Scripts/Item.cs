@@ -8,17 +8,32 @@ public class Item
 
     public Vector2Int Position { get; private set; }
 
-    public ItemData debug_data;
-    public Vector2Int debug_position;
-    public Vector2Int debug_size;
+    int current = 0;
 
     public Item(ItemData data, Vector2Int position)
     {
         Data = data;
 
         Position = position;
+    }
 
-        debug_data = data;
-        debug_position = position;
+    public (int id, int index) GetAction()
+    {
+        int index = 0;
+
+        if (Data.Values.Length > 1)
+        {
+            do
+            {
+                index = Random.Range(0, Data.Values.Length);
+            } while (index == current);
+        }
+
+        return (Data.ID, index);
+    }
+
+    public string GetInstruction(int index)
+    {
+        return Data.Instruction.Replace("Name", Data.name).Replace("Value", Data.Values[index]);
     }
 }

@@ -22,9 +22,6 @@ namespace SpaceTeam
         public Type Type { get; protected set; }
 
         [Space(5)]
-        public string Name;
-
-        [Space(10)]
         public Shape Shape;
         public GameObject Prefab;
 

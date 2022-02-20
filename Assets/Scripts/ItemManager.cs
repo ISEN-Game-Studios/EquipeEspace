@@ -34,19 +34,17 @@ public class ItemManager : MonoBehaviour
                 filteredItems[(int)item.Shape].Add(item);
     }
 
-    public List<Item> Generate(Board board)
+    public Dictionary<int, Item> Generate(Board board)
     {
-        List<Item> items = new List<Item>();
+        Dictionary<int, Item> items = new Dictionary<int, Item>();
 
         ownedIDs = new List<int>();
 
         foreach (var item in board)
         {
-            Debug.Log("Create Item");
             ItemData data = GetRandomData(item.shape);
 
-            items.Add(new Item(data, item.position));
-            Debug.Log("Item Created");
+            items.Add(data.ID, new Item(data, item.position));
         }
 
         return items;
