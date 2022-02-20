@@ -31,7 +31,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected void SendState(int state)
     {
-        //Debug.Log(state);
-        //GameManager.OnStateChange(itemData.ID, state);
+        Debug.Log(state);
+        GameManager.OnStateChange(itemData.ID, state);
     }
 }
