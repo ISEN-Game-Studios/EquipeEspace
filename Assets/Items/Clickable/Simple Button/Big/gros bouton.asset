@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 3
-  Prefab: {fileID: 396424604924574450, guid: 8cd60db9249712040ac200189aa659ff, type: 3}
+  Prefab: {fileID: 7451449303611992799, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
   Instruction: Value sur le Name
   Values:
   - Appuyer

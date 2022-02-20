@@ -8,8 +8,7 @@ public class SettableButton : TypeButton
     {
         states[index] = Mathf.Abs(states[index] - 1);
         spriteRenderers[index].sprite = buttonsSprites.GetCell(index, states[index]);
-        SendState(index, states[index]);
+        SendState(states[index]);
     }
 
-    
 }

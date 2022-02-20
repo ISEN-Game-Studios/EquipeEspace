@@ -4,35 +4,10 @@ using UnityEngine;
 using SpaceTeam;
 using Array2DEditor;
 
-public class Goal
+
+
+public abstract class TypeButton : Interactable
 {
-    public int id;
-    public string state;
-
-    public Goal(int id, string state)
-    {
-        this.id = id;
-        this.state = state;
-    }
-}
-
-public abstract class TypeButton : MonoBehaviour
-{
-    [SerializeField] protected ItemData itemData;
-
-    [Space(5)]
-
-    [SerializeField] protected TextMesh textMesh;
-
-    [Space(5)]
-
-    [SerializeField] protected List<TextMesh> textMeshsButtons;
-
-    [Space(5)]
-
-    [SerializeField] protected List<Collider2D> colliders;
-
-    [Space(5)]
 
     [SerializeField] protected List<SpriteRenderer> spriteRenderers;
 
@@ -40,34 +15,17 @@ public abstract class TypeButton : MonoBehaviour
 
     [SerializeField] protected Array2DSprite buttonsSprites;
 
+    [Space(5)]
+
+    [SerializeField] protected List<Collider2D> colliders;
     protected int[] states;
-    protected Goal goal;
+
     protected abstract void ChangeState(int index);
-
-    private void Start()
-    {
-        textMesh.text = itemData.name;
+    private void Awake()
+    {        
         states = new int[colliders.Count];
-
-        if (textMeshsButtons.Count > 0)
-        {
-            for (int index = 0; index < itemData.Values.Length; ++index)
-            {
-                textMeshsButtons[index].text = itemData.Values[index];
-            }
-        }
     }
 
-    protected void GetGoal(int id, string state)
-    {
-        goal = new Goal(id, state);
-    }
-
-    protected void SendState(int id, int state)
-    {
-        if (goal != null && goal.id == id && goal.state == itemData.Values[state])
-            GameManager.SendGoalComplete();
-    }
 
     private void Update()
     {
@@ -85,6 +43,7 @@ public abstract class TypeButton : MonoBehaviour
         }
 
     }
+
     protected int CheckForTouch()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -104,7 +63,6 @@ public abstract class TypeButton : MonoBehaviour
         return -1;
 
     }
-
     protected int CheckForTouchMouse()
     {
         if (Input.GetMouseButtonDown(0))
