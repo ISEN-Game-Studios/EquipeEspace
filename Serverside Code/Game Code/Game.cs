@@ -9,8 +9,7 @@ public class Player : BasePlayer
 
 	public int[] usedIDs;
 
-	public Player orderedBy;
-	public int actionID;
+	public Dictionary<int, Player> actions = new Dictionary<int, Player>();
 }
 
 [RoomType("SpaceShip")]
@@ -102,14 +101,14 @@ public class GameCode : Game<Player>
 				break;
 
 			case "Order":
-				sender.orderedBy.Send("Order", message.GetString(0));
+				sender.actions[message.GetInt(0)].Send("Order", message.GetString(1));
 
 				break;
 
 			case "Action":
-				usedIDs.Add(sender.actionID);
+				usedIDs.Add(message.GetInt(0));
 
-				GenerateOrder(sender.orderedBy);
+				GenerateOrder(sender.actions[message.GetInt(0)]);
 
 				break;
 
@@ -133,8 +132,10 @@ public class GameCode : Game<Player>
 
 		Player target = GetPlayerById(id);
 
-		target.actionID = id;
-		target.orderedBy = player;
+		if (target.actions.ContainsKey(id))
+			target.actions[id] = player;
+		else
+			target.actions.Add(id, player);
 
 		Console.WriteLine(player.ConnectUserId + " will order " + target.ConnectUserId);
 

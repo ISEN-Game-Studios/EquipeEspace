@@ -17,7 +17,7 @@ MonoBehaviour:
   Prefab: {fileID: 0}
   Instruction: Value le Name
   Values:
-  - Allumez
   - Eteindre
+  - Allumez
   Size: {x: 0, y: 0}
   ID: 0

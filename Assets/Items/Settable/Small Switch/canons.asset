@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 2
-  Prefab: {fileID: 7459895761828550914, guid: fa49a31be32fbc847b533a741fcba701, type: 3}
+  Prefab: {fileID: 8232522251553973339, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
   Instruction: Value les Name
   Values:
-  - Activer
   - "D\xE9sactiver"
+  - Activer
   Size: {x: 0, y: 0}
   ID: 0

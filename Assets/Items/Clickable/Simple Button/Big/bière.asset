@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 3
-  Prefab: {fileID: 5560463957262969301, guid: c3ecab1b856dd454da0a13385db06e81, type: 3}
+  Prefab: {fileID: 7451449303611992799, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
   Instruction: Value une Name
   Values:
   - Boire

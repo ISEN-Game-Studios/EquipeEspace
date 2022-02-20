@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Shape: 0
-  Prefab: {fileID: 5461121477525185194, guid: 51e98598b4cef5340a0a44a95d749b5c, type: 3}
+  Prefab: {fileID: 1526652051593495036, guid: 60a0477ee1200b54bb2dc779b2f4e771, type: 3}
   Instruction: Value la Name
   Values:
   - Admirer

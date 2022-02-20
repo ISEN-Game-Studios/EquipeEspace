@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
 					goal = items[id].GetAction();
 
-					server.Send("Order", items[id].GetInstruction(goal.index));
+					server.Send("Order", id, items[id].GetInstruction(goal.index));
 
 					break;
 
@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
 			GameObject gameObject = Instantiate(item.Data.Prefab, transform);
 			gameObject.transform.localPosition = position;
 			gameObject.name += item.Position.ToString();
+			gameObject.GetComponent<Interactable>().itemData = item.Data;
 
 			gameObject.transform.localScale *= (board.Binary ? 3f : 4f) / 12f;
 
@@ -149,7 +150,7 @@ public class GameManager : MonoBehaviour
 	public static void OnStateChange(int id, int index)
 	{
 		if (id == instance.goal.id && index == instance.goal.index)
-			instance.server.Send("Action");
+			instance.server.Send("Action", id);
 	}
 
 	#region Tools
