@@ -26,3 +26,17 @@ C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Player.IO Test Serve
 C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.CopyComplete
 C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Test Server.exe
 C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Test Server.pdb
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\Test Server.exe.config
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\Test Server.exe
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\Test Server.pdb
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\Player.IO Development Server.exe
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\Player.IO GameLibrary.dll
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\SpaceTeam.dll
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\SpaceTeam.pdb
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\bin\Debug\Player.IO GameLibrary.xml
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.AssemblyReference.cache
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.CoreCompileInputs.cache
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Player.IO Test Server.csproj.CopyComplete
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Test Server.exe
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Player.IO Test Server Project\obj\Debug\Test Server.pdb

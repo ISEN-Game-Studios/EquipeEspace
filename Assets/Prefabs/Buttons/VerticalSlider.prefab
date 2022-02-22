@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5396490684400696050}
   - component: {fileID: 5207044779370966853}
   - component: {fileID: 7532184355813124555}
+  - component: {fileID: 8814982722018352137}
   m_Layer: 0
   m_Name: Text1
   m_TagString: Untagged
@@ -95,6 +96,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!210 &8814982722018352137
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637461467213305926}
+  m_Enabled: 1
+  m_SortingLayerID: 2023589887
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1 &3423671559259177299
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +118,7 @@ GameObject:
   - component: {fileID: 5062256612763053434}
   - component: {fileID: 5202303661672743186}
   - component: {fileID: 4920264243722996044}
+  - component: {fileID: 7905353915447367730}
   m_Layer: 0
   m_Name: Text4
   m_TagString: Untagged
@@ -190,6 +203,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!210 &7905353915447367730
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3423671559259177299}
+  m_Enabled: 1
+  m_SortingLayerID: 2023589887
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!114 &7174004308892216533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +249,7 @@ GameObject:
   - component: {fileID: 320064675557880617}
   - component: {fileID: 6605133646561939095}
   - component: {fileID: 6159416342382812026}
+  - component: {fileID: 2948189005159323920}
   m_Layer: 0
   m_Name: Text3
   m_TagString: Untagged
@@ -309,6 +334,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!210 &2948189005159323920
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067055693395107257}
+  m_Enabled: 1
+  m_SortingLayerID: 2023589887
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1 &4525041415363166670
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6402479795811671423}
+  - component: {fileID: 1221029099040059604}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -485,6 +522,17 @@ Transform:
   m_Father: {fileID: 7391254543505087148}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1221029099040059604
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6592122949525250768}
+  m_Enabled: 1
+  m_SortingLayerID: 1914045153
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &7154436807003459359
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +653,7 @@ GameObject:
   - component: {fileID: 3630208989191384042}
   - component: {fileID: 3858231839313792727}
   - component: {fileID: 4144418604488225762}
+  - component: {fileID: 302575865643823877}
   m_Layer: 0
   m_Name: Text2
   m_TagString: Untagged
@@ -689,6 +738,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!210 &302575865643823877
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676200847627817710}
+  m_Enabled: 1
+  m_SortingLayerID: 2023589887
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1001 &3502100122504413279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -758,14 +818,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
---- !u!4 &7391254543505087148 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
-  m_PrefabInstance: {fileID: 3502100122504413279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!102 &7255741889495087808 stripped
 TextMesh:
   m_CorrespondingSourceObject: {fileID: 6064210491431778975, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+  m_PrefabInstance: {fileID: 3502100122504413279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7391254543505087148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
   m_PrefabInstance: {fileID: 3502100122504413279}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5395220931670843235 stripped

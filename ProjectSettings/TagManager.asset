@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackgroundBoard
+    uniqueID: 4008642755
+    locked: 0
+  - name: BackgroundCells
+    uniqueID: 3429632369
+    locked: 0
+  - name: Button
+    uniqueID: 1914045153
+    locked: 0
+  - name: Text
+    uniqueID: 2023589887
+    locked: 0

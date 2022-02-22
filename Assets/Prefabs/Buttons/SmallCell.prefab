@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7215796592668913450}
   - component: {fileID: 7621952900301100972}
   - component: {fileID: 6064210491431778975}
+  - component: {fileID: 231358073279578348}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -95,6 +96,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!210 &231358073279578348
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630432439201767778}
+  m_Enabled: 1
+  m_SortingLayerID: 2023589887
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1 &8810827970609700668
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,9 +176,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: -865334927
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8733d2385318aac4ba72a35387644219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

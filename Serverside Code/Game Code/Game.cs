@@ -82,7 +82,7 @@ public class GameCode : Game<Player>
 			case "Ready":
 				sender.ready = message.GetBoolean(0);
 
-				if (Players.Count > 1 && Players.TrueForAll(player => player.ready))
+				if (Players.Count >= 1 && Players.TrueForAll(player => player.ready))
                 {
 					isReady = true;
 

@@ -149,6 +149,8 @@ public class GameManager : MonoBehaviour
 
 	public static void OnStateChange(int id, int index)
 	{
+		Debug.Log(id + " " + instance.goal.id + " " + index + " " + instance.goal.index);
+
 		if (id == instance.goal.id && index == instance.goal.index)
 			instance.server.Send("Action", id);
 	}

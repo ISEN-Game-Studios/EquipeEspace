@@ -16,3 +16,12 @@ C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Game Code\obj\Debug\
 C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Game Code\obj\Debug\Game Code.csproj.CopyComplete
 C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Game Code\obj\Debug\SpaceTeam.dll
 C:\Users\geoff\Documents\Unity\EquipeEspace\Serverside Code\Game Code\obj\Debug\SpaceTeam.pdb
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\bin\Debug\SpaceTeam.dll
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\bin\Debug\SpaceTeam.pdb
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\bin\Debug\Player.IO GameLibrary.dll
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\bin\Debug\Player.IO GameLibrary.xml
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\obj\Debug\Game Code.csproj.AssemblyReference.cache
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\obj\Debug\Game Code.csproj.CoreCompileInputs.cache
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\obj\Debug\Game Code.csproj.CopyComplete
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\obj\Debug\SpaceTeam.dll
+C:\Users\bryan\OneDrive - JUNIA Grande école d'ingénieurs\Bureau\Projet\EquipeEspace\Serverside Code\Game Code\obj\Debug\SpaceTeam.pdb
