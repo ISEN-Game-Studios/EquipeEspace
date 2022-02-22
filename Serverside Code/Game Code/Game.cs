@@ -25,7 +25,9 @@ public class GameCode : Game<Player>
 	private bool isRunning = false;
 
 	private const double difficulty = 0.3;
+	
 	DateTime startTime;
+	int actionCount;
 
 	public override void GameStarted()
 	{
@@ -33,8 +35,7 @@ public class GameCode : Game<Player>
 
 		usedIDs = new List<int>();
 
-		//AddTimer(Update, 50);
-		AddTimer(Update, 5000);
+		AddTimer(Update, 50);
 	}
 
 	public override void GameClosed()
@@ -49,9 +50,6 @@ public class GameCode : Game<Player>
 		else
 		{
 			Players.Add(player);
-
-			if (Players.Count == 1)
-				player.ready = true;
 		}
 	}
 
@@ -66,13 +64,13 @@ public class GameCode : Game<Player>
 
 	private void Update()
     {
-		double goalFrequency = -10.0 * difficulty + 13.0;
+		double goalFrequency = 1.0 / (-10.0 * difficulty + 13.0);
 
 		TimeSpan span = DateTime.Now - startTime;
 
-        Console.WriteLine("Oui");
+		double frequency = actionCount / span.TotalSeconds;
 
-		//double frequency = nbAction / span.Seconds;
+        Console.WriteLine("Goal : " + goalFrequency + " / Current : " + frequency);
     }
 
 	public override void GotMessage(Player sender, Message message)
@@ -124,6 +122,8 @@ public class GameCode : Game<Player>
 
 			case "Action":
 				usedIDs.Add(message.GetInt(0));
+
+				++actionCount;
 
 				GenerateOrder(sender.actions[message.GetInt(0)]);
 

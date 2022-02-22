@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
   m_Name: vitesse
   m_EditorClassIdentifier: 
-  Name: 
   Shape: 0
   Prefab: {fileID: 7544403038816636157, guid: 28317d0963044384ca6f6a14fa8ee5e5, type: 3}
-  Instruction: "Mettre la Name \xE0"
+  Instruction: "Mettre la Name \xE0 Value"
   Values:
   - 1
   - 2
   - 3
   - 4
   Size: {x: 0, y: 0}
-  ID: 0
+  ID: 34

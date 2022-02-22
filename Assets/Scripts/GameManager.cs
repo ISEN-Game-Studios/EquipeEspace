@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
 	private (int id, int index) goal;
 
+	[SerializeField] private InfiniteScrollTextMesh orderText;
+
     private void Awake()
     {
 		instance = this;
@@ -104,7 +106,7 @@ public class GameManager : MonoBehaviour
 				case "Order":
 					string order = message.GetString(0);
 
-					Debug.Log(order);
+					orderText.SetText(order);
 
 					break;
 			}
