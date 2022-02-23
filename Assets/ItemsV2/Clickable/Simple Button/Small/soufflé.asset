@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
+  m_Name: "souffl\xE9"
+  m_EditorClassIdentifier: 
+  Name: "souffl\xE9"
+  Shape: 2
+  Prefab: {fileID: 5377572033296264422, guid: b18739463f057764d95f6c665473baa4, type: 3}
+  Instruction: Value le Name
+  Values:
+  - "V\xE9rifier"
+  Size: {x: 0, y: 0}
+  ID: 18

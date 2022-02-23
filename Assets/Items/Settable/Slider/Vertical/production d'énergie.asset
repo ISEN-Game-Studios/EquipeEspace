@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
+  m_Name: "production d'\xE9nergie"
+  m_EditorClassIdentifier: 
+  Name: 
+  Shape: 1
+  Prefab: {fileID: 1473976691817660613, guid: d91623eccb1423c4cadb14d839470e4d, type: 3}
+  Instruction: "Mettre la Name \xE0"
+  Values:
+  - 1
+  - 2
+  - 3
+  - 4
+  Size: {x: 0, y: 0}
+  ID: 0
