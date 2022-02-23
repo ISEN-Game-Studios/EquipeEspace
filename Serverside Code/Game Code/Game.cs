@@ -25,6 +25,8 @@ public class GameCode : Game<Player>
 	private bool isRunning = false;
 
 	private const double difficulty = 0.3;
+
+	private double completion;
 	
 	DateTime startTime;
 	int actionCount;
@@ -70,7 +72,11 @@ public class GameCode : Game<Player>
 
 		double frequency = actionCount / span.TotalSeconds;
 
-        Console.WriteLine("Goal : " + goalFrequency + " / Current : " + frequency);
+		double direction = frequency < goalFrequency ? -1.0 : 1.0;
+
+		completion = Math.Min(1.0, Math.Max(completion + direction * 0.001, 0.0));
+
+        Console.WriteLine("Goal : " + goalFrequency + " / Current : " + frequency + " / Completion : " + completion);
     }
 
 	public override void GotMessage(Player sender, Message message)
@@ -106,6 +112,8 @@ public class GameCode : Game<Player>
 					isRunning = true;
 
 					startTime = DateTime.Now;
+
+					completion = 0.0;
 
 					foreach (Player player in Players)
 						GenerateOrder(player);
