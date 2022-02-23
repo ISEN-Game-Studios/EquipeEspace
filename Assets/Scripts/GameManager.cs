@@ -1,19 +1,15 @@
 using System.Collections.Generic;
-using PlayerIOClient;
-using UnityEngine.UI;
 using UnityEngine;
 using SpaceTeam;
+
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
 	private Board board;
 	private Dictionary<int, Item> items;
 
-	private Queue<Message> messages;
-
 	private ItemManager itemManager;
-
-	private Connection server;
 
 	private static GameManager instance;
 
@@ -21,110 +17,51 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField] private InfiniteScrollTextMesh orderText;
 
-	private Text username;
-	private Text roomname;
-
     private void Awake()
     {
-		if (instance != null)
-			Destroy(gameObject);
-		else
-			instance = this;
-    }
-
-	public void Connect()
-    {
-
+		instance = this;
     }
 
     private void Start()
 	{
-		messages = new Queue<Message>();
 		itemManager = GetComponent<ItemManager>();
-		int id = Random.Range(0, 100);
-		Debug.Log("Je suis " + id);
-
-        PlayerIO.Authenticate(
-			"equipe-espace-nmdivwrkr0qjlcp1dbska",
-			"public",
-			new Dictionary<string, string> {
-				{ "userId", username.text },
-			},
-			null,
-			delegate (Client client) {
-				Debug.Log("Successfully connected to Player.IO");
-
-				client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
-
-				client.Multiplayer.CreateJoinRoom(
-					roomname.text,
-					"SpaceShip",
-					true,
-					null,
-					null,
-					delegate (Connection connection) {
-						Debug.Log("Joined Room.");
-
-						server = connection;
-
-						server.Send("Ready", true);
-						server.OnMessage += OnMessage;
-
-                        server.OnDisconnect += OnDisconnect;
-					},
-					delegate (PlayerIOError error) {
-						Debug.Log("Error Joining Room: " + error.ToString());
-					}
-				);
-			},
-			delegate (PlayerIOError error) {
-				Debug.Log("Error connecting: " + error.ToString());
-			}
-		);
 	}
 
-    private void FixedUpdate()
+	public List<Item> debug_items;
+	public static int[] GenerateBoard(double difficulty, int[] usedIDs)
     {
-        while (messages.Count > 0)
-        {
-			Message message = messages.Dequeue();
+		instance.DestroyChildren();
 
-			switch (message.Type)
-            {
-				case "Board":
-					int[] usedIDs = ExtractMessage<int>(message, 1);
+		instance.itemManager.UpdateIDs(usedIDs);
 
-					itemManager.UpdateIDs(usedIDs);
+		instance.board = new Board(difficulty);
 
-					double difficulty = message.GetDouble(0);
+		instance.items = instance.itemManager.Generate(instance.board);
+		instance.debug_items = instance.items.Values.ToList();
 
-				    board = new Board(difficulty);
+		instance.CreateItems();
 
-					items = itemManager.Generate(board);
+		return instance.itemManager.GetOwnedIDs();
+	}
 
-					CreateItems();
+	public static string GenerateAction(int id)
+    {
+		instance.goal = instance.items[id].GetAction();
 
-					server.Send(CreateMessage("Boarded", itemManager.GetOwnedIDs()));
+		return instance.items[id].GetInstruction(instance.goal.index); 
+	}
 
-					break;
+	public static void OnStateChange(int id, int index)
+	{
+		Debug.Log(id + " " + instance.goal.id + " " + index + " " + instance.goal.index);
 
-				case "Action":
-					int id = message.GetInt(0);
+		if (id == instance.goal.id && index == instance.goal.index)
+			ClientManager.State(id);
+	}
 
-					goal = items[id].GetAction();
-
-					server.Send("Order", id, items[id].GetInstruction(goal.index));
-
-					break;
-
-				case "Order":
-					string order = message.GetString(0);
-
-					orderText.SetText(order);
-
-					break;
-			}
-        }
+	public static void Order(string order)
+    {
+		instance.orderText.SetText(order);
     }
 
 	private void CreateItems()
@@ -158,57 +95,10 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-    private void OnMessage(object sender, Message message)
-    {
-		messages.Enqueue(message);
-	}
-
-	private void OnDisconnect(object sender, string reason)
-    {
-		server = null;
-
-		Debug.Log("Deconnected : " + reason);
-    }
-
-	public static void OnStateChange(int id, int index)
+	private void DestroyChildren()
 	{
-		Debug.Log(id + " " + instance.goal.id + " " + index + " " + instance.goal.index);
-
-		if (id == instance.goal.id && index == instance.goal.index)
-			instance.server.Send("Action", id);
+		foreach (Transform child in transform)
+			if (child != transform)
+				Destroy(child.gameObject);
 	}
-
-	#region Tools
-
-	private Message CreateMessage<T>(string type, List<T> list)
-	{
-		Message message = Message.Create(type);
-
-		foreach (T item in list)
-			message.Add(item);
-
-		return message;
-	}
-
-	private Message CreateMessage<T>(string type, T[] list)
-	{
-		Message message = Message.Create(type);
-
-		foreach (T item in list)
-			message.Add(item);
-
-		return message;
-	}
-
-	private T[] ExtractMessage<T>(Message message, uint startIndex = 0)
-	{
-		T[] items = new T[message.Count];
-
-		for (uint i = startIndex; i < message.Count; ++i)
-			items[i] = (T)message[i];
-
-		return items;
-	}
-
-    #endregion
 }

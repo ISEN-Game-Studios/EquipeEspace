@@ -27,6 +27,8 @@ public class GameCode : Game<Player>
 	private const double difficulty = 0.3;
 
 	private double completion;
+
+	private Timer timer;
 	
 	DateTime startTime;
 	int actionCount;
@@ -36,8 +38,6 @@ public class GameCode : Game<Player>
 		Players = new List<Player>();
 
 		usedIDs = new List<int>();
-
-		AddTimer(Update, 50);
 	}
 
 	public override void GameClosed()
@@ -61,6 +61,8 @@ public class GameCode : Game<Player>
 		{
 			foreach (Player _player in Players)
 				_player.Disconnect();
+
+			timer.Stop();
 		}
 	}
 
@@ -86,9 +88,13 @@ public class GameCode : Game<Player>
 			case "Ready":
 				sender.ready = message.GetBoolean(0);
 
+				Broadcast("Count", Players.FindAll(player => player.ready).Count, Players.Count);
+
 				if (Players.Count > 0 && Players.TrueForAll(player => player.ready))
                 {
 					isReady = true;
+
+					Broadcast("Ready");
 
 					GenerateBoards();
 				}
@@ -115,6 +121,8 @@ public class GameCode : Game<Player>
 
 					completion = 0.0;
 
+					timer = AddTimer(Update, 50);
+
 					foreach (Player player in Players)
 						GenerateOrder(player);
 
@@ -138,7 +146,7 @@ public class GameCode : Game<Player>
 				break;
 
 			case "Count":
-				sender.Send("Count", PlayerCount);
+				Broadcast("Count", Players.FindAll(player => player.ready).Count, Players.Count);
 
 				break;
 		}
