@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using PlayerIOClient;
+using UnityEngine.UI;
 using UnityEngine;
 using SpaceTeam;
 
@@ -20,9 +21,20 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField] private InfiniteScrollTextMesh orderText;
 
+	private Text username;
+	private Text roomname;
+
     private void Awake()
     {
-		instance = this;
+		if (instance != null)
+			Destroy(gameObject);
+		else
+			instance = this;
+    }
+
+	public void Connect()
+    {
+
     }
 
     private void Start()
@@ -36,7 +48,7 @@ public class GameManager : MonoBehaviour
 			"equipe-espace-nmdivwrkr0qjlcp1dbska",
 			"public",
 			new Dictionary<string, string> {
-				{ "userId", "Zalphug " + id.ToString() },
+				{ "userId", username.text },
 			},
 			null,
 			delegate (Client client) {
@@ -45,7 +57,7 @@ public class GameManager : MonoBehaviour
 				client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
 
 				client.Multiplayer.CreateJoinRoom(
-					"room_0",
+					roomname.text,
 					"SpaceShip",
 					true,
 					null,
@@ -57,6 +69,8 @@ public class GameManager : MonoBehaviour
 
 						server.Send("Ready", true);
 						server.OnMessage += OnMessage;
+
+                        server.OnDisconnect += OnDisconnect;
 					},
 					delegate (PlayerIOError error) {
 						Debug.Log("Error Joining Room: " + error.ToString());
@@ -148,6 +162,13 @@ public class GameManager : MonoBehaviour
     {
 		messages.Enqueue(message);
 	}
+
+	private void OnDisconnect(object sender, string reason)
+    {
+		server = null;
+
+		Debug.Log("Deconnected : " + reason);
+    }
 
 	public static void OnStateChange(int id, int index)
 	{
