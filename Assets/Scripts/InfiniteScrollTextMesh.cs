@@ -4,14 +4,9 @@ using UnityEngine;
 public class InfiniteScrollTextMesh : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer container;
-    [SerializeField] private float scrollSpeed = 2f;
-    [SerializeField] private float margin = 0.1f;
-    [SerializeField] private float leftPadding = 0.25f;
 
     private TextMesh textMesh;
     private new MeshRenderer renderer;
-
-    private GameObject[] fakes;
 
     private void Awake()
     {
@@ -21,63 +16,29 @@ public class InfiniteScrollTextMesh : MonoBehaviour
 
     private void Start()
     {
-        if (textMesh.text.Length > 0)
-            SetText(textMesh.text);
+        SetText(textMesh.text);
     }
 
     public void SetText(string text)
     {
-        GetComponent<TextMesh>().text = text;
-        return;
-        if (fakes != null)
+        if (text == null || text.Length < 1)
         {
-            foreach (GameObject fake in fakes)
-                if (fake)
-                    Destroy(fake);
+            textMesh.text = "";
+            return;
         }
+
+        string[] words = text.Split(' ');
 
         textMesh.text = text;
 
         float width = renderer.bounds.size.x;
 
-        if (width <= 0)
-            return;
+        int lineCount = Mathf.CeilToInt(width / container.bounds.size.x);
 
-        float containerWidth = container.bounds.size.x;
+        int wordByLine = words.Length / lineCount;
 
-        int count = (int)(containerWidth / width) + 1;
-
-        fakes = new GameObject[count];
-
-        for (int i = 0; i < count; ++i)
-        {
-            fakes[i] = Instantiate(gameObject, transform);
-        }
-        return;
-
-        transform.localPosition = new Vector3(container.bounds.min.x + leftPadding, transform.localPosition.y);
-
-        UpdateFakePositions();
-    }
-
-    private void Update()
-    {
-        return;
-        if (fakes != null)
-        {
-            transform.position -= Vector3.right * scrollSpeed * Time.deltaTime;
-
-            if (renderer.bounds.max.x < container.bounds.min.x)
-                transform.localPosition = new Vector3(container.bounds.min.x + margin, transform.localPosition.y);
-
-            UpdateFakePositions();
-        }
-    }
-
-    private void UpdateFakePositions()
-    {
-        for (int i = 0; i < fakes.Length; ++i)
-            if (fakes[i] != null)
-                fakes[i].transform.position = new Vector3((renderer.bounds.max.x + margin) * (i + 1), transform.position.y);
+        textMesh.text = "";
+        for (int i = 0; i < words.Length; ++i)
+            textMesh.text += words[i] + (i % wordByLine == wordByLine - 1 && i != words.Length - 1 ? "\n" : " ");
     }
 }

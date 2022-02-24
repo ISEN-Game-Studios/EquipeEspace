@@ -45,14 +45,14 @@ public class GameCode : Game<Player>
 
 	}
 
-	public override void UserJoined(Player player)
+    public override bool AllowUserJoin(Player player)
+    {
+		return !isReady;
+    }
+
+    public override void UserJoined(Player player)
 	{
-		if (isReady)
-			player.Disconnect();
-		else
-		{
-			Players.Add(player);
-		}
+		Players.Add(player);
 	}
 
 	public override void UserLeft(Player player)

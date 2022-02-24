@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
 	private static GameManager instance;
 
-	private (int id, int index) goal;
+	private Dictionary<int, int> goals;
 
 	[SerializeField] private InfiniteScrollTextMesh orderText;
 
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     private void Start()
 	{
 		itemManager = GetComponent<ItemManager>();
+		goals = new Dictionary<int, int>();
 	}
 
 	public List<Item> debug_items;
@@ -46,17 +47,28 @@ public class GameManager : MonoBehaviour
 
 	public static string GenerateAction(int id)
     {
-		instance.goal = instance.items[id].GetAction();
+		var goal = instance.items[id].GetAction();
 
-		return instance.items[id].GetInstruction(instance.goal.index); 
+		if (instance.goals.ContainsKey(id))
+			instance.goals[id] = goal.index;
+		else
+			instance.goals.Add(id, goal.index);
+
+		return instance.items[id].GetInstruction(instance.goals[id]); 
 	}
 
 	public static void OnStateChange(int id, int index)
 	{
-		Debug.Log(id + " " + instance.goal.id + " " + index + " " + instance.goal.index);
+		if (!instance.goals.ContainsKey(id))
+			return;
 
-		if (id == instance.goal.id && index == instance.goal.index)
+		Debug.Log(id + " " + instance.goals[id] + " " + index + " " + instance.goals[id]);
+
+		if (index == instance.goals[id])
+		{
 			ClientManager.State(id);
+			instance.goals.Remove(id);
+		}
 	}
 
 	public static void Order(string order)
