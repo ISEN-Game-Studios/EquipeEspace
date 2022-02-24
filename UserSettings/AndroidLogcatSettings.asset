@@ -1,177 +1,13 @@
 {
-    "m_SelectedDeviceId": "c619c4b4",
+    "m_SelectedDeviceId": "",
     "m_SelectedPackage": {
-        "deviceId": "c619c4b4",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-<<<<<<< HEAD
-        "processId": 12025,
-=======
-        "processId": 6866,
->>>>>>> main
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 2589,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 3094,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 32503,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.teslacoilsw.launcher",
-            "processId": 12182,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 12851,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 24722,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 25181,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 26383,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 12031,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 13466,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 32565,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 9735,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 12565,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 13723,
-            "exited": false
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-<<<<<<< HEAD
-            "processId": 5065,
-            "exited": true
-=======
-            "processId": 13493,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.android.settings",
-            "processId": 18234,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 28557,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 1084,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 6204,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.oppo.launcher",
-            "processId": 3191,
-            "exited": false
->>>>>>> main
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-<<<<<<< HEAD
-            "processId": 13493,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 19872,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 6866,
-            "exited": true
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.oppo.launcher",
-            "processId": 3191,
-            "exited": false
-        },
-        {
-            "deviceId": "c619c4b4",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 12025,
-=======
-            "processId": 6866,
->>>>>>> main
-            "exited": false
-        }
-    ],
+    "m_KnownPackagesForSerialization": [],
     "m_Tags": {
         "m_Entries": [
             {
@@ -205,20 +41,9 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 300.0,
-        "MemoryWindowWidth": 170.0,
-        "MemoryTypeEnabled": [
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true
-        ],
+        "MemoryWindowHeight": 0.0,
+        "MemoryWindowWidth": 0.0,
+        "MemoryTypeEnabled": [],
         "MemoryGroup": 2,
         "Behavior": 0
     },
