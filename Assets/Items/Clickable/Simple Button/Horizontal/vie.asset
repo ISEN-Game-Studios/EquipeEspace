@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: vie
   m_EditorClassIdentifier: 
-  Name: 
   Shape: 0
-  Prefab: {fileID: 1526652051593495036, guid: 60a0477ee1200b54bb2dc779b2f4e771, type: 3}
+  Prefab: {fileID: 3960953682863181120, guid: 9629e7a67250c4e43880415c0bbd1485, type: 3}
   Instruction: "Value la Name \xE0 pleine dents"
   Values:
   - Croquer
   Size: {x: 0, y: 0}
-  ID: 0
+  ID: 7
