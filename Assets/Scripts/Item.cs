@@ -8,7 +8,7 @@ public class Item
 
     public Vector2Int Position { get; private set; }
 
-    int current = 0;
+    public int current = 0;
 
     public Item(ItemData data, Vector2Int position)
     {

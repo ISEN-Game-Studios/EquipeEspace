@@ -33,6 +33,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3394316471120390101, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a5744df192854044286ef814c35571d2, type: 3}
     - target: {fileID: 3755171480137502778, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -40,6 +44,10 @@ PrefabInstance:
     - target: {fileID: 3755171480137502778, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755171480137502778, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: colliders.Array.data[0]
@@ -108,6 +116,14 @@ PrefabInstance:
     - target: {fileID: 6879611474038911003, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.66796875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807617500737885261, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807617500737885261, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8232522251553973339, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: m_Name

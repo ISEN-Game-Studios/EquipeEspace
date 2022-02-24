@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
-  m_Name: radar 1
+  m_Name: vitesse
   m_EditorClassIdentifier: 
-  Name: 
-  Shape: 1
-  Prefab: {fileID: 1473976691817660613, guid: d91623eccb1423c4cadb14d839470e4d, type: 3}
-  Instruction: "Mettre la puissance Name \xE0"
+  Shape: 0
+  Prefab: {fileID: 1823984403876354003, guid: cd004155c128e4e4cbc8fa8c2a0f8fb2, type: 3}
+  Instruction: "Mettre la Name \xE0 Value"
   Values:
   - 1
   - 2
   - 3
   - 4
   Size: {x: 0, y: 0}
-  ID: 0
+  ID: 34

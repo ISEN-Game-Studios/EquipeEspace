@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: gros bouton
   m_EditorClassIdentifier: 
-  Name: 
   Shape: 3
-  Prefab: {fileID: 7451449303611992799, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+  Prefab: {fileID: 3013290993987622617, guid: b33d022f149b812458b595da1d6802ab, type: 3}
   Instruction: Value sur le Name
   Values:
   - Appuyer

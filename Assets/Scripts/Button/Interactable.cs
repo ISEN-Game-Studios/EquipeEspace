@@ -20,6 +20,9 @@ public abstract class Interactable : MonoBehaviour
     {
         textMesh.text = itemData.name;
 
+        if(itemData.Shape == Shape.Big)
+            textMesh.transform.localScale = Vector3.one / 2;
+
         if (textMeshsButtons.Count > 0)
         {
             for (int index = 0; index < itemData.Values.Length; ++index)
