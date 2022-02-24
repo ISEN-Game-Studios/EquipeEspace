@@ -76,10 +76,17 @@ public class GameCode : Game<Player>
 
 		double direction = frequency < goalFrequency ? -1.0 : 1.0;
 
+		double fire = span.TotalSeconds / 120.0;
+
 		completion = Math.Min(1.0, Math.Max(completion + direction * 0.001, 0.0));
 
-        Console.WriteLine("Goal : " + goalFrequency + " / Current : " + frequency + " / Completion : " + completion);
-    }
+		Broadcast("Update", completion, fire);
+
+		Console.WriteLine("Goal : " + goalFrequency + " / Current : " + frequency);
+		Console.WriteLine("Completion : " + completion + " / Fire : " + fire);
+        Console.WriteLine();
+        Console.WriteLine();
+	}
 
 	public override void GotMessage(Player sender, Message message)
 	{
@@ -137,11 +144,18 @@ public class GameCode : Game<Player>
 				break;
 
 			case "Action":
-				usedIDs.Add(message.GetInt(0));
+				int id = message.GetInt(0);
 
-				++actionCount;
+				if (id >= 0)
+				{
+					usedIDs.Add(message.GetInt(0));
 
-				GenerateOrder(sender.actions[message.GetInt(0)]);
+					++actionCount;
+
+					GenerateOrder(sender.actions[message.GetInt(0)]);
+				}
+				else
+					--actionCount;
 
 				break;
 

@@ -104,6 +104,10 @@ public class MenuManager : MonoBehaviour
     {
         ShowMenu(Menu.Main);
 
+        ToggleAll(instance.loginSelectables, true);
+
+        ToggleAll(instance.readySelectables, true);
+
         ClientManager.Disconnect();
     }
 
@@ -115,7 +119,7 @@ public class MenuManager : MonoBehaviour
             instance.menus[i].SetActive(i == menuIndex);
     }
 
-    private void ToggleAll(Selectable[] selectables, bool state)
+    private static void ToggleAll(Selectable[] selectables, bool state)
     {
         foreach (Selectable selectable in selectables)
             selectable.interactable = state;

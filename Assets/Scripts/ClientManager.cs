@@ -46,7 +46,7 @@ public class ClientManager : MonoBehaviour
 			delegate (Client client) {
 				Debug.Log("Successfully connected to Player.IO");
 
-				//client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
+				client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
 
 				client.Multiplayer.CreateJoinRoom(
 					roomname,
@@ -69,14 +69,14 @@ public class ClientManager : MonoBehaviour
 					delegate (PlayerIOError error) {
 						Debug.Log("Error Joining Room: " + error.ToString());
 
-						MenuManager.ShowMenu(MenuManager.Menu.Main);
+						MenuManager.Quit();
 					}
 				);
 			},
 			delegate (PlayerIOError error) {
 				Debug.Log("Error connecting: " + error.ToString());
 
-				MenuManager.ShowMenu(MenuManager.Menu.Main);
+				MenuManager.Quit();
 			}
 		);
 	}
@@ -136,6 +136,11 @@ public class ClientManager : MonoBehaviour
 					MenuManager.SetCount(ready, total);
 
 					break;
+
+				case "Update":
+					GameManager.Completion((float)message.GetDouble(0), (float)message.GetDouble(1));
+
+					break;
 			}
 		}
 	}
@@ -150,7 +155,12 @@ public class ClientManager : MonoBehaviour
     {
 		if (instance.server != null)
 			instance.server.Send("Action", id);
-    }
+	}
+
+	public static void Error()
+	{
+		State(-1);
+	}
 
 	public static void Disconnect()
     {

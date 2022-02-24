@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
 
 	private Dictionary<int, int> goals;
 
-	[SerializeField] private InfiniteScrollTextMesh orderText;
+	[SerializeField] private TextMeshWrapper orderText;
+
+	[SerializeField] private ViewManager viewManager;
 
     private void Awake()
     {
@@ -28,7 +30,6 @@ public class GameManager : MonoBehaviour
 		goals = new Dictionary<int, int>();
 	}
 
-	public List<Item> debug_items;
 	public static int[] GenerateBoard(double difficulty, int[] usedIDs)
     {
 		instance.DestroyChildren();
@@ -38,7 +39,6 @@ public class GameManager : MonoBehaviour
 		instance.board = new Board(difficulty);
 
 		instance.items = instance.itemManager.Generate(instance.board);
-		instance.debug_items = instance.items.Values.ToList();
 
 		instance.CreateItems();
 
@@ -57,18 +57,22 @@ public class GameManager : MonoBehaviour
 		return instance.items[id].GetInstruction(instance.goals[id]); 
 	}
 
+	public static void Completion(float completion, float fire)
+    {
+		instance.viewManager.Completion(completion, fire);
+    }
+
 	public static void OnStateChange(int id, int index)
 	{
-		if (!instance.goals.ContainsKey(id))
-			return;
+		instance.items[id].current = index;
 
-		Debug.Log(id + " " + instance.goals[id] + " " + index + " " + instance.goals[id]);
-
-		if (index == instance.goals[id])
+		if (instance.goals.ContainsKey(id) && instance.goals[id] == index)
 		{
 			ClientManager.State(id);
 			instance.goals.Remove(id);
 		}
+		else
+			ClientManager.Error();
 	}
 
 	public static void Order(string order)
