@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
   m_Name: "production d'\xE9nergie"
   m_EditorClassIdentifier: 
-  Name: 
   Shape: 1
-  Prefab: {fileID: 1473976691817660613, guid: d91623eccb1423c4cadb14d839470e4d, type: 3}
-  Instruction: "Mettre la Name \xE0"
+  Prefab: {fileID: 5395220931670843235, guid: 531570329baaece408cc267e0bc38d81, type: 3}
+  Instruction: "Mettre la Name \xE0 Value"
   Values:
   - 1
   - 2

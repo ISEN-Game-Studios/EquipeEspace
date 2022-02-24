@@ -36,11 +36,15 @@ public abstract class TypeButton : Interactable
         {
             ChangeState(index);
         }
-        index = CheckForTouchMouse();
-        if (index != -1)
+        else
         {
-            ChangeState(index);
+            index = CheckForTouchMouse();
+            if (index != -1)
+            {
+                ChangeState(index);
+            }
         }
+        
 
     }
 
