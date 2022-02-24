@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7215796592668913450}
   - component: {fileID: 7621952900301100972}
+  - component: {fileID: 4381769457941365105}
   - component: {fileID: 6064210491431778975}
   - component: {fileID: 231358073279578348}
   m_Layer: 0
@@ -74,6 +75,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4381769457941365105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630432439201767778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565e7e77a6dd02643af84101bccb71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 2838000991330671794}
+  percentage: 0.8
 --- !u!102 &6064210491431778975
 TextMesh:
   serializedVersion: 3
@@ -82,16 +97,16 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7630432439201767778}
-  m_Text: 'fzfzf
+  m_Text: 'fzfzffzesfzefzesfzefzesfze
 
-    fzesfze'
+'
   m_OffsetZ: 0
   m_CharacterSize: 0.015
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 67
+  m_FontSize: 83
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 0}

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
-  textMesh: {fileID: 331225644199245504}
+  textMeshWrapper: {fileID: 7818236459764305198}
   textMeshsButtons: []
   spriteRenderers:
   - {fileID: 6463541627354727826}
@@ -211,8 +211,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
   m_PrefabInstance: {fileID: 5814385404090125407}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &331225644199245504 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 6064210491431778975, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+--- !u!114 &7818236459764305198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4381769457941365105, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
   m_PrefabInstance: {fileID: 5814385404090125407}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565e7e77a6dd02643af84101bccb71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

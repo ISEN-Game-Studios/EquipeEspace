@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 	private static GameManager instance;
 
 	private Dictionary<int, int> goals;
+	
+	[SerializeField] private Timer timer;
 
 	[SerializeField] private TextMeshWrapper orderText;
 
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
 		{
 			ClientManager.State(id);
 			instance.goals.Remove(id);
+			instance.timer.StopTimer();
 		}
 		else
 			ClientManager.Error();
@@ -78,6 +81,12 @@ public class GameManager : MonoBehaviour
 	public static void Order(string order)
     {
 		instance.orderText.SetText(order);
+		instance.timer.SetTimer(10f);
+    }
+
+	public static void Fail()
+    {
+		//Envoie Fail serveur
     }
 
 	private void CreateItems()

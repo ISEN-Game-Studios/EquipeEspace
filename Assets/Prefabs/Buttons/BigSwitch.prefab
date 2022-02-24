@@ -50,6 +50,10 @@ PrefabInstance:
       value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: textMeshWrapper
+      value: 
+      objectReference: {fileID: 2414942781705478927}
+    - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: colliders.Array.data[0]
       value: 
       objectReference: {fileID: 4932421551812517550}
@@ -132,6 +136,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2749475482487631587, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+--- !u!114 &2414942781705478927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3798432371797899798, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+  m_PrefabInstance: {fileID: 1528171303686199577}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565e7e77a6dd02643af84101bccb71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7132433991194050520 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8632935773381043905, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
