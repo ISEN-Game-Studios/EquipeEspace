@@ -109,6 +109,12 @@ public class GameManager : MonoBehaviour
 		instance.timer.SetTimer(10f);
     }
 
+	public static void EndStage(int stage, int instruction)
+    {
+		instance.animator.enabled = true;
+		instance.animator.SetTrigger("Stage");
+    }
+
 	private void OnAnimationEnd()
     {
 		animator.enabled = false;

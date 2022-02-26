@@ -4,7 +4,7 @@ using UnityEngine;
 public class TextMeshWrapper : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer container;
-    [SerializeField] private float percentage;
+    [SerializeField] private float percentage = 1f;
 
     private TextMesh textMesh;
     private new MeshRenderer renderer;
@@ -27,11 +27,11 @@ public class TextMeshWrapper : MonoBehaviour
             textMesh.text = "";
             return;
         }
+
         text = char.ToUpper(text[0]) + text.Substring(1);
 
         string[] words = text.Split(' ');
         textMesh.text = text;
-        
 
         float width = renderer.bounds.size.x;
 
@@ -39,16 +39,16 @@ public class TextMeshWrapper : MonoBehaviour
 
         if (width > container.bounds.size.x * percentage && lineCount == 1)
             textMesh.anchor = TextAnchor.UpperCenter;
+
         if (words.Length < 2)
             return;
 
         int wordByLine = Mathf.CeilToInt(words.Length / (float)lineCount);
+
         textMesh.text = "";
         for (int i = 0; i < words.Length; ++i)
         {
             textMesh.text += words[i] + (i % wordByLine == wordByLine - 1 && i != words.Length - 1 ? "\n" : (i != words.Length - 1 ? " " : ""));
         }
-            
-        
     }
 }

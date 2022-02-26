@@ -13,6 +13,19 @@ public class ClientManager : MonoBehaviour
 	private Queue<Message> messages;
 	private Queue<Message> waitings;
 
+	private int[] stats;
+	public static int[] Stats
+    {
+		get {
+			int[] buffer = instance.stats;
+			instance.stats = null;
+
+			return buffer;
+        }
+
+		private set => instance.stats = value;
+    }
+
 	private void Awake()
 	{
 		if (instance == null)
@@ -23,7 +36,15 @@ public class ClientManager : MonoBehaviour
 		}
 		else
 			Destroy(gameObject);
+
+		SceneManager.activeSceneChanged += FDPDEMERDE;
 	}
+
+	public int fdpdemerde = 0;
+	private void FDPDEMERDE(Scene a, Scene b)
+    {
+		++fdpdemerde;
+    }
 
 	private void Start()
     {
@@ -46,7 +67,7 @@ public class ClientManager : MonoBehaviour
 			delegate (Client client) {
 				Debug.Log("Successfully connected to Player.IO");
 
-				//client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
+				client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
 
 				client.Multiplayer.CreateJoinRoom(
 					roomname,
@@ -156,6 +177,27 @@ public class ClientManager : MonoBehaviour
 
 					break;
 				}
+
+				case "End":
+                {
+					bool win = message.GetBoolean(0);
+
+					if (win)
+                    {
+						int stage = message.GetInt(1);
+						int instruction = message.GetInt(2);
+
+						GameManager.EndStage(stage, instruction);
+					}
+					else
+                    {
+						Stats = ExtractMessage<int>(message, 1);
+
+						SceneManager.LoadScene(0);
+                    }
+
+					break;
+                }
 			}
 		}
 	}
@@ -202,8 +244,8 @@ public class ClientManager : MonoBehaviour
 
     private void OnDestroy()
 	{
-		if (instance.server != null)
-			instance.server.Disconnect();
+        if (server != null)
+			server.Disconnect();
 	}
 
     #region Tools
@@ -230,10 +272,10 @@ public class ClientManager : MonoBehaviour
 
 	private T[] ExtractMessage<T>(Message message, uint startIndex = 0)
 	{
-		T[] items = new T[message.Count];
+		T[] items = new T[message.Count - startIndex];
 
 		for (uint i = startIndex; i < message.Count; ++i)
-			items[i] = (T)message[i];
+			items[i - startIndex] = (T)message[i];
 
 		return items;
 	}

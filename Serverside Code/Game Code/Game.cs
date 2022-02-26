@@ -12,6 +12,31 @@ public class Player : BasePlayer
 	public Dictionary<int, Player> actions = new Dictionary<int, Player>();
 }
 
+public class Stats
+{
+	public int stage;
+	public int playerCount;
+	public int time;
+	public int actions;
+	public int meteorites;
+	public int holes;
+	public int errors;
+
+	public int[] Pack()
+    {
+		return new int[7]
+		{
+			stage,
+			playerCount,
+			time,
+			actions,
+			meteorites,
+			holes,
+			errors
+		};
+    }
+}
+
 [RoomType("SpaceShip")]
 public class GameCode : Game<Player>
 {
@@ -30,8 +55,10 @@ public class GameCode : Game<Player>
 	private double completion;
 
 	private Timer timer;
+
+	private Stats stats;
 	
-	DateTime startTime;
+	private DateTime startTime;
 	int actionCount;
 	int errorCount;
 
@@ -82,6 +109,8 @@ public class GameCode : Game<Player>
 
 		completion = Math.Min(1.0, Math.Max(completion + direction * 0.0005, 0.0));
 
+        Console.WriteLine(fire + " " + completion);
+
 		if (fire > completion)
 			EndGame(false);
 		else if (completion >= 1.0)
@@ -130,6 +159,9 @@ public class GameCode : Game<Player>
 					startTime = DateTime.Now;
 
 					completion = 0.5;
+
+					if (stats == null)
+						stats = new Stats();
 
 					timer = AddTimer(Update, 50);
 
@@ -187,7 +219,13 @@ public class GameCode : Game<Player>
 		isReady = false;
 
 		timer.Stop();
-		Broadcast("End", win);
+		 
+		stats.actions += actionCount;
+		stats.errors += errorCount;
+		stats.playerCount = Players.Count;
+		stats.time = (int)Math.Ceiling((DateTime.Now - startTime).TotalMinutes);
+
+		Broadcast(CreateMessage("End", stats.Pack(), win));
     }
 
 	private Player GetPlayerById(int id)
@@ -253,10 +291,10 @@ public class GameCode : Game<Player>
 
 	private T[] ExtractMessage<T>(Message message, uint startIndex = 0)
 	{
-		T[] items = new T[message.Count];
+		T[] items = new T[message.Count - startIndex];
 
 		for (uint i = startIndex; i < message.Count; ++i)
-			items[i] = (T)message[i];
+			items[i - startIndex] = (T)message[i];
 
 		return items;
 	}

@@ -56,7 +56,6 @@ public class Timer : MonoBehaviour
         else
         {
             isRunning = false;
-            GameManager.Fail();
         }
  
     }

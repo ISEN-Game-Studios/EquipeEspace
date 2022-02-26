@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -34,6 +35,11 @@ public class MenuManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("roomname"))
             roomname.text = PlayerPrefs.GetString("roomname");
+
+        int[] stats = ClientManager.Stats;
+
+        if (stats != null)
+            ShowStats(stats);
     }
 
     #region Login
@@ -96,6 +102,53 @@ public class MenuManager : MonoBehaviour
     public static void SetCount(int ready, int total)
     {
         instance.count.text = ready + "/" + total + " joueurs prêts";
+    }
+
+    #endregion
+
+    #region End
+
+    [SerializeField]
+    private Text level1, level2;
+
+    [SerializeField]
+    private Text playerCount;
+
+    [SerializeField]
+    private Text time;
+
+    [SerializeField]
+    private Text actions;
+
+    [SerializeField]
+    private Text meteorites;
+
+    [SerializeField]
+    private Text holes;
+
+    [SerializeField]
+    private Text errors;
+
+    public int[] stats;
+    public void ShowStats(int[] stats)
+    {
+        this.stats = stats;
+        ShowMenu(Menu.End);
+
+        level1.text = Regex.Replace(level1.text, @"{.*}", stats[0].ToString());
+        level2.text = Regex.Replace(level2.text, @"{.*}", stats[0].ToString());
+
+        playerCount.text = Regex.Replace(playerCount.text, @"{.*}", stats[1].ToString());
+
+        time.text = Regex.Replace(time.text, @"{.*}", stats[2].ToString());
+
+        actions.text = Regex.Replace(actions.text, @"{.*}", stats[3].ToString());
+
+        meteorites.text = Regex.Replace(meteorites.text, @"{.*}", stats[4].ToString());
+
+        holes.text = Regex.Replace(holes.text, @"{.*}", stats[5].ToString());
+
+        errors.text = Regex.Replace(errors.text, @"{.*}", stats[6].ToString());
     }
 
     #endregion
