@@ -53,3 +53,6 @@ TagManager:
   - name: Text
     uniqueID: 2023589887
     locked: 0
+  - name: Explosion
+    uniqueID: 28125627
+    locked: 0

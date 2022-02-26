@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: engrenage planaire
   m_EditorClassIdentifier: 
-  Shape: 0
-  Prefab: {fileID: 0}
-  Instruction: 
-  Values: []
+  Shape: 1
+  Prefab: {fileID: 6421377554355197343, guid: 52be9f19d27e8af41bfcb29716cb00eb, type: 3}
+  Instruction: "Mettre l' Name \xE0 Value"
+  Values:
+  - 1
+  - 2
+  - 3
+  - 4
   Size: {x: 0, y: 0}
   ID: 0

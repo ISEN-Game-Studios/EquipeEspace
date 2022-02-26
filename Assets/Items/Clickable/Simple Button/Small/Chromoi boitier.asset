@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: Chromoi boitier
   m_EditorClassIdentifier: 
-  Shape: 0
-  Prefab: {fileID: 0}
-  Instruction: 
-  Values: []
+  Shape: 2
+  Prefab: {fileID: 1944615284613804719, guid: 4a7bf9f11702f064a8245daefd1ac84e, type: 3}
+  Instruction: Value le Name
+  Values:
+  - Enclencher
   Size: {x: 0, y: 0}
   ID: 0

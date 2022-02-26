@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: "bi\xE8re"
   m_EditorClassIdentifier: 
-  Shape: 3
-  Prefab: {fileID: 5153562515370131, guid: f5075a1fefc44024caf7864098d68551, type: 3}
+  Shape: 0
+  Prefab: {fileID: 3960953682863181120, guid: 9629e7a67250c4e43880415c0bbd1485, type: 3}
   Instruction: Value une Name
   Values:
   - Boire
   Size: {x: 0, y: 0}
-  ID: 0
+  ID: 1

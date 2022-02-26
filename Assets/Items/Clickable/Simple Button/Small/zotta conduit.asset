@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: zotta conduit
   m_EditorClassIdentifier: 
   Shape: 0
-  Prefab: {fileID: 0}
-  Instruction: 
-  Values: []
+  Prefab: {fileID: 301805063399793111, guid: 6569c3ca766261c419202fe8700a9b89, type: 3}
+  Instruction: Value le Name
+  Values:
+  - Enclencher
   Size: {x: 0, y: 0}
   ID: 0

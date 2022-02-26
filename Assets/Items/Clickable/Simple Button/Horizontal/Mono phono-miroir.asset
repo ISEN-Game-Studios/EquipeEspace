@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Mono phono-miroir
   m_EditorClassIdentifier: 
   Shape: 0
-  Prefab: {fileID: 0}
-  Instruction: 
-  Values: []
+  Prefab: {fileID: 3960953682863181120, guid: 9629e7a67250c4e43880415c0bbd1485, type: 3}
+  Instruction: Value le Name
+  Values:
+  - Agitez
   Size: {x: 0, y: 0}
   ID: 0

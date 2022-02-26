@@ -25,10 +25,7 @@ public class VerticalViewport : MonoBehaviour
     private void Awake()
     {
         camera = Camera.main;
-    }
 
-    private void Start()
-    {
         float ratio = Screen.height / (float)Screen.width;
 
         float height = viewportWidth * ratio;
@@ -60,4 +57,5 @@ public class VerticalViewport : MonoBehaviour
             nextHeight += layoutHeight;
         }
     }
+
 }

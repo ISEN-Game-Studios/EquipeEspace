@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: retro-canal
   m_EditorClassIdentifier: 
   Shape: 0
-  Prefab: {fileID: 0}
-  Instruction: 
-  Values: []
+  Prefab: {fileID: 7544403038816636157, guid: 28317d0963044384ca6f6a14fa8ee5e5, type: 3}
+  Instruction: "Mettre le Name \xE0 Value"
+  Values:
+  - 1
+  - 2
+  - 3
+  - 4
   Size: {x: 0, y: 0}
   ID: 0
