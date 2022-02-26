@@ -21,7 +21,7 @@ public class ViewManager : MonoBehaviour
 
     public void Completion(float completion, float fire)
     {
-        shipPosition = renderer.bounds.min + new Vector3(renderer.bounds.size.x * completion, renderer.bounds.extents.y);
+        shipPosition = renderer.transform.position + Vector3.right * (renderer.bounds.size.x * completion - renderer.bounds.extents.x);
 
         fireStartLifeTime = fire * 10f;
     }

@@ -31,7 +31,7 @@ public class ClientManager : MonoBehaviour
 		waitings = new Queue<Message>();
 	}
 
-	public static void Connect(string username, string roomname)
+    public static void Connect(string username, string roomname)
 	{
 		if (instance.server != null)
 			return;
@@ -93,7 +93,8 @@ public class ClientManager : MonoBehaviour
 			switch (message.Type)
 			{
 				case "Board":
-					if (SceneManager.GetActiveScene().buildIndex == 1)
+				{
+					if (SceneManager.GetActiveScene().buildIndex == 1 && GameManager.Ready)
 					{
 						double difficulty = message.GetDouble(0);
 
@@ -107,40 +108,54 @@ public class ClientManager : MonoBehaviour
 						waitings.Enqueue(message);
 
 					break;
+				}
 
 				case "Action":
+				{
 					int id = message.GetInt(0);
+					double delay = message.GetDouble(1);
 
-					string instruction = GameManager.GenerateAction(id);
+					string instruction = GameManager.GenerateAction(id, (float)delay);
 
 					server.Send("Order", id, instruction);
 
 					break;
+				}
 
 				case "Order":
+				{
 					string order = message.GetString(0);
+					double delay = message.GetDouble(1);
 
-					GameManager.Order(order);
+					GameManager.Order(order, (float)delay);
 
 					break;
+				}
 
 				case "Ready":
-					SceneManager.LoadScene(1);
+				{
+					if (SceneManager.GetActiveScene().buildIndex != 1)
+						SceneManager.LoadScene(1);
 
 					break;
+				}
 
 				case "Count":
+				{
 					int ready = message.GetInt(0);
 					int total = message.GetInt(1);
 
 					MenuManager.SetCount(ready, total);
 
 					break;
+				}
 
 				case "Update":
+				{
 					GameManager.Completion((float)message.GetDouble(0), (float)message.GetDouble(1));
 
 					break;
+				}
 			}
 		}
 	}
@@ -151,15 +166,15 @@ public class ClientManager : MonoBehaviour
 			instance.server.Send("Ready", state);
 	}
 
-	public static void State(int id)
+	public static void State(int id, bool success)
     {
 		if (instance.server != null)
-			instance.server.Send("Action", id);
+			instance.server.Send("Action", id, success);
 	}
 
 	public static void Error()
 	{
-		State(-1);
+		State(-1, false);
 	}
 
 	public static void Disconnect()
@@ -185,9 +200,15 @@ public class ClientManager : MonoBehaviour
 		Debug.Log("Deconnected : " + reason);
 	}
 
-	#region Tools
+    private void OnDestroy()
+	{
+		if (instance.server != null)
+			instance.server.Disconnect();
+	}
 
-	private Message CreateMessage<T>(string type, List<T> list)
+    #region Tools
+
+    private Message CreateMessage<T>(string type, List<T> list)
 	{
 		Message message = Message.Create(type);
 

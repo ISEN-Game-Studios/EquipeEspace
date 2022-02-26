@@ -8,7 +8,7 @@ public class Item
 
     public Vector2Int Position { get; private set; }
 
-    public int current = 0;
+    public int Current = 0;
 
     public Item(ItemData data, Vector2Int position)
     {
@@ -26,7 +26,7 @@ public class Item
             do
             {
                 index = Random.Range(0, Data.Values.Length);
-            } while (index == current);
+            } while (index == Current);
         }
 
         return (Data.ID, index);

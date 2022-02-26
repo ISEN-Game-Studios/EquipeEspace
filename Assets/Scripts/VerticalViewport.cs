@@ -27,7 +27,7 @@ public class VerticalViewport : MonoBehaviour
         camera = Camera.main;
     }
 
-    void Start()
+    private void Start()
     {
         float ratio = Screen.height / (float)Screen.width;
 

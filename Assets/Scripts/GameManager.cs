@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using SpaceTeam;
 
@@ -13,21 +14,32 @@ public class GameManager : MonoBehaviour
 
 	private static GameManager instance;
 
-	private Dictionary<int, int> goals;
+	private Dictionary<int, (int index, Coroutine timer)> goals;
 
 	[SerializeField] private TextMeshWrapper orderText;
 
 	[SerializeField] private ViewManager viewManager;
 
+	[SerializeField] private Transform itemContainer;
+
+	private Animator animator;
+
+	private bool ready;
+	public static bool Ready => instance != null && instance.ready;
+
     private void Awake()
     {
 		instance = this;
-    }
+	}
 
     private void Start()
 	{
+		animator = GetComponent<Animator>();
 		itemManager = GetComponent<ItemManager>();
-		goals = new Dictionary<int, int>();
+		goals = new Dictionary<int, (int index, Coroutine timer)>();
+
+		animator.enabled = true;
+		animator.SetTrigger("Start");
 	}
 
 	public static int[] GenerateBoard(double difficulty, int[] usedIDs)
@@ -45,17 +57,28 @@ public class GameManager : MonoBehaviour
 		return instance.itemManager.GetOwnedIDs();
 	}
 
-	public static string GenerateAction(int id)
+	public static string GenerateAction(int id, float delay)
     {
 		var goal = instance.items[id].GetAction();
 
-		if (instance.goals.ContainsKey(id))
-			instance.goals[id] = goal.index;
-		else
-			instance.goals.Add(id, goal.index);
+		Coroutine timer = instance.StartCoroutine(instance.StartCountdown(id, delay));
 
-		return instance.items[id].GetInstruction(instance.goals[id]); 
+		if (instance.goals.ContainsKey(id))
+			instance.goals[id] = (goal.index, timer);
+		else
+			instance.goals.Add(id, (goal.index, timer));
+
+
+		return instance.items[id].GetInstruction(goal.index); 
 	}
+
+	private IEnumerator StartCountdown(int id, float delay)
+    {
+		yield return new WaitForSeconds(delay);
+
+		if (instance.goals.ContainsKey(id))
+			ClientManager.State(id, false);
+    }
 
 	public static void Completion(float completion, float fire)
     {
@@ -64,20 +87,33 @@ public class GameManager : MonoBehaviour
 
 	public static void OnStateChange(int id, int index)
 	{
-		instance.items[id].current = index;
+		instance.items[id].Current = index;
 
-		if (instance.goals.ContainsKey(id) && instance.goals[id] == index)
+		if (instance.goals.ContainsKey(id) && instance.goals[id].index == index)
 		{
-			ClientManager.State(id);
+			ClientManager.State(id, true);
+
+			instance.StopCoroutine(instance.goals[id].timer);
+
 			instance.goals.Remove(id);
 		}
 		else
 			ClientManager.Error();
 	}
 
-	public static void Order(string order)
+	public static void Order(string order, float time)
     {
 		instance.orderText.SetText(order);
+    }
+
+	private void OnAnimationEnd()
+    {
+		animator.enabled = false;
+    }
+
+	private void OnSceneReady()
+    {
+		ready = true;
     }
 
 	private void CreateItems()
@@ -99,7 +135,7 @@ public class GameManager : MonoBehaviour
 			// Saint artefact incompréhensible des Dieux
 			//position = new Vector3((position.x + 1f) / board.Width - (large ? 0f : (1f / 2f * board.Width)) - 0.5f, (position.y + 1) / board.Width - (high ? 0f : (1f / 2f * board.Width)) - 0.5f);
 
-			GameObject gameObject = Instantiate(item.Data.Prefab, transform);
+			GameObject gameObject = Instantiate(item.Data.Prefab, itemContainer);
 			gameObject.transform.localPosition = position;
 			gameObject.name += item.Position.ToString();
 			gameObject.GetComponent<Interactable>().itemData = item.Data;
@@ -113,8 +149,7 @@ public class GameManager : MonoBehaviour
 
 	private void DestroyChildren()
 	{
-		foreach (Transform child in transform)
-			if (child != transform)
-				Destroy(child.gameObject);
+		foreach (Transform child in itemContainer)
+			Destroy(child.gameObject);
 	}
 }

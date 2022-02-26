@@ -25,6 +25,7 @@ public class GameCode : Game<Player>
 	private bool isRunning = false;
 
 	private const double difficulty = 0.3;
+	private const double delay = 8.0;
 
 	private double completion;
 
@@ -32,6 +33,7 @@ public class GameCode : Game<Player>
 	
 	DateTime startTime;
 	int actionCount;
+	int errorCount;
 
 	public override void GameStarted()
 	{
@@ -72,20 +74,20 @@ public class GameCode : Game<Player>
 
 		TimeSpan span = DateTime.Now - startTime;
 
-		double frequency = actionCount / span.TotalSeconds;
+		double frequency = (actionCount - errorCount) / span.TotalSeconds;
 
 		double direction = frequency < goalFrequency ? -1.0 : 1.0;
 
 		double fire = span.TotalSeconds / 120.0;
 
-		completion = Math.Min(1.0, Math.Max(completion + direction * 0.001, 0.0));
+		completion = Math.Min(1.0, Math.Max(completion + direction * 0.0005, 0.0));
 
-		Broadcast("Update", completion, fire);
-
-		Console.WriteLine("Goal : " + goalFrequency + " / Current : " + frequency);
-		Console.WriteLine("Completion : " + completion + " / Fire : " + fire);
-        Console.WriteLine();
-        Console.WriteLine();
+		if (fire > completion)
+			EndGame(false);
+		else if (completion >= 1.0)
+			EndGame(true);
+		else
+			Broadcast("Update", completion, fire);
 	}
 
 	public override void GotMessage(Player sender, Message message)
@@ -93,12 +95,13 @@ public class GameCode : Game<Player>
 		switch (message.Type)
 		{
 			case "Ready":
+			{
 				sender.ready = message.GetBoolean(0);
 
 				Broadcast("Count", Players.FindAll(player => player.ready).Count, Players.Count);
 
 				if (Players.Count > 0 && Players.TrueForAll(player => player.ready))
-                {
+				{
 					isReady = true;
 
 					Broadcast("Ready");
@@ -107,8 +110,10 @@ public class GameCode : Game<Player>
 				}
 
 				break;
+			}
 
 			case "Boarded":
+			{
 				int[] ids = ExtractMessage<int>(message);
 
 				sender.usedIDs = ids;
@@ -117,8 +122,6 @@ public class GameCode : Game<Player>
 				if (++current < Players.Count)
 				{
 					Players[current].Send(CreateMessage("Board", usedIDs, difficulty));
-
-					Console.WriteLine("Generate Board of Player " + current);
 				}
 				else
 				{
@@ -126,45 +129,66 @@ public class GameCode : Game<Player>
 
 					startTime = DateTime.Now;
 
-					completion = 0.0;
+					completion = 0.5;
 
 					timer = AddTimer(Update, 50);
 
 					foreach (Player player in Players)
 						GenerateOrder(player);
-
-                    Console.WriteLine("Game is running");
 				}
 
 				break;
+			}
 
 			case "Order":
-				sender.actions[message.GetInt(0)].Send("Order", message.GetString(1));
+			{
+				sender.actions[message.GetInt(0)].Send("Order", message.GetString(1), delay);
 
 				break;
+			}
 
 			case "Action":
+			{
 				int id = message.GetInt(0);
 
 				if (id >= 0)
 				{
-					usedIDs.Add(message.GetInt(0));
+					bool success = message.GetBoolean(1);
 
-					++actionCount;
+					usedIDs.Add(id);
 
-					GenerateOrder(sender.actions[message.GetInt(0)]);
+					if (success)
+						++actionCount;
+					else
+						++errorCount;
+
+					GenerateOrder(sender.actions[id]);
 				}
 				else
-					--actionCount;
+					++errorCount;
 
 				break;
+			}
 
 			case "Count":
+			{
 				Broadcast("Count", Players.FindAll(player => player.ready).Count, Players.Count);
 
 				break;
+			}
 		}
 	}
+
+	private void EndGame(bool win)
+	{
+		foreach (Player player in Players)
+			player.ready = false;
+
+		isReady = false;
+
+		timer.Stop();
+		Broadcast("End", win);
+    }
 
 	private Player GetPlayerById(int id)
     {
@@ -184,9 +208,7 @@ public class GameCode : Game<Player>
 		else
 			target.actions.Add(id, player);
 
-		Console.WriteLine(player.ConnectUserId + " will order " + target.ConnectUserId);
-
-		target.Send("Action", id);
+		target.Send("Action", id, delay);
     }
 
 	private void GenerateBoards()
