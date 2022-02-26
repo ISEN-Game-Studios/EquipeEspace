@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
-  m_Name: pseudo-ceinture
+  m_Name: laser-tableau
   m_EditorClassIdentifier: 
-  Shape: 2
-  Prefab: {fileID: 1773130715900397212, guid: c6e58e51cf29bc9419890c50995d21a4, type: 3}
-  Instruction: Value la Name
+  Shape: 1
+  Prefab: {fileID: 5395220931670843235, guid: 531570329baaece408cc267e0bc38d81, type: 3}
+  Instruction: "Mettre le Name \xE0 Value"
   Values:
-  - "D\xE9sactiver"
-  - Activer
+  - 1
+  - 2
+  - 3
+  - 4
   Size: {x: 0, y: 0}
   ID: 0

@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
-  m_Name: pseudo-ceinture
+  m_Name: Peta lubrifiant
   m_EditorClassIdentifier: 
-  Shape: 2
-  Prefab: {fileID: 1773130715900397212, guid: c6e58e51cf29bc9419890c50995d21a4, type: 3}
-  Instruction: Value la Name
-  Values:
-  - "D\xE9sactiver"
-  - Activer
+  Shape: 0
+  Prefab: {fileID: 0}
+  Instruction: 
+  Values: []
   Size: {x: 0, y: 0}
   ID: 0

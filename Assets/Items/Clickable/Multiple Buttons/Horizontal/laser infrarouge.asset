@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: laser infrarouge
   m_EditorClassIdentifier: 
-  Shape: 3
+  Shape: 0
   Prefab: {fileID: 7544403038816636157, guid: 28317d0963044384ca6f6a14fa8ee5e5, type: 3}
-  Instruction: "R\xE9glez le Name sur Value"
+  Instruction: "R\xE9gler le Name sur Value"
   Values:
   - 1
   - 2
