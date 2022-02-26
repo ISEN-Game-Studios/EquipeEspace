@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField] private Transform itemContainer;
 
+	
+	[SerializeField] private EffectOrder effectOrder;
+	private Queue<string> orders;
+
 	private Animator animator;
 
 	private bool ready;
@@ -103,15 +107,38 @@ public class GameManager : MonoBehaviour
 			ClientManager.Error();
 	}
 
-	public static void Order(string order, float time)
+	public static void Order(string order, float time, bool succed)
+    {
+		
+		
+		if(instance.orders.Count > 0)
+        {
+
+			instance.effectOrder.GetOrderState(succed, order);
+			instance.orders.Dequeue();
+
+		}
+		else
+			ShowOrder(order);
+
+		instance.orders.Enqueue(order);
+		
+	}
+
+	public static void ShowOrder(string order)
     {
 		instance.orderText.SetText(order);
 		instance.timer.SetTimer(10f);
-    }
+	}
 
 	private void OnAnimationEnd()
     {
 		animator.enabled = false;
+    }
+
+	private void EndGame()
+    {
+
     }
 
 	private void OnSceneReady()

@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
   m_Name: Proto pontage
   m_EditorClassIdentifier: 
-  Shape: 0
-  Prefab: {fileID: 0}
-  Instruction: 
-  Values: []
+  Shape: 1
+  Prefab: {fileID: 5395220931670843235, guid: 531570329baaece408cc267e0bc38d81, type: 3}
+  Instruction: "Mettre le Name \xE0 Value"
+  Values:
+  - 1
+  - 2
+  - 3
+  - 4
   Size: {x: 0, y: 0}
   ID: 0

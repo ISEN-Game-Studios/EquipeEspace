@@ -126,8 +126,8 @@ public class ClientManager : MonoBehaviour
 				{
 					string order = message.GetString(0);
 					double delay = message.GetDouble(1);
-
-					GameManager.Order(order, (float)delay);
+					bool  succed = message.GetBoolean(2);
+					GameManager.Order(order, (float)delay, succed);
 
 					break;
 				}
