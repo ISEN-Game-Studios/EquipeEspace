@@ -10,7 +10,7 @@ public abstract class Interactable : MonoBehaviour
 
     [Space(5)]
 
-    [SerializeField] protected TextMesh textMesh;
+    [SerializeField] protected TextMeshWrapper textMeshWrapper;
 
     [Space(5)]
 
@@ -18,10 +18,10 @@ public abstract class Interactable : MonoBehaviour
 
     protected virtual void Start()
     {
-        textMesh.text = itemData.name;
+        textMeshWrapper.SetText(itemData.name);
 
         if(itemData.Shape == Shape.Big)
-            textMesh.transform.localScale = Vector3.one / 2;
+            textMeshWrapper.transform.localScale = Vector3.one / 2;
 
         if (textMeshsButtons.Count > 0)
         {

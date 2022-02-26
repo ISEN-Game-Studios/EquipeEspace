@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: frustration
   m_EditorClassIdentifier: 
-  Name: "souffl\xE9"
   Shape: 2
-  Prefab: {fileID: 5377572033296264422, guid: b18739463f057764d95f6c665473baa4, type: 3}
+  Prefab: {fileID: 1944615284613804719, guid: 4a7bf9f11702f064a8245daefd1ac84e, type: 3}
   Instruction: Value la Name
   Values:
   - Evacuer

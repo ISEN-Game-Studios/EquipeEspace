@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 1fa3036e4b903dd40ac626c210add5ac, type: 2}
-  textMesh: {fileID: 5262143619781316476}
+  textMeshWrapper: {fileID: 2441418192675665042}
   textMeshsButtons: []
   spriteRenderers:
   - {fileID: 5108957789906705861}
@@ -145,9 +145,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6064210491431778975, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_Text
-      value: 'fzfzf
-
-        fzesfze'
+      value: "fzfzf \nfzesfze"
       objectReference: {fileID: 0}
     - target: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_RootOrder
@@ -221,8 +219,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
   m_PrefabInstance: {fileID: 2102764251060614627}
   m_PrefabAsset: {fileID: 0}
---- !u!102 &5262143619781316476 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 6064210491431778975, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+--- !u!114 &2441418192675665042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4381769457941365105, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
   m_PrefabInstance: {fileID: 2102764251060614627}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565e7e77a6dd02643af84101bccb71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

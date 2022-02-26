@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: textMeshWrapper
+      value: 
+      objectReference: {fileID: 6778508690373204177}
+    - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: buttonsSprites.cells.Array.data[0].row.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 41974fd66879ecf45ac820eee97b8e34, type: 3}
@@ -69,3 +73,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+--- !u!114 &6778508690373204177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3798432371797899798, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+  m_PrefabInstance: {fileID: 7684451184413532871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565e7e77a6dd02643af84101bccb71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

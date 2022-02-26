@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 	private static GameManager instance;
 
 	private Dictionary<int, (int index, Coroutine timer)> goals;
+	[SerializeField] private Timer timer;
 
 	[SerializeField] private TextMeshWrapper orderText;
 
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
 			instance.StopCoroutine(instance.goals[id].timer);
 
 			instance.goals.Remove(id);
+			instance.timer.StopTimer();
 		}
 		else
 			ClientManager.Error();
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
 	public static void Order(string order, float time)
     {
 		instance.orderText.SetText(order);
+		instance.timer.SetTimer(10f);
     }
 
 	private void OnAnimationEnd()
@@ -132,7 +135,7 @@ public class GameManager : MonoBehaviour
 			// Compensate Centered Anchor
 			position += new Vector3(width, height) / (2f * board.Width);
 
-			// Saint artefact incompréhensible des Dieux
+			// Saint artefact incomprï¿½hensible des Dieux
 			//position = new Vector3((position.x + 1f) / board.Width - (large ? 0f : (1f / 2f * board.Width)) - 0.5f, (position.y + 1) / board.Width - (high ? 0f : (1f / 2f * board.Width)) - 0.5f);
 
 			GameObject gameObject = Instantiate(item.Data.Prefab, itemContainer);
