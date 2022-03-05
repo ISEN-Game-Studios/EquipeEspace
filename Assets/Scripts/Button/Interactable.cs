@@ -16,10 +16,10 @@ public abstract class Interactable : MonoBehaviour
 
     [SerializeField] protected List<TextMesh> textMeshsButtons;
 
-    protected bool _broken = true;
-    protected bool _dragging = false;
-    protected TargetJoint2D _targetJoint;
-    protected Rigidbody2D _rigidbody;
+    protected bool broken;
+    protected bool dragging;
+    protected TargetJoint2D targetJoint;
+    protected Rigidbody2D rgbd;
 
     protected virtual void Start()
     {
@@ -36,54 +36,54 @@ public abstract class Interactable : MonoBehaviour
             }
         }
 
-        _targetJoint = GetComponent<TargetJoint2D>();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _broken = false;
-        _dragging = false;
+        targetJoint = GetComponent<TargetJoint2D>();
+        rgbd = GetComponent<Rigidbody2D>();
+        broken = false;
+        dragging = false;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        //if(Input.touchCount != 1)
-        //{
-        //    dragging = false;
-        //    GetComponentInChildren<TargetJoint2D>().enabled = false;
-        //    return;
-        //}
-
-        if (Input.touchCount > 1)
+        if (Input.touchCount != 1)
         {
-            _dragging = false;
-            _targetJoint.enabled = false;
+            dragging = false;
+            targetJoint.enabled = false;
             return;
         }
 
-        //Touch touch = Input.GetTouch(0);
-        //Vector3 pos = touch.position;
-        Vector2 posM = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //if (Input.touchCount > 1)
+        //{
+        //    dragging = false;
+        //    targetJoint.enabled = false;
+        //    return;
+        //}
 
-        if (/*touch.phase == TouchPhase.Began ||*/ Input.GetMouseButtonDown(0))
+        Touch touch = Input.GetTouch(0);
+        Vector3 pos = touch.position;
+        //Vector2 posM = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (touch.phase == TouchPhase.Began /* Input.GetMouseButtonDown(0)*/)
         {
-            if (Physics2D.Raycast(posM, Vector3.forward))
+            if (Physics2D.Raycast(pos, Vector3.forward))
             {
-                if (_broken)
-                    _targetJoint.enabled = true;
+                if (broken)
+                    targetJoint.enabled = true;
             }
         }
-        if ((/*touch.phase == TouchPhase.Moved ||*/ Input.GetMouseButton(0)) && _broken)
+        if (touch.phase == TouchPhase.Moved /* Input.GetMouseButton(0))*/ && broken)
         {
-            _dragging = true;
-            _targetJoint.target = posM;
+            dragging = true;
+            targetJoint.target = pos;
         }
-        else if (_dragging && Input.GetMouseButtonUp(0)/*(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)*/)
+        else if (dragging && /*Input.GetMouseButtonUp(0)*/(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
         {
-            _dragging = false;
-            _targetJoint.enabled = false;
-            if (Mathf.Abs(_rigidbody.rotation) <= 5)
+            dragging = false;
+            targetJoint.enabled = false;
+            if (Mathf.Abs(rgbd.rotation) <= 5)
             {
-                _broken = false;
-                _rigidbody.isKinematic = true;
-                _rigidbody.angularVelocity = 0f;
+                broken = false;
+                rgbd.isKinematic = true;
+                rgbd.angularVelocity = 0f;
                 transform.rotation = Quaternion.identity;
             }
         }
@@ -91,7 +91,8 @@ public abstract class Interactable : MonoBehaviour
 
     public void Break()
     {
-        _rigidbody.isKinematic = false;
+        rgbd.isKinematic = false;
+        broken = true;
     }
 
     protected void SendState(int state)

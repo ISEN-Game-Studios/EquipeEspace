@@ -27,9 +27,11 @@ public abstract class TypeButton : Interactable
     }
 
 
-    private void Update()
+    protected override void Update()
     {
-
+        base.Update();
+        if (broken)
+            return;
         int index;
         index = CheckForTouch();
         if (index != -1 )

@@ -23,8 +23,9 @@ public class SliderButton : Interactable
     private int state;
     private bool isHit;
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (CheckForTouch() || CheckForTouchMouse())
         {
 
