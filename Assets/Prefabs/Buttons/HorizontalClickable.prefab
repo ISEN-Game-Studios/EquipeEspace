@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1935688942485844123, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.926
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935688942485844123, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.441
+      objectReference: {fileID: 0}
     - target: {fileID: 2441418192675665042, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
       propertyPath: percentage
       value: 0.9
@@ -71,9 +79,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5806904291988181655, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.926
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806904291988181655, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.441
+      objectReference: {fileID: 0}
     - target: {fileID: 7451449303611992799, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
       propertyPath: m_Name
       value: HorizontalClickable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833268395331459813, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833268395331459813, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833268395331459813, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833268395331459813, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}

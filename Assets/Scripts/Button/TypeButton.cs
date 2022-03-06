@@ -21,8 +21,9 @@ public abstract class TypeButton : Interactable
     protected int[] states;
 
     protected abstract void ChangeState(int index);
-    private void Awake()
-    {        
+    protected override void Awake()
+    {    
+        base.Awake();
         states = new int[colliders.Count];
     }
 
@@ -46,8 +47,6 @@ public abstract class TypeButton : Interactable
                 ChangeState(index);
             }
         }
-        
-
     }
 
     protected int CheckForTouch()

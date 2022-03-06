@@ -198,6 +198,14 @@ public class ClientManager : MonoBehaviour
 
 					break;
                 }
+
+				case "Break":
+                {
+					int id = message.GetInt(0);
+					GameManager.Break(id);
+
+					break;
+                }
 			}
 		}
 	}
@@ -212,6 +220,16 @@ public class ClientManager : MonoBehaviour
     {
 		if (instance.server != null)
 			instance.server.Send("Action", id, success);
+	}
+
+	public static void UpsideDownChange(bool value)
+    {
+		instance.server.Send("UpsideDown", value);
+	}
+
+	public static void ShakedChange(bool value)
+	{
+		instance.server.Send("Shaked", value);
 	}
 
 	public static void Error()
