@@ -124,6 +124,12 @@ public class GameCode : Game<Player>
 
 		completion = Math.Min(1.0, Math.Max(completion + direction * 0.0005, 0.0));
 
+		if (Math.Abs(completion - fire) < 0.2 && new Random().NextDouble() < 1.0 / 10.0 * goalFrequency)
+		{
+			Player player = Players[new Random().Next(Players.Count)];
+			player.Send("Break", player.usedIDs[new Random().Next(player.usedIDs.Length)]);
+		}
+
 		if (action != GroupAction.None)
         {
 			if ((action == GroupAction.Shake && Players.TrueForAll(p => p.isShaked)) ||
@@ -239,7 +245,10 @@ public class GameCode : Game<Player>
 					if (success)
 						++actionCount;
 					else
+					{
 						++errorCount;
+						sender.Send("Break", id);
+					}
 
 					sender.actions[id].lastOrder = success;
 					GenerateOrder(sender.actions[id]);
