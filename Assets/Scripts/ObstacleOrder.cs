@@ -50,7 +50,7 @@ public class ObstacleOrder : MonoBehaviour
         if (instruction != "")
         {
             textWrapper.SetText(instruction);
-            animator.SetTrigger("NewOrder");            
+            animator.SetTrigger("NewOrder");
         }
         else
         {
