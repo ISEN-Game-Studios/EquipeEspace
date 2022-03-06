@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6778508690373204177}
     - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: maskClickButton.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: buttonsSprites.cells.Array.data[0].row.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 41974fd66879ecf45ac820eee97b8e34, type: 3}
@@ -70,6 +74,10 @@ PrefabInstance:
     - target: {fileID: 8232522251553973339, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: m_Name
       value: SmallOrangeSwitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632935773381043905, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8911824531987537203, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: m_Enabled

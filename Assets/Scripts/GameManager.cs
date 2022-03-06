@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private EffectOrder effectOrder;
 
+	[SerializeField]
+	private ObstacleOrder obstacleOrder;
+
 	private Animator animator;
 	private bool ready;
 
@@ -121,21 +124,31 @@ public class GameManager : MonoBehaviour
 		if (instance.orders.Count > 0)
         {
 
-			instance.effectOrder.GetOrderState(succed, order);
+			instance.effectOrder.GetOrderState(succed, time, order);
 			instance.orders.Dequeue();
 
 		}
 		else
-			ShowOrder(order);
+			ShowOrder(order, time);
 
 		instance.orders.Enqueue(order);
 		
 	}
 
-	public static void ShowOrder(string order)
+	public static void ObstacleOrder(string action)
+    {
+		instance.obstacleOrder.GetOrder(action);
+    }
+
+	public static void ObstacleResolved()
+    {
+		instance.obstacleOrder.Succes();
+    }
+
+	public static void ShowOrder(string order, float timer)
     {
 		instance.orderText.SetText(order);
-		instance.timer.SetTimer(10f);
+		instance.timer.SetTimer(timer);
 	}
 
 	public static void EndStage(int stage, int instruction)

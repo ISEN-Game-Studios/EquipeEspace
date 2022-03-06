@@ -67,7 +67,7 @@ public class ClientManager : MonoBehaviour
 			delegate (Client client) {
 				Debug.Log("Successfully connected to Player.IO");
 
-				client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
+				//client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
 
 				client.Multiplayer.CreateJoinRoom(
 					roomname,
@@ -143,6 +143,20 @@ public class ClientManager : MonoBehaviour
 					break;
 				}
 
+				case "GroupAction":
+					{
+						string action = message.GetString(0);
+						GameManager.ObstacleOrder(action);
+
+						break;
+					}
+				case "Resolved":
+					{
+						GameManager.ObstacleResolved();
+
+						break;
+					}
+
 				case "Order":
 				{
 					string order = message.GetString(0);
@@ -195,7 +209,7 @@ public class ClientManager : MonoBehaviour
 
 						SceneManager.LoadScene(0);
                     }
-
+					
 					break;
                 }
 

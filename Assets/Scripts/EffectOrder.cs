@@ -7,15 +7,17 @@ public class EffectOrder : MonoBehaviour
     private Animator animator;
 
     private string order;
+    private float timer;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void GetOrderState(bool state, string order)
+    public void GetOrderState(bool state, float timer, string order)
     {
         this.order = order;
+        this.timer = timer;
 
         if (state)
             animator.SetTrigger("Succes");
@@ -25,7 +27,7 @@ public class EffectOrder : MonoBehaviour
 
     private void ShowOrder()
     {
-        GameManager.ShowOrder(order);
+        GameManager.ShowOrder(order, timer);
         order = "";
     }
 }

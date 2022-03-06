@@ -39,7 +39,7 @@ public class TextMeshTyper : MonoBehaviour
             for (int i = 0; i < text.Length; ++i)
             {
                 textMesh.text += text[i];
-
+                Debug.Log("Hey");
                 yield return new WaitForSeconds(Duration / text.Length);
             }
         }

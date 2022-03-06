@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: -1149965533746175883}
   - component: {fileID: 8346501845021189716}
   - component: {fileID: -1036996796609646842}
+  - component: {fileID: -314686345380894964}
   m_Layer: 0
   m_Name: SmallCell
   m_TagString: Untagged
@@ -354,3 +355,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!210 &-314686345380894964
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8810827970609700668}
+  m_Enabled: 1
+  m_SortingLayerID: 1914045153
+  m_SortingLayer: 3
+  m_SortingOrder: 0

@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4678194064134374830, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: maskClickButton.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678194064134374830, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
       propertyPath: buttonsSprites.cells.Array.data[0].row.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 230d9bd0acd602d4dac167f4a42db7fd, type: 3}
@@ -62,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 5414579832052592400, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687749761431994969, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7451449303611992799, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
       propertyPath: m_Name

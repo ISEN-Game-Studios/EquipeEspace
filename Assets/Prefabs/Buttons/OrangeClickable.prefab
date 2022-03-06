@@ -1,32 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4678194064134374830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7451449303611992799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 1fa3036e4b903dd40ac626c210add5ac, type: 2}
-  textMeshWrapper: {fileID: 2441418192675665042}
-  textMeshsButtons: []
-  spriteRenderers:
-  - {fileID: 5108957789906705861}
-  buttonsSprites:
-    gridSize: {x: 1, y: 2}
-    cellSize: {x: 64, y: 64}
-    cells:
-    - row:
-      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
-    - row:
-      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
-  colliders:
-  - {fileID: 4295275466451956395}
 --- !u!1 &5687749761431994969
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,7 +11,7 @@ GameObject:
   - component: {fileID: 7445130676499841905}
   - component: {fileID: 5108957789906705861}
   - component: {fileID: 4295275466451956395}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +109,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &4678194064134374830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451449303611992799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 1fa3036e4b903dd40ac626c210add5ac, type: 2}
+  textMeshWrapper: {fileID: 2441418192675665042}
+  textMeshsButtons: []
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
+  spriteRenderers:
+  - {fileID: 5108957789906705861}
+  buttonsSprites:
+    gridSize: {x: 1, y: 2}
+    cellSize: {x: 64, y: 64}
+    cells:
+    - row:
+      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
+    - row:
+      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
+  colliders:
+  - {fileID: 4295275466451956395}
 --- !u!1001 &2102764251060614627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,6 +146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5600437646435166068, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6064210491431778975, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_Text
       value: "fzfzf \nfzesfze"

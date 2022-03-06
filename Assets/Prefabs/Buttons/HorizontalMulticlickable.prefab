@@ -1,59 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &184020583089937109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7544403038816636157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: cca24997db16d2d4b9dc1be1f88bf905, type: 2}
-  textMeshWrapper: {fileID: 3331097844576621232}
-  textMeshsButtons:
-  - {fileID: 2693007221756610375}
-  - {fileID: 8543037685622995514}
-  - {fileID: 1460561568746458445}
-  - {fileID: 6120664491456331181}
-  spriteRenderers:
-  - {fileID: 1797830912644165363}
-  - {fileID: 1165420877913226858}
-  - {fileID: 724772827507505478}
-  - {fileID: 5207706077762493913}
-  buttonsSprites:
-    gridSize: {x: 4, y: 2}
-    cellSize: {x: 64, y: 64}
-    cells:
-    - row:
-      - {fileID: 21300000, guid: 5781b51dc03667b44997332bc8df7761, type: 3}
-      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
-      - {fileID: 21300000, guid: 5781b51dc03667b44997332bc8df7761, type: 3}
-      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
-    - row:
-      - {fileID: 21300000, guid: 2c6bf2df795c0754a8f676d088041fd6, type: 3}
-      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
-      - {fileID: 21300000, guid: 2c6bf2df795c0754a8f676d088041fd6, type: 3}
-      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
-  colliders:
-  - {fileID: 4571903801292557177}
-  - {fileID: 3396185024052101185}
-  - {fileID: 191789032189653144}
-  - {fileID: 6098689366429694006}
---- !u!210 &5321471391604105478
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8868148606930154147}
-  m_Enabled: 1
-  m_SortingLayerID: 2023589887
-  m_SortingLayer: 4
-  m_SortingOrder: 0
 --- !u!1 &2745300918877370695
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +133,7 @@ GameObject:
   - component: {fileID: 6057947802067330491}
   - component: {fileID: 724772827507505478}
   - component: {fileID: 191789032189653144}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +242,7 @@ GameObject:
   - component: {fileID: 5798633129452209163}
   - component: {fileID: 1797830912644165363}
   - component: {fileID: 4571903801292557177}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +473,7 @@ GameObject:
   - component: {fileID: 5450933615013074193}
   - component: {fileID: 5207706077762493913}
   - component: {fileID: 6098689366429694006}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,6 +571,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &184020583089937109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544403038816636157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: cca24997db16d2d4b9dc1be1f88bf905, type: 2}
+  textMeshWrapper: {fileID: 3331097844576621232}
+  textMeshsButtons:
+  - {fileID: 2693007221756610375}
+  - {fileID: 8543037685622995514}
+  - {fileID: 1460561568746458445}
+  - {fileID: 6120664491456331181}
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
+  spriteRenderers:
+  - {fileID: 1797830912644165363}
+  - {fileID: 1165420877913226858}
+  - {fileID: 724772827507505478}
+  - {fileID: 5207706077762493913}
+  buttonsSprites:
+    gridSize: {x: 4, y: 2}
+    cellSize: {x: 64, y: 64}
+    cells:
+    - row:
+      - {fileID: 21300000, guid: 5781b51dc03667b44997332bc8df7761, type: 3}
+      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
+      - {fileID: 21300000, guid: 5781b51dc03667b44997332bc8df7761, type: 3}
+      - {fileID: 21300000, guid: 685d0bbbcb5864945b7c2039d67c9808, type: 3}
+    - row:
+      - {fileID: 21300000, guid: 2c6bf2df795c0754a8f676d088041fd6, type: 3}
+      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
+      - {fileID: 21300000, guid: 2c6bf2df795c0754a8f676d088041fd6, type: 3}
+      - {fileID: 21300000, guid: 3838c94f5780aa74d9f765c87b1a5d20, type: 3}
+  colliders:
+  - {fileID: 4571903801292557177}
+  - {fileID: 3396185024052101185}
+  - {fileID: 191789032189653144}
+  - {fileID: 6098689366429694006}
 --- !u!1 &7743219015291644162
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +750,7 @@ GameObject:
   - component: {fileID: 6405391928735741217}
   - component: {fileID: 1165420877913226858}
   - component: {fileID: 3396185024052101185}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,6 +970,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 1165420877913226858}
   percentage: 0.8
+--- !u!210 &5321471391604105478
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868148606930154147}
+  m_Enabled: 1
+  m_SortingLayerID: 2023589887
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1001 &1366072605535065025
 PrefabInstance:
   m_ObjectHideFlags: 0

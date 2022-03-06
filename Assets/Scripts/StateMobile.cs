@@ -6,10 +6,6 @@ public class StateMobile : MonoBehaviour
 {
     [SerializeField] private float shakeDetectionThreshold = 0.65f;
 
-    [Space(5)]
-
-    [SerializeField] private float rotationThreshold = 60f;
-
     private float accelerometerUpdateInterval;
     private float lowPassKernelWidthInSeconds = 1f;
     private float lowPassFilterFactor;
@@ -30,8 +26,8 @@ public class StateMobile : MonoBehaviour
         lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
         lowPassValue = Input.acceleration;
 
-        //ClientManager.upsideDownChange(upsideDown);
-        //ClientManager.ShakedChange(Shaked);
+        //ClientManager.UpsideDownChange(upsideDown);
+        //ClientManager.ShakedChange(shaked);
     }
 
     private void Update()
@@ -46,11 +42,6 @@ public class StateMobile : MonoBehaviour
         isShaking = deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold;
         upSideDownState = Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown;
 
-        /*if(Input.gyro.attitude.z > rotationThreshold || Input.gyro.attitude.y > rotationThreshold)
-            upSideDownState = true;
-        else
-            upSideDownState = false;*/
-
         changeTimeShaked += Time.deltaTime;
 
         if (shaked != isShaking && !changeThisFrame)
@@ -63,17 +54,14 @@ public class StateMobile : MonoBehaviour
         {
             changeThisFrame = false;
             shaked = isShaking;
+            ClientManager.ShakedChange(shaked);
         }
 
         if (upsideDown != upSideDownState)
         {
             upsideDown = upSideDownState;
+            ClientManager.UpsideDownChange(upsideDown);
         }
 
-        //ClientManager.ShakedChange(shaked);
-
-        //ClientManager.UpsideDownChange(upsideDown);
-
-        Debug.Log("Shaked : " + shaked + ", UpsideDown " + upsideDown + ", Acceleration : " + acceleration.sqrMagnitude);
     }
 }

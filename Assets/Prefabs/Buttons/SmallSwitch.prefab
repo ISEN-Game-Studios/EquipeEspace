@@ -15,6 +15,9 @@ MonoBehaviour:
   itemData: {fileID: 0}
   textMeshWrapper: {fileID: 3798432371797899798}
   textMeshsButtons: []
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
   spriteRenderers:
   - {fileID: 5028152383741503012}
   buttonsSprites:
@@ -38,7 +41,7 @@ GameObject:
   - component: {fileID: 3755171480137502778}
   - component: {fileID: 5028152383741503012}
   - component: {fileID: 2749475482487631587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5600437646435166068, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_RootOrder
       value: 0
