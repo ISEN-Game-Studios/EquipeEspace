@@ -368,6 +368,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 822026097}
   orderText: {fileID: 240429708}
+  stageText: {fileID: 593790150}
+  messageText: {fileID: 84952474}
   viewManager: {fileID: 106552412}
   transition: {fileID: 350953774}
   itemContainer: {fileID: 216861789}

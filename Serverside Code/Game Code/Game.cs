@@ -19,13 +19,13 @@ public class Player : BasePlayer
 
 public class Stats
 {
-	public int stage;
+	public int stage = 1;
 	public int playerCount;
 	public int time;
-	public int actions;
-	public int meteorites;
-	public int holes;
-	public int errors;
+	public int actions = 0;
+	public int meteorites = 0;
+	public int holes = 0;
+	public int errors = 0;
 
 	public int[] Pack()
     {
@@ -143,16 +143,16 @@ public class GameCode : Game<Player>
 			eventTimer = AddTimer(delegate()
             {
 				action = GroupAction.None;
-				EndGame(false);
+				EndGame();
             }, (int)Math.Ceiling(1000.0 / goalFrequency));
         }
 
         Console.WriteLine("Fire : {0}, Completion {1}, Action {2}", fire, completion, action.ToString());
 
 		if (fire > completion)
-			EndGame(false);
+			EndGame();
 		else if (completion >= 1.0)
-			EndGame(true);
+			NextStage();
 		else
 			Broadcast("Update", completion, fire);
 	}
@@ -212,6 +212,9 @@ public class GameCode : Game<Player>
 
 			case "Order":
 			{
+				if (!isRunning)
+					break;
+
 				int id = message.GetInt(0);
 				bool success = sender.actions[id].lastOrder;
 
@@ -222,6 +225,9 @@ public class GameCode : Game<Player>
 
 			case "Action":
 			{
+				if (!isRunning)
+					break;
+
 				int id = message.GetInt(0);
 
 				if (id >= 0)
@@ -267,7 +273,27 @@ public class GameCode : Game<Player>
 		}
 	}
 
-	private void EndGame(bool win)
+	private void NextStage()
+    {
+		isRunning = false;
+
+		foreach (Player player in Players)
+		{
+			player.ready = false;
+			player.actions.Clear();
+		}
+
+		isReady = false;
+
+		timer?.Stop();
+		eventTimer?.Stop();
+
+		Broadcast("Next", ++stats.stage, "Bonjour j'aimerais coucher avec vous,\net je profite de cet espace de texte\npour vous le dire\n#sex #virginite==null");
+
+		GenerateBoards();
+	}
+
+	private void EndGame()
 	{
 		foreach (Player player in Players)
 			player.ready = false;
@@ -281,7 +307,7 @@ public class GameCode : Game<Player>
 		stats.playerCount = Players.Count;
 		stats.time = (int)Math.Ceiling((DateTime.Now - startTime).TotalMinutes);
 
-		Broadcast(CreateMessage("End", stats.Pack(), win));
+		Broadcast(CreateMessage("End", stats.Pack()));
     }
 
 	private Player GetPlayerById(int id)

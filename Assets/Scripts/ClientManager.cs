@@ -178,23 +178,21 @@ public class ClientManager : MonoBehaviour
 					break;
 				}
 
-				case "End":
+				case "Next":
                 {
-					bool win = message.GetBoolean(0);
+					int stage = message.GetInt(0);
+					string instruction = message.GetString(1);
 
-					if (win)
-                    {
-						int stage = message.GetInt(1);
-						int instruction = message.GetInt(2);
+					GameManager.EndStage(stage, instruction);
 
-						GameManager.EndStage(stage, instruction);
-					}
-					else
-                    {
-						Stats = ExtractMessage<int>(message, 1);
+					break;
+                }
 
-						SceneManager.LoadScene(0);
-                    }
+				case "End":
+				{
+					Stats = ExtractMessage<int>(message);
+
+					SceneManager.LoadScene(0);
 
 					break;
                 }

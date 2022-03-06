@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using SpaceTeam;
-
-using System.Linq;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +21,12 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private TextMeshWrapper orderText;
+
+	[SerializeField]
+	private TextMesh stageText;
+
+	[SerializeField]
+	private TextMeshTyper messageText;
 
 	[SerializeField]
 	private ViewManager viewManager;
@@ -82,7 +87,6 @@ public class GameManager : MonoBehaviour
 		else
 			instance.goals.Add(id, (goal.index, timer));
 
-
 		return instance.interactables[id].item.GetInstruction(goal.index); 
 	}
 
@@ -123,13 +127,11 @@ public class GameManager : MonoBehaviour
 
 			instance.effectOrder.GetOrderState(succed, order);
 			instance.orders.Dequeue();
-
 		}
 		else
 			ShowOrder(order);
 
 		instance.orders.Enqueue(order);
-		
 	}
 
 	public static void ShowOrder(string order)
@@ -138,10 +140,24 @@ public class GameManager : MonoBehaviour
 		instance.timer.SetTimer(10f);
 	}
 
-	public static void EndStage(int stage, int instruction)
+	public static void EndStage(int stage, string instruction)
     {
+		instance.stageText.text = stage.ToString();
+		instance.messageText.SetText(instruction);
+
+		instance.StopAllCoroutines();
+
+		instance.orders.Clear();
+		instance.goals.Clear();
+
+		foreach (Transform child in instance.itemContainer)
+			Destroy(child.gameObject);
+
+		instance.ready = false;
+		instance.transition.SetActive(false);
+
 		instance.animator.enabled = true;
-		instance.animator.SetTrigger("Stage");
+		instance.animator.SetTrigger("Start");
     }
 
 	private void OnAnimationEnd()

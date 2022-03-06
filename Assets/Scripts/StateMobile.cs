@@ -63,17 +63,15 @@ public class StateMobile : MonoBehaviour
         {
             changeThisFrame = false;
             shaked = isShaking;
+            ClientManager.ShakedChange(shaked);
         }
 
         if (upsideDown != upSideDownState)
         {
             upsideDown = upSideDownState;
+            ClientManager.UpsideDownChange(upsideDown);
         }
 
-        //ClientManager.ShakedChange(shaked);
-
-        //ClientManager.UpsideDownChange(upsideDown);
-
-        Debug.Log("Shaked : " + shaked + ", UpsideDown " + upsideDown + ", Acceleration : " + acceleration.sqrMagnitude);
+        //Debug.Log("Shaked : " + shaked + ", UpsideDown " + upsideDown + ", Acceleration : " + acceleration.sqrMagnitude);
     }
 }
