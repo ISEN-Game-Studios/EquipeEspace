@@ -22,17 +22,25 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private ViewManager viewManager;
 
 	[SerializeField] private Transform itemContainer;
-
-	
 	[SerializeField] private EffectOrder effectOrder;
 	private Queue<string> orders;
-
 	private Animator animator;
-
 	private bool ready;
 	public static bool Ready => instance != null && instance.ready;
+	private bool upsideDown = false;
+	private bool shaking = false;
+	float accelerometerUpdateInterval = 1.0f / 60.0f;
+	// The greater the value of LowPassKernelWidthInSeconds, the slower the
+	// filtered value will converge towards current input sample (and vice versa).
+	float lowPassKernelWidthInSeconds = 1.0f;
+	// This next parameter is initialized to 2.0 per Apple's recommendation,
+	// or at least according to Brady! ;)
+	float shakeDetectionThreshold = 2.0f;
 
-    private void Awake()
+	float lowPassFilterFactor;
+	Vector3 lowPassValue;
+
+	private void Awake()
     {
 		instance = this;
 	}
@@ -42,9 +50,21 @@ public class GameManager : MonoBehaviour
 		animator = GetComponent<Animator>();
 		itemManager = GetComponent<ItemManager>();
 		goals = new Dictionary<int, (int index, Coroutine timer)>();
-
 		animator.enabled = true;
 		animator.SetTrigger("Start");
+		lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
+		shakeDetectionThreshold *= shakeDetectionThreshold;
+		lowPassValue = Input.acceleration;
+	}
+
+	private void Update()
+	{
+		upsideDown = Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown;
+		Debug.Log(upsideDown);
+		Vector3 acceleration = Input.acceleration;
+		lowPassValue = Vector3.Lerp(lowPassValue, acceleration, lowPassFilterFactor);
+		Vector3 deltaAcceleration = acceleration - lowPassValue;
+		shaking = deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold;
 	}
 
 	public static int[] GenerateBoard(double difficulty, int[] usedIDs)

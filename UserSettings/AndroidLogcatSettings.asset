@@ -1,14 +1,23 @@
 {
+<<<<<<< HEAD
     "m_SelectedDeviceId": "4d198b8b",
     "m_SelectedPackage": {
         "deviceId": "4d198b8b",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
         "processId": 9842,
+=======
+    "m_SelectedDeviceId": "or5lvoojr8j7krw8",
+    "m_SelectedPackage": {
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
+>>>>>>> Rémi
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
+<<<<<<< HEAD
             "deviceId": "4d198b8b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 2589,
@@ -144,6 +153,17 @@
             "deviceId": "c619c4b4",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 12025,
+=======
+            "deviceId": "or5lvoojr8j7krw8",
+            "name": "com.android.settings",
+            "processId": 12457,
+            "exited": false
+        },
+        {
+            "deviceId": "or5lvoojr8j7krw8",
+            "name": "com.miui.home",
+            "processId": 1749,
+>>>>>>> Rémi
             "exited": false
         }
     ],
