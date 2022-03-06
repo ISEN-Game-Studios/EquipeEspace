@@ -117,7 +117,6 @@ public class GameManager : MonoBehaviour
 			instance.StopCoroutine(instance.goals[id].timer);
 
 			instance.goals.Remove(id);
-			instance.timer.StopTimer();
 		}
 		else
 			ClientManager.Error();
@@ -127,7 +126,7 @@ public class GameManager : MonoBehaviour
     {
 		if (instance.orders.Count > 0)
         {
-
+			instance.timer.StopTimer();
 			instance.effectOrder.GetOrderState(succed, time, order);
 			instance.orders.Dequeue();
 		}

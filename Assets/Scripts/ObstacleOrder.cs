@@ -21,7 +21,8 @@ public class ObstacleOrder : MonoBehaviour
 
     [Space(5)]
 
-    [SerializeField] private TextMesh text;
+    [SerializeField] private TextMeshWrapper textWrapper;
+    
  
     private Animator animator;
     private new SpriteRenderer renderer;
@@ -48,12 +49,12 @@ public class ObstacleOrder : MonoBehaviour
 
         if (instruction != "")
         {
-            text.text = instruction;
+            textWrapper.SetText(instruction);
             animator.SetTrigger("NewOrder");            
         }
         else
         {
-            text.text = "Geoffrey apprend à coder";
+            textWrapper.SetText("Geoffrey apprend à coder");
             animator.SetTrigger("NewOrder");
         }
     }

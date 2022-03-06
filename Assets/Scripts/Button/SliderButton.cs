@@ -96,7 +96,7 @@ public class SliderButton : Interactable
 
             actualPos = worldPosition;
 
-            if (isHit || cursorCollider == Physics2D.OverlapPoint(touchPoint))
+            if (isHit || cursorCollider == Physics2D.OverlapPoint(touchPoint, maskClickButton))
             {
                 isHit = true;
                 return true;
@@ -118,7 +118,7 @@ public class SliderButton : Interactable
 
             actualPos = worldPosition;
 
-            if (isHit || cursorCollider == Physics2D.OverlapPoint(touchPoint))
+            if (isHit || cursorCollider == Physics2D.OverlapPoint(touchPoint, maskClickButton))
             {
                 isHit = true;
                 return true;
