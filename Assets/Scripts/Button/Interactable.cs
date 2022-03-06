@@ -25,7 +25,7 @@ public abstract class Interactable : MonoBehaviour
     protected TargetJoint2D targetJoint;
     protected Rigidbody2D rgbd;
 
-
+    private Vector3 startPosition;
     protected virtual void Awake()
     {
         targetJoint = GetComponent<TargetJoint2D>();
@@ -35,7 +35,9 @@ public abstract class Interactable : MonoBehaviour
     {
         textMeshWrapper.SetText(itemData.name);
 
-        if(itemData.Shape == Shape.Big)
+        startPosition = transform.position;
+
+        if (itemData.Shape == Shape.Big)
             textMeshWrapper.transform.localScale = Vector3.one / 2;
 
         if (textMeshsButtons.Count > 0)
@@ -48,6 +50,8 @@ public abstract class Interactable : MonoBehaviour
 
         broken = false;
         dragging = false;
+
+        //Break();
     }
 
     protected virtual void Update()
@@ -139,6 +143,7 @@ public abstract class Interactable : MonoBehaviour
             rgbd.angularVelocity = 0f;
             rgbd.velocity = Vector2.zero;
             transform.rotation = Quaternion.identity;
+            rgbd.position = startPosition;
         }
     }
     protected void SendState(int state)

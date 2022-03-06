@@ -32,6 +32,10 @@ public class StateMobile : MonoBehaviour
 
     private void Update()
     {
+        if (SystemInfo.deviceType == DeviceType.Desktop)
+            return;
+
+
         bool isShaking;
         bool upSideDownState;
 
@@ -62,6 +66,7 @@ public class StateMobile : MonoBehaviour
             upsideDown = upSideDownState;
             ClientManager.UpsideDownChange(upsideDown);
         }
+
 
         //Debug.Log("Shaked : " + shaked + ", UpsideDown " + upsideDown + ", Acceleration : " + acceleration.sqrMagnitude);
     }

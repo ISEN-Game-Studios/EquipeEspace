@@ -139,6 +139,12 @@ public class GameManager : MonoBehaviour
 	public static void ObstacleOrder(string action)
     {
 		instance.obstacleOrder.GetOrder(action);
+		if (SystemInfo.deviceType == DeviceType.Desktop)
+        {
+			Debug.Log("Obstacle");
+			ClientManager.UpsideDownChange(true);
+			ClientManager.ShakedChange(true);
+		}
     }
 
 	public static void ObstacleResolved()
