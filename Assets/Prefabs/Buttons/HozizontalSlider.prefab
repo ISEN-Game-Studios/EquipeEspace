@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 1864229313705172434}
   - component: {fileID: 3616838803534085771}
   - component: {fileID: 9211072355841549668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: slider_lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.125, y: 0.10546875}
+  m_Size: {x: 0.18359375, y: 0.125}
   m_EdgeRadius: 0
 --- !u!1 &4443034133885076244
 GameObject:
@@ -530,6 +530,9 @@ MonoBehaviour:
   - {fileID: 433962348151742288}
   - {fileID: 7657394288466898038}
   - {fileID: 6984361045698814535}
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
   sliderValues:
   - {fileID: 7066636947748013114}
   - {fileID: 1035456736024703375}

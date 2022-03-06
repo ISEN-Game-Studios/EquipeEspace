@@ -16,6 +16,10 @@ public abstract class Interactable : MonoBehaviour
 
     [SerializeField] protected List<TextMesh> textMeshsButtons;
 
+    [Space(5)]
+
+    [SerializeField] protected LayerMask maskClickButton;
+
     protected bool broken;
     protected bool dragging;
     protected TargetJoint2D targetJoint;
@@ -41,6 +45,7 @@ public abstract class Interactable : MonoBehaviour
                 textMeshsButtons[index].text = itemData.Values[index];
             }
         }
+
         broken = false;
         dragging = false;
     }
@@ -60,36 +65,43 @@ public abstract class Interactable : MonoBehaviour
         rgbd.isKinematic = false;
         targetJoint.enabled = false;
         broken = true;
+
+        Debug.Log("Hey");
     }
 
     protected void MobileDrag()
     {
-        Touch touch = Input.GetTouch(0);
-        Vector3 pos = touch.position;
-
-        if (Input.touchCount > 1)
+        if(Input.touchCount > 0)
         {
-            dragging = false;
-            targetJoint.enabled = false;
-            return;
-        }
 
-        if (touch.phase == TouchPhase.Began)
-        {
-            if (Physics2D.Raycast(pos, Vector3.forward))
+            Touch touch = Input.GetTouch(0);
+            Vector3 pos = touch.position;
+
+            if (Input.touchCount > 1)
             {
-                if (broken)
-                    targetJoint.enabled = true;
+                dragging = false;
+                targetJoint.enabled = false;
+                return;
             }
-        }
-        if (touch.phase == TouchPhase.Moved && broken)
-        {
-            dragging = true;
-            targetJoint.target = pos;
-        }
-        else if (dragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
-        {
-            Release();
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                if (Physics2D.Raycast(pos, Vector3.forward))
+                {
+                    if (broken)
+                        targetJoint.enabled = true;
+                }
+            }
+            if (touch.phase == TouchPhase.Moved && broken)
+            {
+                dragging = true;
+                targetJoint.target = pos;
+            }
+            else if (dragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
+            {
+                Release();
+            }
+
         }
     }
 
@@ -99,11 +111,8 @@ public abstract class Interactable : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Pressed");
             if (Physics2D.Raycast(pos, Vector3.forward))
             {
-                Debug.Log("Hit");
-
                 if (broken)
                     targetJoint.enabled = true;
             }
@@ -134,7 +143,6 @@ public abstract class Interactable : MonoBehaviour
     }
     protected void SendState(int state)
     {
-        Debug.Log(itemData.Values[state]);
         GameManager.OnStateChange(itemData.ID, state);
     }
 

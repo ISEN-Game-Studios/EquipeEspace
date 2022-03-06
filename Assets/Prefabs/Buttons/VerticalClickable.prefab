@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8566925768671796730}
   - component: {fileID: 6463541627354727826}
   - component: {fileID: 8725012369240999375}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,9 @@ MonoBehaviour:
   itemData: {fileID: 0}
   textMeshWrapper: {fileID: 7818236459764305198}
   textMeshsButtons: []
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
   spriteRenderers:
   - {fileID: 6463541627354727826}
   buttonsSprites:

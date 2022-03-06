@@ -8,7 +8,6 @@ public class ClickabkeButton : TypeButton
     {
         if (states[index] == 0)
         {
-            
             states[index] = Mathf.Abs(states[index] - 1);
             spriteRenderers[index].sprite = buttonsSprites.GetCell(index, states[index]);
             SendState(index);
@@ -21,6 +20,5 @@ public class ClickabkeButton : TypeButton
         yield return new WaitForSeconds(1f);
         states[index] = Mathf.Abs(states[index] - 1);
         spriteRenderers[index].sprite = buttonsSprites.GetCell(index, states[index]);
-
     }
 }

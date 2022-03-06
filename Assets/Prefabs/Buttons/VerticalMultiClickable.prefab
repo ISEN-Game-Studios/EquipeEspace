@@ -141,6 +141,9 @@ MonoBehaviour:
   - {fileID: 5436783750538206253}
   - {fileID: 388671884275072854}
   - {fileID: 2679871338588218655}
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
   spriteRenderers:
   - {fileID: 4290780379011630859}
   - {fileID: 7492946755364512795}
@@ -362,7 +365,7 @@ GameObject:
   - component: {fileID: 4108692951214556417}
   - component: {fileID: 3557995863337314944}
   - component: {fileID: 6492949778981130569}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +596,7 @@ GameObject:
   - component: {fileID: 1898795321176865744}
   - component: {fileID: 4290780379011630859}
   - component: {fileID: 3748819393861495622}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +859,7 @@ GameObject:
   - component: {fileID: 110654242926229530}
   - component: {fileID: 7492946755364512795}
   - component: {fileID: 4926905345908746835}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +968,7 @@ GameObject:
   - component: {fileID: 3312447604852822262}
   - component: {fileID: 2068640469405834745}
   - component: {fileID: 1128677118869621097}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}

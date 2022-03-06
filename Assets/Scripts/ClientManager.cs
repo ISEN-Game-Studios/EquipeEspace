@@ -143,6 +143,20 @@ public class ClientManager : MonoBehaviour
 					break;
 				}
 
+				case "GroupAction":
+					{
+						string action = message.GetString(0);
+						GameManager.ObstacleOrder(action);
+
+						break;
+					}
+				case "Resolved":
+					{
+						GameManager.ObstacleResolved();
+
+						break;
+					}
+
 				case "Order":
 				{
 					string order = message.GetString(0);
