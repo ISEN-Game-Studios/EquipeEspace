@@ -6,7 +6,6 @@ public class SettableButton : TypeButton
 {
     protected override void ChangeState(int index)
     {
-        Debug.Log("Test");
         states[index] = Mathf.Abs(states[index] - 1);
         spriteRenderers[index].sprite = buttonsSprites.GetCell(index, states[index]);
         SendState(states[index]);
