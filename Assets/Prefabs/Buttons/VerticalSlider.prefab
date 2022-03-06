@@ -214,33 +214,6 @@ SortingGroup:
   m_SortingLayerID: 2023589887
   m_SortingLayer: 4
   m_SortingOrder: 0
---- !u!114 &7174004308892216533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5395220931670843235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed2f8e949628d14a9048bc6c6a491b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: cca24997db16d2d4b9dc1be1f88bf905, type: 2}
-  textMeshWrapper: {fileID: 889137234416632110}
-  textMeshsButtons:
-  - {fileID: 7532184355813124555}
-  - {fileID: 4144418604488225762}
-  - {fileID: 6159416342382812026}
-  - {fileID: 4920264243722996044}
-  maskClickButton:
-    serializedVersion: 2
-    m_Bits: 8
-  sliderValues:
-  - {fileID: 7120009379272131288}
-  - {fileID: 1513920918010437021}
-  cursor: {fileID: 2534992770867449594}
-  cursorCollider: {fileID: 6889624966910997168}
 --- !u!1 &4067055693395107257
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +435,36 @@ Transform:
   m_Father: {fileID: 1098275526101230999}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7174004308892216533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395220931670843235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed2f8e949628d14a9048bc6c6a491b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: cca24997db16d2d4b9dc1be1f88bf905, type: 2}
+  textMeshWrapper: {fileID: 889137234416632110}
+  textMeshsButtons:
+  - {fileID: 7532184355813124555}
+  - {fileID: 4144418604488225762}
+  - {fileID: 6159416342382812026}
+  - {fileID: 4920264243722996044}
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
+  maskClickCell:
+    serializedVersion: 2
+    m_Bits: 64
+  sliderValues:
+  - {fileID: 7120009379272131288}
+  - {fileID: 1513920918010437021}
+  cursor: {fileID: 2534992770867449594}
+  cursorCollider: {fileID: 6889624966910997168}
 --- !u!1 &6517843505752512809
 GameObject:
   m_ObjectHideFlags: 0

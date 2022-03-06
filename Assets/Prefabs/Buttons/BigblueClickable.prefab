@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: textMeshWrapper
       value: 
       objectReference: {fileID: 3930340019633138468}
+    - target: {fileID: 2572873726363569830, guid: 6569c3ca766261c419202fe8700a9b89, type: 3}
+      propertyPath: maskClickCell.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2917369496974468120, guid: 6569c3ca766261c419202fe8700a9b89, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SpaceTeam;
 using Array2DEditor;
+using System.Linq;
 
 public abstract class Interactable : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public abstract class Interactable : MonoBehaviour
     [Space(5)]
 
     [SerializeField] protected LayerMask maskClickButton;
+
+    [SerializeField] protected LayerMask maskClickCell;
 
     protected bool broken;
     protected bool dragging;
@@ -51,7 +54,7 @@ public abstract class Interactable : MonoBehaviour
         broken = false;
         dragging = false;
 
-        //Break();
+        Break();
     }
 
     protected virtual void Update()
@@ -70,7 +73,6 @@ public abstract class Interactable : MonoBehaviour
         targetJoint.enabled = false;
         broken = true;
 
-        Debug.Log("Hey");
     }
 
     protected void MobileDrag()
@@ -79,7 +81,7 @@ public abstract class Interactable : MonoBehaviour
         {
 
             Touch touch = Input.GetTouch(0);
-            Vector3 pos = touch.position;
+            Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
 
             if (Input.touchCount > 1)
             {
@@ -90,7 +92,8 @@ public abstract class Interactable : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                if (Physics2D.Raycast(pos, Vector3.forward))
+
+                if (Physics2D.Raycast(pos, Vector3.forward, Mathf.Infinity, maskClickCell).transform == transform)
                 {
                     if (broken)
                         targetJoint.enabled = true;
@@ -100,6 +103,7 @@ public abstract class Interactable : MonoBehaviour
             {
                 dragging = true;
                 targetJoint.target = pos;
+                
             }
             else if (dragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
             {
@@ -112,13 +116,14 @@ public abstract class Interactable : MonoBehaviour
     protected void DesktopDrag()
     {
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics2D.Raycast(pos, Vector3.forward))
+            
+            if (Physics2D.Raycast(pos, Vector3.forward, Mathf.Infinity,maskClickCell).transform == transform)
             {
                 if (broken)
                     targetJoint.enabled = true;
+                
             }
         }
         if (Input.GetMouseButton(0) && broken)

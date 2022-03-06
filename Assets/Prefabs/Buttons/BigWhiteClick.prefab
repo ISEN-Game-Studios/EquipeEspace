@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4429356560510000606, guid: 4a7bf9f11702f064a8245daefd1ac84e, type: 3}
+      propertyPath: maskClickCell.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5177005189173850401, guid: 4a7bf9f11702f064a8245daefd1ac84e, type: 3}
       propertyPath: m_Sprite
       value: 

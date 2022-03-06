@@ -127,6 +127,9 @@ MonoBehaviour:
   maskClickButton:
     serializedVersion: 2
     m_Bits: 8
+  maskClickCell:
+    serializedVersion: 2
+    m_Bits: 64
   spriteRenderers:
   - {fileID: 5108957789906705861}
   buttonsSprites:
@@ -213,6 +216,10 @@ PrefabInstance:
     - target: {fileID: 8810827970609700668, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_Name
       value: OrangeClickable
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810827970609700668, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}

@@ -127,6 +127,9 @@ MonoBehaviour:
   maskClickButton:
     serializedVersion: 2
     m_Bits: 8
+  maskClickCell:
+    serializedVersion: 2
+    m_Bits: 64
   spriteRenderers:
   - {fileID: 6463541627354727826}
   buttonsSprites:

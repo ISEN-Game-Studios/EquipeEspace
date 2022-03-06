@@ -54,6 +54,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2414942781705478927}
     - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: maskClickCell.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920021052556365792, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
       propertyPath: maskClickButton.m_Bits
       value: 8
       objectReference: {fileID: 0}

@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4678194064134374830, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
+      propertyPath: maskClickCell.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678194064134374830, guid: d7998c232bd16d84090bea14c4a02cf0, type: 3}
       propertyPath: maskClickButton.m_Bits
       value: 8
       objectReference: {fileID: 0}

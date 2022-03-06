@@ -122,6 +122,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 7455609566226350763}
   percentage: 0.8
+--- !u!114 &1580499679536734340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3960953682863181120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: b599340e1c9abde45bfa53f8b1030857, type: 2}
+  textMeshWrapper: {fileID: 8102353015938339597}
+  textMeshsButtons:
+  - {fileID: 6158509555381903613}
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
+  maskClickCell:
+    serializedVersion: 2
+    m_Bits: 64
+  spriteRenderers:
+  - {fileID: 7455609566226350763}
+  buttonsSprites:
+    gridSize: {x: 1, y: 2}
+    cellSize: {x: 64, y: 64}
+    cells:
+    - row:
+      - {fileID: 21300000, guid: e6052a7731f311441b1ff53241872dda, type: 3}
+    - row:
+      - {fileID: 21300000, guid: 16da48e91bc4c244889128fdefeff147, type: 3}
+  colliders:
+  - {fileID: 3591149398016089577}
 --- !u!1 &5434586767396822215
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,37 +266,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4648438, y: 0.5078125}
   m_EdgeRadius: 0
---- !u!114 &1580499679536734340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3960953682863181120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: b599340e1c9abde45bfa53f8b1030857, type: 2}
-  textMeshWrapper: {fileID: 8102353015938339597}
-  textMeshsButtons:
-  - {fileID: 6158509555381903613}
-  maskClickButton:
-    serializedVersion: 2
-    m_Bits: 8
-  spriteRenderers:
-  - {fileID: 7455609566226350763}
-  buttonsSprites:
-    gridSize: {x: 1, y: 2}
-    cellSize: {x: 64, y: 64}
-    cells:
-    - row:
-      - {fileID: 21300000, guid: e6052a7731f311441b1ff53241872dda, type: 3}
-    - row:
-      - {fileID: 21300000, guid: 16da48e91bc4c244889128fdefeff147, type: 3}
-  colliders:
-  - {fileID: 3591149398016089577}
 --- !u!1001 &5529992876992336508
 PrefabInstance:
   m_ObjectHideFlags: 0

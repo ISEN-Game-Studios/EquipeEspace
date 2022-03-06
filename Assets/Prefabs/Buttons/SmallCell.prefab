@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 8346501845021189716}
   - component: {fileID: -1036996796609646842}
   - component: {fileID: -314686345380894964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

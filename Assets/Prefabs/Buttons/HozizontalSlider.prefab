@@ -74,6 +74,36 @@ Transform:
   m_Father: {fileID: 3653206011441032037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9075330350184552507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823984403876354003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed2f8e949628d14a9048bc6c6a491b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: cca24997db16d2d4b9dc1be1f88bf905, type: 2}
+  textMeshWrapper: {fileID: 6906671790515489182}
+  textMeshsButtons:
+  - {fileID: 4091870150904470673}
+  - {fileID: 433962348151742288}
+  - {fileID: 7657394288466898038}
+  - {fileID: 6984361045698814535}
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
+  maskClickCell:
+    serializedVersion: 2
+    m_Bits: 64
+  sliderValues:
+  - {fileID: 7066636947748013114}
+  - {fileID: 1035456736024703375}
+  cursor: {fileID: 1864229313705172434}
+  cursorCollider: {fileID: 9211072355841549668}
 --- !u!1 &3715709432857484666
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,33 +541,6 @@ Transform:
   m_Father: {fileID: 3653206011441032037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9075330350184552507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823984403876354003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed2f8e949628d14a9048bc6c6a491b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: cca24997db16d2d4b9dc1be1f88bf905, type: 2}
-  textMeshWrapper: {fileID: 6906671790515489182}
-  textMeshsButtons:
-  - {fileID: 4091870150904470673}
-  - {fileID: 433962348151742288}
-  - {fileID: 7657394288466898038}
-  - {fileID: 6984361045698814535}
-  maskClickButton:
-    serializedVersion: 2
-    m_Bits: 8
-  sliderValues:
-  - {fileID: 7066636947748013114}
-  - {fileID: 1035456736024703375}
-  cursor: {fileID: 1864229313705172434}
-  cursorCollider: {fileID: 9211072355841549668}
 --- !u!1 &7235566968626435314
 GameObject:
   m_ObjectHideFlags: 0

@@ -122,52 +122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 4290780379011630859}
   percentage: 0.8
---- !u!114 &3681249040301149545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6421377554355197343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
-  textMeshWrapper: {fileID: 2275485070536346578}
-  textMeshsButtons:
-  - {fileID: 9003811423775283035}
-  - {fileID: 5436783750538206253}
-  - {fileID: 388671884275072854}
-  - {fileID: 2679871338588218655}
-  maskClickButton:
-    serializedVersion: 2
-    m_Bits: 8
-  spriteRenderers:
-  - {fileID: 4290780379011630859}
-  - {fileID: 7492946755364512795}
-  - {fileID: 3557995863337314944}
-  - {fileID: 2068640469405834745}
-  buttonsSprites:
-    gridSize: {x: 4, y: 2}
-    cellSize: {x: 64, y: 64}
-    cells:
-    - row:
-      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
-      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
-      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
-      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
-    - row:
-      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
-      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
-      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
-      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &3682915204717039885
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +648,55 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &3681249040301149545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421377554355197343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f692773bc0538418f14508c56dbcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
+  textMeshWrapper: {fileID: 2275485070536346578}
+  textMeshsButtons:
+  - {fileID: 9003811423775283035}
+  - {fileID: 5436783750538206253}
+  - {fileID: 388671884275072854}
+  - {fileID: 2679871338588218655}
+  maskClickButton:
+    serializedVersion: 2
+    m_Bits: 8
+  maskClickCell:
+    serializedVersion: 2
+    m_Bits: 64
+  spriteRenderers:
+  - {fileID: 4290780379011630859}
+  - {fileID: 7492946755364512795}
+  - {fileID: 3557995863337314944}
+  - {fileID: 2068640469405834745}
+  buttonsSprites:
+    gridSize: {x: 4, y: 2}
+    cellSize: {x: 64, y: 64}
+    cells:
+    - row:
+      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
+      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
+      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
+      - {fileID: 21300000, guid: ce6c7c3ff0743724787b87f6102be0b9, type: 3}
+    - row:
+      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
+      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
+      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
+      - {fileID: 21300000, guid: 83ef20536cdebcf4da8432cc38e87458, type: 3}
+  colliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6999418901422594552
 GameObject:
   m_ObjectHideFlags: 0
