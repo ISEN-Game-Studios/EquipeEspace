@@ -63,8 +63,8 @@ public class GameCode : Game<Player>
 	private bool isReady = false;
 	private bool isRunning = false;
 
-	private const double difficulty = 0.3;
-	private const double delay = 8.0;
+	private double difficulty = 0.3;
+	private const double delay = 8.5;
 
 	private double completion;
 
@@ -218,7 +218,7 @@ public class GameCode : Game<Player>
 				int id = message.GetInt(0);
 				bool success = sender.actions[id].lastOrder;
 
-				sender.actions[message.GetInt(0)].Send("Order", message.GetString(1), delay, success);
+				sender.actions[message.GetInt(0)].Send("Order", message.GetString(1), delay - 0.5, success);
 
 				break;
 			}
@@ -276,6 +276,7 @@ public class GameCode : Game<Player>
 	private void NextStage()
     {
 		isRunning = false;
+		difficulty *= 1.128;
 
 		foreach (Player player in Players)
 		{
@@ -288,7 +289,7 @@ public class GameCode : Game<Player>
 		timer?.Stop();
 		eventTimer?.Stop();
 
-		Broadcast("Next", ++stats.stage, "Bonjour j'aimerais coucher avec vous,\net je profite de cet espace de texte\npour vous le dire\n#sex #virginite==null");
+		Broadcast("Next", ++stats.stage, "fdp");
 
 		GenerateBoards();
 	}

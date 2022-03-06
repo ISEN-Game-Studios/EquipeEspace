@@ -3,7 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "c619c4b4",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
+<<<<<<< Updated upstream
         "processId": 12206,
+=======
+        "processId": 21744,
+>>>>>>> Stashed changes
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +52,18 @@
             "deviceId": "c619c4b4",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 12206,
+            "exited": false
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21404,
+            "exited": false
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21744,
             "exited": false
         }
     ],
