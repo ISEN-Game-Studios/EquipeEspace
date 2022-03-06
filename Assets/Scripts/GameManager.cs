@@ -8,24 +8,36 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
 	private Board board;
-	private Dictionary<int, (Item item, Interactable instance)> interactables;
 
 	private ItemManager itemManager;
 
 	private static GameManager instance;
 
-	private Dictionary<int, (int index, Coroutine timer)> goals;
-	[SerializeField] private Timer timer;
-
-	[SerializeField] private TextMeshWrapper orderText;
-
-	[SerializeField] private ViewManager viewManager;
-
-	[SerializeField] private Transform itemContainer;
-	[SerializeField] private EffectOrder effectOrder;
 	private Queue<string> orders;
+	private Dictionary<int, (int index, Coroutine timer)> goals;
+	private Dictionary<int, (Item item, Interactable instance)> interactables;
+
+	[SerializeField]
+	private Timer timer;
+
+	[SerializeField]
+	private TextMeshWrapper orderText;
+
+	[SerializeField]
+	private ViewManager viewManager;
+
+	[SerializeField]
+	private GameObject transition;
+
+	[SerializeField]
+	private Transform itemContainer;
+
+	[SerializeField]
+	private EffectOrder effectOrder;
+
 	private Animator animator;
 	private bool ready;
+
 	public static bool Ready => instance != null && instance.ready;
 
 	private void Awake()
@@ -40,6 +52,7 @@ public class GameManager : MonoBehaviour
 		orders = new Queue<string>();
 		goals = new Dictionary<int, (int index, Coroutine timer)>();
 		animator.enabled = true;
+		transition.SetActive(false);
 		animator.SetTrigger("Start");
 	}
 
@@ -134,7 +147,8 @@ public class GameManager : MonoBehaviour
 	private void OnAnimationEnd()
     {
 		animator.enabled = false;
-    }
+		transition.SetActive(false);
+	}
 
 	private void EndGame()
     {
@@ -144,7 +158,8 @@ public class GameManager : MonoBehaviour
 	private void OnSceneReady()
     {
 		ready = true;
-    }
+		transition.SetActive(true);
+	}
 
 	private void CreateItems(List<Item> items)
     {

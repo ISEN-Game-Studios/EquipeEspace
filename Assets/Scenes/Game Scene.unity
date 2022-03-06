@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 84952472}
   - component: {fileID: 84952474}
   - component: {fileID: 84952473}
+  - component: {fileID: 84952475}
   - component: {fileID: 84952470}
   m_Layer: 0
   m_Name: Game Manager
@@ -368,6 +369,7 @@ MonoBehaviour:
   timer: {fileID: 822026097}
   orderText: {fileID: 240429708}
   viewManager: {fileID: 106552412}
+  transition: {fileID: 350953774}
   itemContainer: {fileID: 216861789}
   effectOrder: {fileID: 1614117350}
 --- !u!114 &84952474
@@ -383,7 +385,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 103776773}
-  Duration: 6
+  Duration: 4
+--- !u!114 &84952475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84952469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33b11a85f2e18f47b8c24dcd440cad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDetectionThreshold: 2
+  rotationThreshold: 60
 --- !u!1 &103776769
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &350953775
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,7 +1029,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

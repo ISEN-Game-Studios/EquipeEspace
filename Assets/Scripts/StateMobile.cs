@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateMobile : MonoBehaviour
 {
-    [SerializeField] private float shakeDetectionThreshold = 2f;
+    [SerializeField] private float shakeDetectionThreshold = 0.65f;
 
     [Space(5)]
 
@@ -19,12 +19,15 @@ public class StateMobile : MonoBehaviour
     private bool upsideDown = false;
     private bool shaked = false;
 
+    private bool changeThisFrame = false;
+
+    private float changeTimeShaked;
+
     private void Start()
     {
         accelerometerUpdateInterval = Time.deltaTime;
 
         lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
-        shakeDetectionThreshold *= shakeDetectionThreshold;
         lowPassValue = Input.acceleration;
 
         //ClientManager.upsideDownChange(upsideDown);
@@ -33,9 +36,6 @@ public class StateMobile : MonoBehaviour
 
     private void Update()
     {
-
-        
-
         bool isShaking;
         bool upSideDownState;
 
@@ -43,29 +43,37 @@ public class StateMobile : MonoBehaviour
         lowPassValue = Vector3.Lerp(lowPassValue, acceleration, lowPassFilterFactor);
         Vector3 deltaAcceleration = acceleration - lowPassValue;
 
-        isShaking = deltaAcceleration.magnitude >= shakeDetectionThreshold;
+        isShaking = deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold;
         upSideDownState = Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown;
-
 
         /*if(Input.gyro.attitude.z > rotationThreshold || Input.gyro.attitude.y > rotationThreshold)
             upSideDownState = true;
         else
             upSideDownState = false;*/
 
-        if (shaked != isShaking)
+        changeTimeShaked += Time.deltaTime;
+
+        if (shaked != isShaking && !changeThisFrame)
         {
-            isShaking = shaked;
-            ClientManager.ShakedChange(shaked);
+            changeThisFrame = true;
+            changeTimeShaked = 0f;
         }
 
-        if(upsideDown != upSideDownState)
+        if (changeTimeShaked > 0.5f || isShaking)
+        {
+            changeThisFrame = false;
+            shaked = isShaking;
+        }
+
+        if (upsideDown != upSideDownState)
         {
             upsideDown = upSideDownState;
-            ClientManager.UpsideDownChange(upsideDown);
         }
 
-        Debug.Log(upSideDownState);
-        //Debug.Log("z rotation : " + Input.gyro.attitude.z + " y rotation : " + Input.gyro.attitude.y + " x rotation : " + Input.gyro.attitude.x);
-        Debug.Log("mobile acceleration : " + deltaAcceleration);
+        //ClientManager.ShakedChange(shaked);
+
+        //ClientManager.UpsideDownChange(upsideDown);
+
+        Debug.Log("Shaked : " + shaked + ", UpsideDown " + upsideDown + ", Acceleration : " + acceleration.sqrMagnitude);
     }
 }
