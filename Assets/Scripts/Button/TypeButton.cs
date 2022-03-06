@@ -79,11 +79,8 @@ public abstract class TypeButton : Interactable
             for (int i = 0; i < colliders.Count; i++)
             {
                 if (colliders[i] == Physics2D.OverlapPoint(touchPoint, maskClickButton))
-                {
-                    Debug.Log("button : " + i);
                     return i;
-                }
-                    
+
             }
 
         }
