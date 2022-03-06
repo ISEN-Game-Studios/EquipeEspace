@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: cca24997db16d2d4b9dc1be1f88bf905, type: 2}
-  textMesh: {fileID: 7255741889495087808}
+  textMeshWrapper: {fileID: 889137234416632110}
   textMeshsButtons:
   - {fileID: 7532184355813124555}
   - {fileID: 4144418604488225762}
@@ -756,6 +756,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1036996796609646842, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1036996796609646842, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 572650001270736248, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.429
+      objectReference: {fileID: 0}
+    - target: {fileID: 572650001270736248, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.94
+      objectReference: {fileID: 0}
     - target: {fileID: 2838000991330671794, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -763,6 +779,18 @@ PrefabInstance:
     - target: {fileID: 2838000991330671794, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600437646435166068, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600437646435166068, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.429
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600437646435166068, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
       propertyPath: m_RootOrder
@@ -818,11 +846,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
---- !u!102 &7255741889495087808 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 6064210491431778975, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
+--- !u!114 &889137234416632110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4381769457941365105, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}
   m_PrefabInstance: {fileID: 3502100122504413279}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565e7e77a6dd02643af84101bccb71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7391254543505087148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6200039800526248691, guid: 25f0f40b64ca4af4e8d89502caed26f0, type: 3}

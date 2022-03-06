@@ -21,6 +21,12 @@ public abstract class Interactable : MonoBehaviour
     protected TargetJoint2D targetJoint;
     protected Rigidbody2D rgbd;
 
+
+    protected virtual void Awake()
+    {
+        targetJoint = GetComponent<TargetJoint2D>();
+        rgbd = GetComponent<Rigidbody2D>();
+    }
     protected virtual void Start()
     {
         textMeshWrapper.SetText(itemData.name);
@@ -35,34 +41,40 @@ public abstract class Interactable : MonoBehaviour
                 textMeshsButtons[index].text = itemData.Values[index];
             }
         }
-
-        targetJoint = GetComponent<TargetJoint2D>();
-        rgbd = GetComponent<Rigidbody2D>();
         broken = false;
         dragging = false;
     }
 
     protected virtual void Update()
     {
-        if (Input.touchCount != 1)
+
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+            MobileDrag();
+        else if (SystemInfo.deviceType == DeviceType.Desktop)
+            DesktopDrag();
+
+    }
+
+    public void Break()
+    {
+        rgbd.isKinematic = false;
+        targetJoint.enabled = false;
+        broken = true;
+    }
+
+    protected void MobileDrag()
+    {
+        Touch touch = Input.GetTouch(0);
+        Vector3 pos = touch.position;
+
+        if (Input.touchCount > 1)
         {
             dragging = false;
             targetJoint.enabled = false;
             return;
         }
 
-        //if (Input.touchCount > 1)
-        //{
-        //    dragging = false;
-        //    targetJoint.enabled = false;
-        //    return;
-        //}
-
-        Touch touch = Input.GetTouch(0);
-        Vector3 pos = touch.position;
-        //Vector2 posM = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (touch.phase == TouchPhase.Began /* Input.GetMouseButtonDown(0)*/)
+        if (touch.phase == TouchPhase.Began)
         {
             if (Physics2D.Raycast(pos, Vector3.forward))
             {
@@ -70,34 +82,60 @@ public abstract class Interactable : MonoBehaviour
                     targetJoint.enabled = true;
             }
         }
-        if (touch.phase == TouchPhase.Moved /* Input.GetMouseButton(0))*/ && broken)
+        if (touch.phase == TouchPhase.Moved && broken)
         {
             dragging = true;
             targetJoint.target = pos;
         }
-        else if (dragging && /*Input.GetMouseButtonUp(0)*/(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
+        else if (dragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
         {
-            dragging = false;
-            targetJoint.enabled = false;
-            if (Mathf.Abs(rgbd.rotation) <= 5)
-            {
-                broken = false;
-                rgbd.isKinematic = true;
-                rgbd.angularVelocity = 0f;
-                transform.rotation = Quaternion.identity;
-            }
+            Release();
         }
     }
 
-    public void Break()
+    protected void DesktopDrag()
     {
-        rgbd.isKinematic = false;
-        broken = true;
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Pressed");
+            if (Physics2D.Raycast(pos, Vector3.forward))
+            {
+                Debug.Log("Hit");
+
+                if (broken)
+                    targetJoint.enabled = true;
+            }
+        }
+        if (Input.GetMouseButton(0) && broken)
+        {
+            dragging = true;
+            targetJoint.target = pos;
+        }
+        else if (dragging && Input.GetMouseButtonUp(0))
+        {
+            Release();
+        }
     }
 
+    protected void Release()
+    {
+        dragging = false;
+        targetJoint.enabled = false;
+        if (Mathf.Abs(rgbd.rotation) <= 5)
+        {
+            broken = false;
+            rgbd.isKinematic = true;
+            rgbd.angularVelocity = 0f;
+            rgbd.velocity = Vector2.zero;
+            transform.rotation = Quaternion.identity;
+        }
+    }
     protected void SendState(int state)
     {
         Debug.Log(itemData.Values[state]);
         GameManager.OnStateChange(itemData.ID, state);
     }
+
 }

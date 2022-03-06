@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallOrangeSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: 8911824531987537203, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
 --- !u!114 &6778508690373204177 stripped

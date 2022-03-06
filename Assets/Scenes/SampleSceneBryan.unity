@@ -1072,6 +1072,8 @@ MonoBehaviour:
   timer: {fileID: 420596348}
   orderText: {fileID: 339369253}
   viewManager: {fileID: 1981390496}
+  itemContainer: {fileID: 0}
+  effectOrder: {fileID: 0}
 --- !u!212 &2039349998
 SpriteRenderer:
   m_ObjectHideFlags: 0

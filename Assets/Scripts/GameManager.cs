@@ -8,7 +8,7 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
 	private Board board;
-	private Dictionary<int, Item> items;
+	private Dictionary<int, (Item item, Interactable instance)> interactables;
 
 	private ItemManager itemManager;
 
@@ -51,16 +51,16 @@ public class GameManager : MonoBehaviour
 
 		instance.board = new Board(difficulty);
 
-		instance.items = instance.itemManager.Generate(instance.board);
+		instance.interactables = new Dictionary<int, (Item item, Interactable instance)>();
 
-		instance.CreateItems();
+		instance.CreateItems(instance.itemManager.Generate(instance.board));
 
 		return instance.itemManager.GetOwnedIDs();
 	}
 
 	public static string GenerateAction(int id, float delay)
     {
-		var goal = instance.items[id].GetAction();
+		var goal = instance.interactables[id].item.GetAction();
 
 		Coroutine timer = instance.StartCoroutine(instance.StartCountdown(id, delay));
 
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 			instance.goals.Add(id, (goal.index, timer));
 
 
-		return instance.items[id].GetInstruction(goal.index); 
+		return instance.interactables[id].item.GetInstruction(goal.index); 
 	}
 
 	private IEnumerator StartCountdown(int id, float delay)
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
 	public static void OnStateChange(int id, int index)
 	{
-		instance.items[id].Current = index;
+		instance.interactables[id].item.Current = index;
 
 		if (instance.goals.ContainsKey(id) && instance.goals[id].index == index)
 		{
@@ -146,9 +146,9 @@ public class GameManager : MonoBehaviour
 		ready = true;
     }
 
-	private void CreateItems()
+	private void CreateItems(List<Item> items)
     {
-		foreach (var item in items.Values)
+		foreach (var item in items)
 		{
 			float width = (item.Data.Shape == Shape.Horizontal || item.Data.Shape == Shape.Big) ? 2f : 1f;
 			float height = (item.Data.Shape == Shape.Vertical || item.Data.Shape == Shape.Big) ? 2f : 1f;
@@ -162,20 +162,28 @@ public class GameManager : MonoBehaviour
 			// Compensate Centered Anchor
 			position += new Vector3(width, height) / (2f * board.Width);
 
-			// Saint artefact incompr�hensible des Dieux
+			// Saint artefact incomprehensible des Dieux
 			//position = new Vector3((position.x + 1f) / board.Width - (large ? 0f : (1f / 2f * board.Width)) - 0.5f, (position.y + 1) / board.Width - (high ? 0f : (1f / 2f * board.Width)) - 0.5f);
 
 			GameObject gameObject = Instantiate(item.Data.Prefab, itemContainer);
 			gameObject.transform.localPosition = position;
 			gameObject.name += item.Position.ToString();
-			gameObject.GetComponent<Interactable>().itemData = item.Data;
+			Interactable interactable = gameObject.GetComponent<Interactable>();
+			interactable.itemData = item.Data;
 
 			gameObject.transform.localScale *= (board.Binary ? 3f : 4f) / 12f;
 
 			if (item.Data.Shape == Shape.Big)
 				gameObject.transform.localScale *= 2f;
+
+			interactables.Add(item.Data.ID, (item, interactable));
 		}
 	}
+
+	public static void Break(int id)
+    {
+		instance.interactables[id].instance.Break();
+    }
 
 	private void DestroyChildren()
 	{

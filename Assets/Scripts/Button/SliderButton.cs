@@ -26,6 +26,9 @@ public class SliderButton : Interactable
     protected override void Update()
     {
         base.Update();
+        if (broken)
+            return;
+
         if (CheckForTouch() || CheckForTouchMouse())
         {
 
@@ -50,9 +53,6 @@ public class SliderButton : Interactable
             }
 
         }
-
-
-
     }
 
     private void PlaceCursor (bool clamp)
