@@ -27,19 +27,7 @@ public class GameManager : MonoBehaviour
 	private Animator animator;
 	private bool ready;
 	public static bool Ready => instance != null && instance.ready;
-	private bool upsideDown = false;
-	private bool shaking = false;
-	float accelerometerUpdateInterval = 1.0f / 60.0f;
-	// The greater the value of LowPassKernelWidthInSeconds, the slower the
-	// filtered value will converge towards current input sample (and vice versa).
-	float lowPassKernelWidthInSeconds = 1.0f;
-	// This next parameter is initialized to 2.0 per Apple's recommendation,
-	// or at least according to Brady! ;)
-	float shakeDetectionThreshold = 2.0f;
 
-	float lowPassFilterFactor;
-	Vector3 lowPassValue;
-
 	private void Awake()
     {
 		instance = this;
@@ -49,22 +37,10 @@ public class GameManager : MonoBehaviour
 	{
 		animator = GetComponent<Animator>();
 		itemManager = GetComponent<ItemManager>();
+		orders = new Queue<string>();
 		goals = new Dictionary<int, (int index, Coroutine timer)>();
 		animator.enabled = true;
 		animator.SetTrigger("Start");
-		lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
-		shakeDetectionThreshold *= shakeDetectionThreshold;
-		lowPassValue = Input.acceleration;
-	}
-
-	private void Update()
-	{
-		upsideDown = Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown;
-		Debug.Log(upsideDown);
-		Vector3 acceleration = Input.acceleration;
-		lowPassValue = Vector3.Lerp(lowPassValue, acceleration, lowPassFilterFactor);
-		Vector3 deltaAcceleration = acceleration - lowPassValue;
-		shaking = deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold;
 	}
 
 	public static int[] GenerateBoard(double difficulty, int[] usedIDs)
@@ -129,9 +105,7 @@ public class GameManager : MonoBehaviour
 
 	public static void Order(string order, float time, bool succed)
     {
-		
-		
-		if(instance.orders.Count > 0)
+		if (instance.orders.Count > 0)
         {
 
 			instance.effectOrder.GetOrderState(succed, order);

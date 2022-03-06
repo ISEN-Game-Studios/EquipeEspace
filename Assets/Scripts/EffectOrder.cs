@@ -5,25 +5,14 @@ using UnityEngine;
 public class EffectOrder : MonoBehaviour
 {
     private Animator animator;
-    private new SpriteRenderer renderer;
 
     private string order;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        renderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
-    {
-        SpriteRenderer rendererParent = transform.parent.GetComponent<SpriteRenderer>();
-        renderer.size = rendererParent.size;
-    }
-
-    private void Update()
-    {
-        
-    }
     public void GetOrderState(bool state, string order)
     {
         this.order = order;
@@ -39,5 +28,4 @@ public class EffectOrder : MonoBehaviour
         GameManager.ShowOrder(order);
         order = "";
     }
-
 }

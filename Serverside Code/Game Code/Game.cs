@@ -9,6 +9,11 @@ public class Player : BasePlayer
 
 	public int[] usedIDs;
 
+	public bool isUpsideDown = false;
+	public bool isShaked = false;
+
+	public bool lastOrder = false;
+
 	public Dictionary<int, Player> actions = new Dictionary<int, Player>();
 }
 
@@ -40,6 +45,15 @@ public class Stats
 [RoomType("SpaceShip")]
 public class GameCode : Game<Player>
 {
+	public enum GroupAction
+	{
+		None,
+		Shake,
+		Reverse
+	}
+
+	private GroupAction action = GroupAction.None;
+
 	private int current;
 
 	private new List<Player> Players;
@@ -55,6 +69,7 @@ public class GameCode : Game<Player>
 	private double completion;
 
 	private Timer timer;
+	private Timer eventTimer;
 
 	private Stats stats;
 	
@@ -109,7 +124,30 @@ public class GameCode : Game<Player>
 
 		completion = Math.Min(1.0, Math.Max(completion + direction * 0.0005, 0.0));
 
-        Console.WriteLine(fire + " " + completion);
+		if (action != GroupAction.None)
+        {
+			if ((action == GroupAction.Shake && Players.TrueForAll(p => p.isShaked)) ||
+				(action == GroupAction.Reverse && Players.TrueForAll(p => p.isUpsideDown)))
+            {
+				action = GroupAction.None;
+				eventTimer?.Stop();
+				Broadcast("Resolved");
+            }
+        }
+		else if (new Random().NextDouble() < 1.0 / 20.0 * goalFrequency)
+        {
+			action = new Random().NextDouble() < 0.5 ? GroupAction.Shake : GroupAction.Reverse;
+
+			Players[new Random().Next(Players.Count)].Send("GroupAction", action.ToString());
+
+			eventTimer = AddTimer(delegate()
+            {
+				action = GroupAction.None;
+				EndGame(false);
+            }, (int)Math.Ceiling(1000.0 / goalFrequency));
+        }
+
+        Console.WriteLine("Fire : {0}, Completion {1}, Action {2}", fire, completion, action.ToString());
 
 		if (fire > completion)
 			EndGame(false);
@@ -174,7 +212,10 @@ public class GameCode : Game<Player>
 
 			case "Order":
 			{
-				sender.actions[message.GetInt(0)].Send("Order", message.GetString(1), delay);
+				int id = message.GetInt(0);
+				bool success = sender.actions[id].lastOrder;
+
+				sender.actions[message.GetInt(0)].Send("Order", message.GetString(1), delay, success);
 
 				break;
 			}
@@ -194,10 +235,25 @@ public class GameCode : Game<Player>
 					else
 						++errorCount;
 
+					sender.actions[id].lastOrder = success;
 					GenerateOrder(sender.actions[id]);
 				}
 				else
 					++errorCount;
+
+				break;
+			}
+
+			case "UpsideDown":
+            {
+				sender.isUpsideDown = message.GetBoolean(0);
+
+				break;
+			}
+
+			case "Shaked":
+			{
+				sender.isShaked = message.GetBoolean(0);
 
 				break;
 			}
@@ -218,7 +274,7 @@ public class GameCode : Game<Player>
 
 		isReady = false;
 
-		timer.Stop();
+		timer?.Stop();
 		 
 		stats.actions += actionCount;
 		stats.errors += errorCount;
