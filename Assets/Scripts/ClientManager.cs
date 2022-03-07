@@ -59,7 +59,7 @@ public class ClientManager : MonoBehaviour
 			delegate (Client client) {
 				Debug.Log("Successfully connected to Player.IO");
 
-				client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
+				//client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
 
 				client.Multiplayer.CreateJoinRoom(
 					roomname,

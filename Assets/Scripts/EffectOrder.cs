@@ -28,6 +28,6 @@ public class EffectOrder : MonoBehaviour
     private void ShowOrder()
     {
         GameManager.ShowOrder(order, timer);
-        order = "";
+        //order = "";
     }
 }
