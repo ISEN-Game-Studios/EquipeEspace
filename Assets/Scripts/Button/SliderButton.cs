@@ -81,7 +81,12 @@ public class SliderButton : Interactable
             
         }          
         else
+        {
             cursorVector = Vector3.zero;
+            if(clamp)
+                SendState((int)0);
+        }
+            
 
         cursor.position = sliderValues[0].position + cursorVector;
     }
