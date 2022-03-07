@@ -96,10 +96,18 @@ public abstract class Interactable : MonoBehaviour
                 if (Physics2D.Raycast(pos, Vector3.forward, Mathf.Infinity, maskClickCell).transform == transform)
                 {
                     if (broken)
+                    {
+                        dragging = true;
                         targetJoint.enabled = true;
+                    }
+                }
+                else
+                {
+                    dragging = false;
+                    targetJoint.enabled = false;
                 }
             }
-            if (touch.phase == TouchPhase.Moved && broken)
+            if (touch.phase == TouchPhase.Moved && dragging)
             {
                 dragging = true;
                 targetJoint.target = pos;
@@ -122,13 +130,19 @@ public abstract class Interactable : MonoBehaviour
             if (Physics2D.Raycast(pos, Vector3.forward, Mathf.Infinity,maskClickCell).transform == transform)
             {
                 if (broken)
+                {
+                    dragging = true;
                     targetJoint.enabled = true;
-                
+                }                
+            }
+            else
+            {
+                dragging = false;
+                targetJoint.enabled = false;
             }
         }
-        if (Input.GetMouseButton(0) && broken)
+        if (Input.GetMouseButton(0) && dragging)
         {
-            dragging = true;
             targetJoint.target = pos;
         }
         else if (dragging && Input.GetMouseButtonUp(0))
@@ -139,6 +153,7 @@ public abstract class Interactable : MonoBehaviour
 
     protected void Release()
     {
+
         dragging = false;
         targetJoint.enabled = false;
         if (Mathf.Abs(rgbd.rotation) <= 5)
