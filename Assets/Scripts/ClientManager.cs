@@ -36,15 +36,7 @@ public class ClientManager : MonoBehaviour
 		}
 		else
 			Destroy(gameObject);
-
-		SceneManager.activeSceneChanged += FDPDEMERDE;
 	}
-
-	public int fdpdemerde = 0;
-	private void FDPDEMERDE(Scene a, Scene b)
-    {
-		++fdpdemerde;
-    }
 
 	private void Start()
     {
