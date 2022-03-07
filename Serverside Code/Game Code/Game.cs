@@ -242,7 +242,7 @@ public class GameCode : Game<Player>
 
 				int id = message.GetInt(0);
 
-				if (id >= 0)
+				if (id >= 0 && sender.actions.ContainsKey(id))
 				{
 					bool success = message.GetBoolean(1);
 
@@ -258,6 +258,8 @@ public class GameCode : Game<Player>
 
 					sender.actions[id].lastOrder = success;
 					GenerateOrder(sender.actions[id]);
+
+					sender.actions.Remove(id);
 				}
 				else
 					++errorCount;
@@ -303,6 +305,8 @@ public class GameCode : Game<Player>
 
 		timer?.Stop();
 		eventTimer?.Stop();
+
+		action = GroupAction.None;
 
 		Broadcast("Next", ++stats.stage, "fdp");
 

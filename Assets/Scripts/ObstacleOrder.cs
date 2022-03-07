@@ -62,10 +62,15 @@ public class ObstacleOrder : MonoBehaviour
     {
         textWrapper.SetText("");
     }
+
     public void Succes()
     {
         animator.SetTrigger("Succes");
     }
 
-    
+    public void Cancel()
+    {
+        DeleteText();
+        animator.SetTrigger("Idle");
+    }
 }

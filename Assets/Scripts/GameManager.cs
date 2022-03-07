@@ -178,6 +178,8 @@ public class GameManager : MonoBehaviour
 
 		instance.animator.enabled = true;
 		instance.animator.SetTrigger("Start");
+
+		instance.obstacleOrder.Cancel();
     }
 
 	private void OnAnimationEnd()
