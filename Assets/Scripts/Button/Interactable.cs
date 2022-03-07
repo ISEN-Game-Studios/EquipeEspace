@@ -53,8 +53,6 @@ public abstract class Interactable : MonoBehaviour
 
         broken = false;
         dragging = false;
-
-        Break();
     }
 
     protected virtual void Update()

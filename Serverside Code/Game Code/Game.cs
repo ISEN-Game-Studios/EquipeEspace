@@ -72,6 +72,8 @@ public class GameCode : Game<Player>
 	private Timer eventTimer;
 
 	private Stats stats;
+
+	private Random randomizer;
 	
 	private DateTime startTime;
 	int actionCount;
@@ -82,6 +84,8 @@ public class GameCode : Game<Player>
 		Players = new List<Player>();
 
 		usedIDs = new List<int>();
+
+		randomizer = new Random();
 	}
 
 	public override void GameClosed()
@@ -124,10 +128,10 @@ public class GameCode : Game<Player>
 
 		completion = Math.Min(1.0, Math.Max(completion + direction * 0.0005, 0.0));
 
-		if (Math.Abs(completion - fire) < 0.2 && new Random().NextDouble() < 1.0 / 10.0 * goalFrequency)
+		if (Math.Abs(completion - fire) < 0.2 && randomizer.NextDouble() < 1.0 / 10.0 * goalFrequency)
 		{
-			Player player = Players[new Random().Next(Players.Count)];
-			player.Send("Break", player.usedIDs[new Random().Next(player.usedIDs.Length)]);
+			Player player = Players[randomizer.Next(Players.Count)];
+			player.Send("Break", player.usedIDs[randomizer.Next(player.usedIDs.Length)]);
 		}
 
 		if (action != GroupAction.None)
@@ -140,11 +144,13 @@ public class GameCode : Game<Player>
 				Broadcast("Resolved");
             }
         }
-		else if (new Random().NextDouble() < 1.0 / 20.0 * goalFrequency)
+		else if (randomizer.NextDouble() < 1.0 / 20.0 * goalFrequency)
         {
-			action = new Random().NextDouble() < 0.5 ? GroupAction.Shake : GroupAction.Reverse;
+			double a = randomizer.NextDouble();
+			int b = randomizer.Next(Players.Count);
+			action = a < 0.5 ? GroupAction.Shake : GroupAction.Reverse;
 
-			Players[new Random().Next(Players.Count)].Send("GroupAction", action.ToString());
+			Players[b].Send("GroupAction", action.ToString());
 
 			eventTimer = AddTimer(delegate()
             {
@@ -355,12 +361,12 @@ public class GameCode : Game<Player>
 
     private T GetRandom<T>(List<T> list)
 	{
-		return list[new Random().Next(list.Count)];
+		return list[randomizer.Next(list.Count)];
 	}
 
 	private T GetRandom<T>(T[] list)
 	{
-		return list[new Random().Next(list.Length)];
+		return list[randomizer.Next(list.Length)];
 	}
 
 	private Message CreateMessage<T>(string type, List<T> list, params object[] parameters)

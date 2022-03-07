@@ -165,6 +165,8 @@ public class GameManager : MonoBehaviour
 
 		instance.StopAllCoroutines();
 
+		instance.viewManager.Completion(0.5f, 0f);
+
 		instance.orders.Clear();
 		instance.goals.Clear();
 
