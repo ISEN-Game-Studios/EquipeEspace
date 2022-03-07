@@ -77,6 +77,11 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void Count()
+    {
+        ClientManager.Count();
+    }
+
     private void OnConnection()
     {
 

@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 106552410}
   - component: {fileID: 106552412}
   - component: {fileID: 106552413}
+  - component: {fileID: 106552414}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -575,7 +576,7 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 1
   m_Size: {x: 3, y: 1.5}
-  m_AdaptiveModeThreshold: 0.5
+  m_AdaptiveModeThreshold: 0.334
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
@@ -589,7 +590,7 @@ Transform:
   m_GameObject: {fileID: 106552409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_Children:
   - {fileID: 1866702422}
   - {fileID: 1571357326}
@@ -622,6 +623,20 @@ SortingGroup:
   m_SortingLayerID: 2023589887
   m_SortingLayer: 4
   m_SortingOrder: 1
+--- !u!114 &106552414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106552409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345672c66a1a380498af04bcd53486c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 250
+  speed: 10
 --- !u!1 &216861787
 GameObject:
   m_ObjectHideFlags: 0

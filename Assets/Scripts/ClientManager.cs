@@ -59,7 +59,7 @@ public class ClientManager : MonoBehaviour
 			delegate (Client client) {
 				Debug.Log("Successfully connected to Player.IO");
 
-				//client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
+				client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
 
 				client.Multiplayer.CreateJoinRoom(
 					roomname,
@@ -94,7 +94,13 @@ public class ClientManager : MonoBehaviour
 		);
 	}
 
-	private void FixedUpdate()
+    private void Update()
+    {
+		if (Input.GetKeyDown(KeyCode.T))
+			instance.server?.Send("Win");
+    }
+
+    private void FixedUpdate()
 	{
 		while (waitings.Count > 0)
 			messages.Enqueue(waitings.Dequeue());
@@ -136,18 +142,19 @@ public class ClientManager : MonoBehaviour
 				}
 
 				case "GroupAction":
-					{
-						string action = message.GetString(0);
-						GameManager.ObstacleOrder(action);
+				{
+					string action = message.GetString(0);
+					GameManager.ObstacleOrder(action);
 
-						break;
-					}
+					break;
+				}
+
 				case "Resolved":
-					{
-						GameManager.ObstacleResolved();
+				{
+					GameManager.ObstacleResolved();
 
-						break;
-					}
+					break;
+				}
 
 				case "Order":
 				{
@@ -212,6 +219,12 @@ public class ClientManager : MonoBehaviour
 			}
 		}
 	}
+
+	public static void Count()
+    {
+		if (instance.server != null)
+			instance.server.Send("Count");
+    }
 
 	public static void Ready(bool state)
 	{

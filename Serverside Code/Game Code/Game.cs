@@ -95,7 +95,7 @@ public class GameCode : Game<Player>
 
     public override bool AllowUserJoin(Player player)
     {
-		return !isReady;
+		return !isReady && !isRunning;
     }
 
     public override void UserJoined(Player player)
@@ -110,7 +110,7 @@ public class GameCode : Game<Player>
 			foreach (Player _player in Players)
 				_player.Disconnect();
 
-			timer.Stop();
+			timer?.Stop();
 		}
 	}
 
@@ -123,6 +123,7 @@ public class GameCode : Game<Player>
 		double frequency = (actionCount - errorCount) / span.TotalSeconds;
 
 		double direction = frequency < goalFrequency ? -1.0 : 1.0;
+		direction = 1.0;
 
 		double fire = span.TotalSeconds / 120.0;
 
@@ -253,13 +254,14 @@ public class GameCode : Game<Player>
 					else
 					{
 						++errorCount;
-						sender.Send("Break", id);
+						sender.Send("Break", id); 
 					}
 
-					sender.actions[id].lastOrder = success;
-					GenerateOrder(sender.actions[id]);
-
+					Player player = sender.actions[id];
 					sender.actions.Remove(id);
+
+					player.lastOrder = success;
+					GenerateOrder(player);
 				}
 				else
 					++errorCount;
@@ -280,6 +282,13 @@ public class GameCode : Game<Player>
 
 				break;
 			}
+
+			case "Win":
+            {
+				completion = 1.0;
+
+				break;
+            }
 
 			case "Count":
 			{
@@ -316,18 +325,26 @@ public class GameCode : Game<Player>
 	private void EndGame()
 	{
 		foreach (Player player in Players)
+		{
 			player.ready = false;
+			player.actions.Clear();
+		}
 
 		isReady = false;
 
 		timer?.Stop();
-		 
+		eventTimer?.Stop();
+
+		action = GroupAction.None;
+
 		stats.actions += actionCount;
 		stats.errors += errorCount;
 		stats.playerCount = Players.Count;
 		stats.time = (int)Math.Ceiling((DateTime.Now - startTime).TotalMinutes);
 
 		Broadcast(CreateMessage("End", stats.Pack()));
+
+		stats = null;
     }
 
 	private Player GetPlayerById(int id)
@@ -358,7 +375,7 @@ public class GameCode : Game<Player>
 
         Console.WriteLine("Generate Board of Player " + current);
 
-		Players[0].Send(CreateMessage("Board", usedIDs, 0.3));
+		Players[0].Send(CreateMessage("Board", usedIDs, difficulty));
 	}
 
     #region Tools

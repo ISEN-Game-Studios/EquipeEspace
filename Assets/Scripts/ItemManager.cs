@@ -36,7 +36,6 @@ public class ItemManager : MonoBehaviour
 
     public List<Item> Generate(Board board)
     {
-
         List<Item> items = new List<Item>();
 
         ownedIDs = new List<int>();
