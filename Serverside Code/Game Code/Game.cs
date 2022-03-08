@@ -105,13 +105,19 @@ public class GameCode : Game<Player>
 
 	public override void UserLeft(Player player)
 	{
-		if (isReady && Players.Contains(player))
+		if (isReady)
 		{
 			foreach (Player _player in Players)
 				_player.Disconnect();
 
 			timer?.Stop();
+			eventTimer?.Stop();
 		}
+
+		if (Players.Contains(player))
+			Players.Remove(player);
+
+		Broadcast("Count", Players.FindAll(p => p.ready).Count, Players.Count);
 	}
 
 	private void Update()
@@ -123,7 +129,6 @@ public class GameCode : Game<Player>
 		double frequency = (actionCount - errorCount) / span.TotalSeconds;
 
 		double direction = frequency < goalFrequency ? -1.0 : 1.0;
-		direction = 1.0;
 
 		double fire = span.TotalSeconds / 120.0;
 
@@ -140,6 +145,12 @@ public class GameCode : Game<Player>
 			if ((action == GroupAction.Shake && Players.TrueForAll(p => p.isShaked)) ||
 				(action == GroupAction.Reverse && Players.TrueForAll(p => p.isUpsideDown)))
             {
+				if (action == GroupAction.Shake)
+					++stats.meteorites;
+
+				if (action == GroupAction.Reverse)
+					++stats.holes;
+
 				action = GroupAction.None;
 				eventTimer?.Stop();
 				Broadcast("Resolved");
@@ -317,7 +328,7 @@ public class GameCode : Game<Player>
 
 		action = GroupAction.None;
 
-		Broadcast("Next", ++stats.stage, "fdp");
+		Broadcast("Next", ++stats.stage, "Votre combat est vain,\nLa fin de ce jeu sera votre mort,\n\nVous ne verrez jamais le mot victoire\nécrit sur cet écran");
 
 		GenerateBoards();
 	}
@@ -331,6 +342,7 @@ public class GameCode : Game<Player>
 		}
 
 		isReady = false;
+		isRunning = false;
 
 		timer?.Stop();
 		eventTimer?.Stop();
@@ -345,6 +357,7 @@ public class GameCode : Game<Player>
 		Broadcast(CreateMessage("End", stats.Pack()));
 
 		stats = null;
+		actionCount = errorCount = 0;
     }
 
 	private Player GetPlayerById(int id)

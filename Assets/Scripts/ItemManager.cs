@@ -6,6 +6,7 @@ public class ItemManager : MonoBehaviour
 {
     [SerializeField] private ItemData[] items;
 
+    [SerializeField]
     private List<ItemData>[] filteredItems;
 
     private List<int> usedIDs;
@@ -32,6 +33,8 @@ public class ItemManager : MonoBehaviour
         foreach (var item in items)
             if (!usedIDs.Exists(id => id == item.ID))
                 filteredItems[(int)item.Shape].Add(item);
+
+        filteredItems = filteredItems;
     }
 
     public List<Item> Generate(Board board)

@@ -106,7 +106,8 @@ public class MenuManager : MonoBehaviour
 
     public static void SetCount(int ready, int total)
     {
-        instance.count.text = ready + "/" + total + " joueurs prêts";
+        if (instance != null)
+            instance.count.text = ready + "/" + total + " joueurs prêts";
     }
 
     #endregion
