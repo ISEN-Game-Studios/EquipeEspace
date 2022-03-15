@@ -9,16 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
-  m_Name: Kappa rideau
+  m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
+  m_Name: plasma-pignon
   m_EditorClassIdentifier: 
-  Shape: 1
-  Prefab: {fileID: 6421377554355197343, guid: 52be9f19d27e8af41bfcb29716cb00eb, type: 3}
-  Instruction: "Changer la valuer de Name \xE0 Value"
+  Shape: 2
+  Prefab: {fileID: 8232522251553973339, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
+  Instruction: Value le Name
   Values:
-  - 1
-  - 2
-  - 3
-  - 4
+  - "D\xE9sactiver"
+  - Activer
   Size: {x: 0, y: 0}
   ID: 0
