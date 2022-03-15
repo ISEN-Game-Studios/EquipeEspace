@@ -33,8 +33,6 @@ public class ItemManager : MonoBehaviour
         foreach (var item in items)
             if (!usedIDs.Exists(id => id == item.ID))
                 filteredItems[(int)item.Shape].Add(item);
-
-        filteredItems = filteredItems;
     }
 
     public List<Item> Generate(Board board)
