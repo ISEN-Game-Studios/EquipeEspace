@@ -330,6 +330,12 @@ public class GameCode : Game<Player>
 
 		Broadcast("Next", ++stats.stage, "Votre combat est vain,\nLa fin de ce jeu sera votre mort,\n\nVous ne verrez jamais le mot victoire\nécrit sur cet écran");
 
+		stats.actions += actionCount;
+		stats.errors += errorCount;
+		stats.time += (int)Math.Ceiling((DateTime.Now - startTime).TotalMinutes);
+
+		actionCount = errorCount = 0;
+
 		GenerateBoards();
 	}
 
@@ -352,7 +358,7 @@ public class GameCode : Game<Player>
 		stats.actions += actionCount;
 		stats.errors += errorCount;
 		stats.playerCount = Players.Count;
-		stats.time = (int)Math.Ceiling((DateTime.Now - startTime).TotalMinutes);
+		stats.time += (int)Math.Ceiling((DateTime.Now - startTime).TotalMinutes);
 
 		Broadcast(CreateMessage("End", stats.Pack()));
 
