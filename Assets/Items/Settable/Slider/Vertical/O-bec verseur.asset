@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
-  m_Name: Techno pignon
+  m_Name: O-bec verseur
   m_EditorClassIdentifier: 
-  Shape: 2
-  Prefab: {fileID: 8232522251553973339, guid: b27d06257fff7b347b6aa0f78fefddfb, type: 3}
-  Instruction: Value le Name
+  Shape: 1
+  Prefab: {fileID: 5395220931670843235, guid: 531570329baaece408cc267e0bc38d81, type: 3}
+  Instruction: "Mettre le Name \xE0 Value"
   Values:
-  - Eteindre
-  - Allumer
+  - 1
+  - 2
+  - 3
+  - 4
   Size: {x: 0, y: 0}
   ID: 0
