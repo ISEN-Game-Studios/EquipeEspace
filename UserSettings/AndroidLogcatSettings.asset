@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "4d198b8b",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 5570,
+        "processId": 9640,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -57,6 +57,30 @@
             "exited": false
         },
         {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 6570,
+            "exited": false
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 7024,
+            "exited": false
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8216,
+            "exited": false
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 9640,
+            "exited": false
+        },
+        {
             "deviceId": "or5lvoojr8j7krw8",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 28360,
@@ -96,6 +120,60 @@
             "deviceId": "or5lvoojr8j7krw8",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 17673,
+            "exited": false
+        },
+        {
+            "deviceId": "or5lvoojr8j7krw8",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 19420,
+            "exited": false
+        },
+        {
+            "deviceId": "or5lvoojr8j7krw8",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 20813,
+            "exited": false
+        },
+        {
+            "deviceId": "or5lvoojr8j7krw8",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22922,
+            "exited": false
+        },
+        {
+            "deviceId": "b99af11b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8970,
+            "exited": true
+        },
+        {
+            "deviceId": "b99af11b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8972,
+            "exited": true
+        },
+        {
+            "deviceId": "b99af11b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8973,
+            "exited": true
+        },
+        {
+            "deviceId": "b99af11b",
+            "name": "net.oneplus.launcher",
+            "processId": 2494,
+            "exited": false
+        },
+        {
+            "deviceId": "b99af11b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8975,
+            "exited": false
+        },
+        {
+            "deviceId": "b99af11b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8974,
             "exited": false
         }
     ],

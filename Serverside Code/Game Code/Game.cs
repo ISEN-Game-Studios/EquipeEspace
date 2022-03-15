@@ -296,7 +296,7 @@ public class GameCode : Game<Player>
 
 			case "Win":
             {
-				completion = 1.0;
+				completion = 1000.0;
 
 				break;
             }

@@ -33,6 +33,7 @@ public class ClientManager : MonoBehaviour
 			instance = this;
 
 			DontDestroyOnLoad(gameObject);
+			Application.runInBackground = true;
 		}
 		else
 			Destroy(gameObject);
