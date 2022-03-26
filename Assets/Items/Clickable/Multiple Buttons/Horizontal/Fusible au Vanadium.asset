@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
-  m_Name: Fusible au Vanadium
+  m_Name: fusible au Vanadium
   m_EditorClassIdentifier: 
   Shape: 0
   Prefab: {fileID: 7544403038816636157, guid: 28317d0963044384ca6f6a14fa8ee5e5, type: 3}

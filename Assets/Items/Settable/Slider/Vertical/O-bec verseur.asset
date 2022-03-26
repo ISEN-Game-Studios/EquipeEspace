@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
-  m_Name: O-bec verseur
+  m_Name: o-bec verseur
   m_EditorClassIdentifier: 
   Shape: 1
   Prefab: {fileID: 5395220931670843235, guid: 531570329baaece408cc267e0bc38d81, type: 3}
