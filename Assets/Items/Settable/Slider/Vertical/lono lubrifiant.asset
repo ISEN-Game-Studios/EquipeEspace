@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
+  m_Name: lono lubrifiant
+  m_EditorClassIdentifier: 
+  Shape: 1
+  Prefab: {fileID: 5395220931670843235, guid: 531570329baaece408cc267e0bc38d81, type: 3}
+  Instruction: "Mettre la Name \xE0 Value"
+  Values:
+  - 1
+  - 2
+  - 3
+  - 4
+  Size: {x: 0, y: 0}
+  ID: 0
