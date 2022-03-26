@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
-  m_Name: "Th\xEAta-moulin turbo"
+  m_Name: frustration
   m_EditorClassIdentifier: 
-  Shape: 2
-  Prefab: {fileID: 301805063399793111, guid: 6569c3ca766261c419202fe8700a9b89, type: 3}
-  Instruction: Value le Name
+  Shape: 0
+  Prefab: {fileID: 3960953682863181120, guid: 9629e7a67250c4e43880415c0bbd1485, type: 3}
+  Instruction: Value la Name
   Values:
-  - Enclencher
+  - vent
   Size: {x: 0, y: 0}
-  ID: 0
+  ID: 8

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
   m_Name: Gamma disque
   m_EditorClassIdentifier: 
-  Shape: 0
+  Shape: 2
   Prefab: {fileID: 301805063399793111, guid: 6569c3ca766261c419202fe8700a9b89, type: 3}
   Instruction: Value le Name
   Values:
