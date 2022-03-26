@@ -9,13 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f9b08dca043db468f2673c2d0e2fdd, type: 3}
-  m_Name: m-hachoir
+  m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
+  m_Name: flexible steamprobe
   m_EditorClassIdentifier: 
-  Shape: 2
-  Prefab: {fileID: 301805063399793111, guid: 6569c3ca766261c419202fe8700a9b89, type: 3}
-  Instruction: Value le Name
+  Shape: 1
+  Prefab: {fileID: 5395220931670843235, guid: 531570329baaece408cc267e0bc38d81, type: 3}
+  Instruction: "Mettre le Name \xE0 Value"
   Values:
-  - Enclencher
+  - 1
+  - 2
+  - 3
+  - 4
   Size: {x: 0, y: 0}
   ID: 0
