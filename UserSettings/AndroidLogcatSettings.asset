@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "4d198b8b",
     "m_SelectedPackage": {
         "deviceId": "4d198b8b",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 9640,
+        "name": "com.randomgames.com.unity.equipeespace",
+        "processId": 28336,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,73 +11,49 @@
         {
             "deviceId": "4d198b8b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 28855,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 24664,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 13186,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 16113,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 16585,
-            "exited": true
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.teslacoilsw.launcher",
-            "processId": 4904,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 3343,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 5570,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 6570,
-            "exited": false
-        },
-        {
-            "deviceId": "4d198b8b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 7024,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "4d198b8b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 8216,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "4d198b8b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 9640,
+            "exited": true
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22470,
+            "exited": true
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23155,
+            "exited": true
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "org.isoron.uhabits",
+            "processId": 23136,
+            "exited": false
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 27311,
+            "exited": false
+        },
+        {
+            "deviceId": "4d198b8b",
+            "name": "com.randomgames.com.unity.equipeespace",
+            "processId": 28336,
             "exited": false
         },
         {
@@ -141,6 +117,12 @@
             "exited": false
         },
         {
+            "deviceId": "or5lvoojr8j7krw8",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 3784,
+            "exited": false
+        },
+        {
             "deviceId": "b99af11b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 8970,
@@ -174,6 +156,54 @@
             "deviceId": "b99af11b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 8974,
+            "exited": false
+        },
+        {
+            "deviceId": "b99af11b",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 9551,
+            "exited": false
+        },
+        {
+            "deviceId": "W8VOONORNRQ8A66H",
+            "name": "com.android.settings",
+            "processId": 25046,
+            "exited": true
+        },
+        {
+            "deviceId": "W8VOONORNRQ8A66H",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 31282,
+            "exited": true
+        },
+        {
+            "deviceId": "W8VOONORNRQ8A66H",
+            "name": "com.teslacoilsw.launcher",
+            "processId": 5672,
+            "exited": false
+        },
+        {
+            "deviceId": "W8VOONORNRQ8A66H",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 3997,
+            "exited": false
+        },
+        {
+            "deviceId": "W8VOONORNRQ8A66H",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 4999,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8N839B48N",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23116,
+            "exited": false
+        },
+        {
+            "deviceId": "d6e78e45",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21990,
             "exited": false
         }
     ],
