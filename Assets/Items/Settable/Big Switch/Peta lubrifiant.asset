@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb8434ea2afcf3542a083bdf5627d826, type: 3}
-  m_Name: peta lubrifiant
+  m_Name: Peta lubrifiant
   m_EditorClassIdentifier: 
   Shape: 3
   Prefab: {fileID: 7425007429625511234, guid: 32c3c440a00a7be4db893f22d8a20e16, type: 3}
